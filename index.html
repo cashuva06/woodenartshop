@@ -1,852 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WoodenArtShop — Handcrafted Wood Art & Dog Houses</title>
-<meta name="description" content="Handcrafted wooden wall art and custom dog houses. Each piece made with care, built to last. Shop unique wood art for your home.">
-<meta property="og:title" content="WoodenArtShop — Handcrafted Wood Art">
-<meta property="og:description" content="Unique handcrafted wooden wall art and custom dog houses. Built with care, shipped worldwide.">
-<meta property="og:url" content="https://woodenartshop.com">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://woodenartshop.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WoodenArtShop — Handcrafted Wood Decor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f3;
+      --wood-dark: #2c1a0e;
+      --wood-mid: #7a4a2a;
+      --wood-light: #c4895a;
+      --wood-pale: #e8c9a0;
+      --accent: #b85c2a;
+      --text: #1e1208;
+      --text-light: #6b4c35;
+    }
 
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-:root {
-  --bg: #ffffff;
-  --bg2: #f4f7f4;
-  --card: #ffffff;
-  --black: #141a14;
-  --wood: #2d6a4f;
-  --wood-light: #52b788;
-  --wood-dark: #1b4332;
-  --muted: #6b7c6b;
-  --border: #d8e8d8;
-  --accent: #c4956a;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-}
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      overflow-x: hidden;
+      cursor: none;
+    }
 
-html { scroll-behavior: smooth; }
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--wood-mid);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1.5px solid var(--wood-light);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease-out, width 0.3s, height 0.3s;
+    }
+    body:hover .cursor { opacity: 1; }
 
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--black);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 1000;
+    }
 
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  background: rgba(245,240,235,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--wood-dark);
-  text-decoration: none;
-  letter-spacing: -0.3px;
-}
-.nav-logo span { color: var(--wood); }
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-.nav-links a {
-  text-decoration: none;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--wood); }
-.nav-cta {
-  background: var(--wood);
-  color: white !important;
-  padding: 10px 24px;
-  border-radius: 2px;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(--wood-dark) !important; color: white !important; }
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.8rem 4rem;
+      mix-blend-mode: multiply;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--wood-dark);
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wood-mid);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 120px 60px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  right: -100px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(139,94,60,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-content {
-  max-width: 580px;
-  animation: fadeUp 0.8s ease both;
-}
-.hero-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--wood);
-  border: 1px solid var(--wood-light);
-  padding: 6px 14px;
-  border-radius: 2px;
-  margin-bottom: 28px;
-}
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 80px);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -2px;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--wood);
-}
-.hero p {
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 440px;
-  margin-bottom: 44px;
-  font-weight: 300;
-}
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  display: inline-block;
-  background: var(--wood);
-  color: white;
-  text-decoration: none;
-  padding: 16px 36px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  border-radius: 2px;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-primary:hover { background: var(--wood-dark); transform: translateY(-1px); }
-.btn-secondary {
-  display: inline-block;
-  color: var(--wood);
-  text-decoration: none;
-  padding: 16px 36px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  border: 1.5px solid var(--wood-light);
-  border-radius: 2px;
-  transition: all 0.2s;
-}
-.btn-secondary:hover { background: var(--wood); color: white; border-color: var(--wood); }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
 
-.hero-visual {
-  position: absolute;
-  right: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42vw;
-  max-width: 580px;
-  aspect-ratio: 3/4;
-  background: var(--bg2);
-  border-radius: 4px;
-  overflow: hidden;
-  animation: fadeIn 1s ease 0.2s both;
-}
-.hero-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-visual-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  color: var(--muted);
-}
-.hero-visual-placeholder svg { opacity: 0.3; }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
 
-/* ── STATS ── */
-.stats {
-  display: flex;
-  gap: 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--card);
-}
-.stat {
-  flex: 1;
-  padding: 36px 48px;
-  border-right: 1px solid var(--border);
-  text-align: center;
-}
-.stat:last-child { border-right: none; }
-.stat-num {
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--wood);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.stat-label {
-  font-size: 13px;
-  color: var(--muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+    .hero-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--wood-light);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--wood-light);
+    }
 
-/* ── SECTION ── */
-section {
-  padding: 100px 60px;
-}
-.section-tag {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--wood);
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700;
-  letter-spacing: -1.5px;
-  line-height: 1.15;
-  color: var(--black);
-  margin-bottom: 20px;
-}
-.section-sub {
-  font-size: 16px;
-  color: var(--muted);
-  max-width: 480px;
-  line-height: 1.8;
-  font-weight: 300;
-}
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--wood-dark);
+      margin-bottom: 2rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--wood-mid);
+    }
 
-/* ── PRODUCTS ── */
-#products { background: var(--bg); }
-.products-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 60px;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.product-card {
-  background: var(--card);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(139,94,60,0.12);
-}
-.product-img {
-  aspect-ratio: 4/3;
-  background: var(--bg2);
-  overflow: hidden;
-  position: relative;
-}
-.product-img img { width: 100%; height: 100%; object-fit: cover; }
-.product-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
-  font-size: 13px;
-  letter-spacing: 1px;
-}
-.product-badge {
-  position: absolute;
-  top: 16px; left: 16px;
-  background: var(--accent);
-  color: white;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 2px;
-}
-.product-info {
-  padding: 24px;
-}
-.product-cat {
-  font-size: 11px;
-  color: var(--wood);
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.product-name {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-.product-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-.product-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.product-price {
-  font-family: var(--font-display);
-  font-size: 22px;
-  color: var(--wood);
-  font-weight: 600;
-}
-.product-price span {
-  font-size: 13px;
-  color: var(--muted);
-  font-family: var(--font-body);
-  font-weight: 400;
-}
-.coming-soon-tag {
-  font-size: 11px;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 2px;
-  letter-spacing: 1px;
-}
+    .hero-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      max-width: 380px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
 
-/* ── CATEGORIES ── */
-#categories { background: #1b4332; color: white; }
-#categories .section-title { color: white; }
-#categories .section-sub { color: rgba(255,255,255,0.6); }
-#categories .section-tag { color: var(--wood-light); }
-.cat-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 60px;
-}
-.cat-card {
-  position: relative;
-  aspect-ratio: 16/9;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: 32px;
-  cursor: pointer;
-  transition: border-color 0.3s;
-}
-.cat-card:hover { border-color: var(--wood-light); }
-.cat-card img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.4;
-  transition: opacity 0.3s;
-}
-.cat-card:hover img { opacity: 0.55; }
-.cat-content {
-  position: relative;
-  z-index: 1;
-}
-.cat-content h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 8px;
-}
-.cat-content p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
-}
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--wood-dark);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 1.1rem 2.2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      transition: background 0.3s, gap 0.3s;
+      width: fit-content;
+    }
+    .hero-cta:hover {
+      background: var(--accent);
+      gap: 1.6rem;
+    }
+    .hero-cta svg { transition: transform 0.3s; }
+    .hero-cta:hover svg { transform: translateX(4px); }
 
-/* ── ABOUT ── */
-#about { background: var(--bg2); }
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.about-img {
-  aspect-ratio: 1;
-  background: var(--bg);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.about-img img { width: 100%; height: 100%; object-fit: cover; }
-.about-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
-}
-.about-content .section-title { margin-bottom: 24px; }
-.about-content p {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.9;
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-.about-features {
-  margin-top: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.about-feature {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.feature-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--wood);
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 16px;
-}
-.feature-text h4 {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 4px;
-}
-.feature-text p {
-  font-size: 13px;
-  color: var(--muted);
-  margin: 0;
-}
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--wood-pale) 0%, var(--wood-light) 50%, var(--wood-mid) 100%);
+    }
 
-/* ── COMING SOON ── */
-#shop {
-  background: var(--bg);
-  text-align: center;
-}
-.shop-box {
-  max-width: 560px;
-  margin: 0 auto;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 64px 48px;
-  margin-top: 60px;
-}
-.shop-icon { font-size: 48px; margin-bottom: 24px; }
-.shop-box h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 12px;
-}
-.shop-box p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 32px;
-}
-.email-form {
-  display: flex;
-  gap: 12px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.email-form input {
-  flex: 1;
-  padding: 14px 18px;
-  border: 1.5px solid var(--border);
-  border-radius: 2px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  background: var(--bg);
-  color: var(--black);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.email-form input:focus { border-color: var(--wood); }
-.email-form button {
-  padding: 14px 24px;
-  background: var(--wood);
-  color: white;
-  border: none;
-  border-radius: 2px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-.email-form button:hover { background: var(--wood-dark); }
+    /* Wood ring decoration */
+    .wood-rings {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
+    }
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(44, 26, 14, 0.15);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateRing 20s linear infinite;
+    }
+    .ring:nth-child(1) { width: 100px; height: 100px; animation-duration: 8s; }
+    .ring:nth-child(2) { width: 180px; height: 180px; animation-duration: 12s; animation-direction: reverse; }
+    .ring:nth-child(3) { width: 270px; height: 270px; animation-duration: 16s; border-color: rgba(44,26,14,0.1); }
+    .ring:nth-child(4) { width: 370px; height: 370px; animation-duration: 22s; animation-direction: reverse; border-color: rgba(44,26,14,0.07); }
+    .ring:nth-child(5) { width: 470px; height: 470px; animation-duration: 30s; border-color: rgba(44,26,14,0.05); }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--black);
-  color: rgba(255,255,255,0.5);
-  padding: 48px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-}
-.footer-logo span { color: var(--wood-light); }
-footer p { font-size: 13px; }
-.footer-links {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-}
-.footer-links a {
-  text-decoration: none;
-  color: rgba(255,255,255,0.4);
-  font-size: 13px;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: white; }
+    @keyframes rotateRing {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    .hero-label {
+      position: absolute;
+      bottom: 3rem; right: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      font-weight: 300;
+      color: rgba(44, 26, 14, 0.08);
+      line-height: 1;
+      user-select: none;
+    }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem; left: 4rem;
+      display: flex; gap: 3rem;
+    }
+    .stat { text-align: left; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--wood-dark);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 0.3rem;
+    }
 
-/* ── MOBILE ── */
-@media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 100px 24px 60px; min-height: auto; }
-  .hero-visual { display: none; }
-  section { padding: 70px 24px; }
-  .product-grid { grid-template-columns: 1fr; }
-  .cat-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .stats { flex-wrap: wrap; }
-  .stat { min-width: 50%; border-bottom: 1px solid var(--border); }
-  footer { flex-direction: column; text-align: center; padding: 36px 24px; }
-  .email-form { flex-direction: column; }
-  .products-header { flex-direction: column; align-items: flex-start; }
-}
-</style>
+    /* MARQUEE */
+    .marquee-wrap {
+      background: var(--wood-dark);
+      padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+    .marquee-track span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--wood-pale);
+      letter-spacing: 0.08em;
+      padding: 0 2rem;
+      opacity: 0.8;
+    }
+    .marquee-track span.dot {
+      color: var(--wood-light);
+      font-style: normal;
+      padding: 0;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+
+    .about-visual {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .about-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 30px,
+          rgba(196,137,90,0.06) 30px,
+          rgba(196,137,90,0.06) 31px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 30px,
+          rgba(122,74,42,0.04) 30px,
+          rgba(122,74,42,0.04) 31px
+        );
+    }
+
+    .about-icon {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .about-icon svg {
+      width: 180px; height: 180px;
+      opacity: 0.3;
+    }
+    .about-icon-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--wood-mid);
+      margin-top: 1.5rem;
+    }
+
+    .about-content {
+      padding: 6rem 5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .section-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--wood-light);
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--wood-dark);
+      margin-bottom: 2rem;
+    }
+    .section-title em { font-style: italic; color: var(--wood-mid); }
+    .section-text {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: var(--text-light);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      max-width: 460px;
+    }
+
+    .divider {
+      width: 40px; height: 1px;
+      background: var(--wood-light);
+      margin: 2rem 0;
+    }
+
+    /* PRODUCTS SECTION */
+    .products {
+      padding: 8rem 4rem;
+      background: var(--cream);
+    }
+    .products-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    .products-header-left .section-title { margin-bottom: 0; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--wood-pale);
+      cursor: none;
+    }
+
+    .product-bg {
+      position: absolute; inset: 0;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-bg { transform: scale(1.05); }
+
+    .product-card:nth-child(1) .product-bg {
+      background: linear-gradient(160deg, #e8c9a0 0%, #c4895a 100%);
+    }
+    .product-card:nth-child(2) .product-bg {
+      background: linear-gradient(160deg, #d4a574 0%, #a0622a 100%);
+    }
+    .product-card:nth-child(3) .product-bg {
+      background: linear-gradient(160deg, #c49070 0%, #8c5030 100%);
+    }
+
+    /* Wood grain SVG per card */
+    .product-grain {
+      position: absolute; inset: 0;
+      opacity: 0.12;
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 3px,
+        rgba(44,26,14,0.4) 3px,
+        rgba(44,26,14,0.4) 4px
+      );
+    }
+
+    .product-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(44,26,14,0.85) 0%, transparent 100%);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-content { transform: translateY(0); }
+
+    .product-num {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: rgba(245,240,232,0.5);
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .product-desc-card {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: rgba(245,240,232,0.7);
+      text-transform: uppercase;
+    }
+
+    /* Product label visible always */
+    .product-label {
+      position: absolute;
+      bottom: 1.5rem; left: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: rgba(245,240,232,0.6);
+      transition: opacity 0.3s;
+    }
+    .product-card:hover .product-label { opacity: 0; }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--wood-dark);
+      padding: 8rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      right: -100px; top: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,137,90,0.08) 0%, transparent 70%);
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+    }
+    .cta-title em { font-style: italic; color: var(--wood-light); }
+
+    .cta-right { position: relative; z-index: 1; }
+    .cta-text {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: rgba(245,240,232,0.55);
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--wood-light);
+      color: var(--wood-dark);
+      text-decoration: none;
+      padding: 1.2rem 2.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      transition: background 0.3s, gap 0.3s;
+    }
+    .cta-btn:hover {
+      background: var(--cream);
+      gap: 1.6rem;
+    }
+
+    .etsy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.3);
+    }
+    .etsy-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #F56400;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(44,26,14,0.1);
+      background: var(--warm-white);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--wood-dark);
+    }
+    .footer-copy {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+    }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--text-light);
+      animation: bounceDown 2s ease-in-out infinite;
+      z-index: 3;
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.5rem 2rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 2rem 4rem; }
+      .hero-right { height: 50vw; }
+      .hero-stats { display: none; }
+      .about { grid-template-columns: 1fr; }
+      .about-visual { height: 300px; }
+      .about-content { padding: 4rem 2rem; }
+      .products { padding: 4rem 2rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .cta-section { grid-template-columns: 1fr; padding: 5rem 2rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
+  </style>
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Wooden<span>ArtShop</span></a>
+  <div class="nav-logo">WoodenArtShop</div>
   <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
+    <li><a href="#products">Collection</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#shop" class="nav-cta">Shop Soon</a></li>
+    <li><a href="https://etsy.com" target="_blank">Shop on Etsy</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">Handcrafted in Turkey</div>
-    <h1>Wood art that <em>tells</em> a story</h1>
-    <p>Each piece is carefully crafted by hand — from intricate wall art to custom dog houses. Natural materials, lasting quality, shipped worldwide.</p>
-    <div class="hero-actions">
-      <a href="#products" class="btn-primary">View Collection</a>
-      <a href="#shop" class="btn-secondary">Get Notified</a>
+  <div class="hero-left">
+    <div class="hero-tag">Handcrafted · Natural · Timeless</div>
+    <h1 class="hero-title">
+      Wood that<br/>
+      tells a<br/>
+      <em>story</em>
+    </h1>
+    <p class="hero-desc">
+      Each piece is hand-carved with care, shaped from sustainably sourced wood into unique decorative art for your home.
+    </p>
+    <a href="https://etsy.com" target="_blank" class="hero-cta">
+      Explore the Shop
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Handmade</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Rated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Ship</div>
+        <div class="stat-label">Worldwide</div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      Scroll
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-visual-placeholder">
-      <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
-        <rect x="8" y="8" width="32" height="32" rx="2" stroke="#8b5e3c" stroke-width="2"/>
-        <path d="M8 32l10-10 8 8 6-6 8 8" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="18" cy="18" r="3" fill="#8b5e3c" opacity="0.5"/>
-      </svg>
-      <span style="font-size:12px;letter-spacing:1px;color:#c4956a;">ADD YOUR PHOTO HERE</span>
+  <div class="hero-right">
+    <div class="hero-bg"></div>
+    <div class="wood-rings">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
     </div>
+    <div class="hero-label">Wood</div>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat reveal">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Handmade</div>
-  </div>
-  <div class="stat reveal">
-    <div class="stat-num">Natural</div>
-    <div class="stat-label">Wood Only</div>
-  </div>
-  <div class="stat reveal">
-    <div class="stat-num">🌍</div>
-    <div class="stat-label">Ships Worldwide</div>
-  </div>
-  <div class="stat reveal">
-    <div class="stat-num">Custom</div>
-    <div class="stat-label">Orders Welcome</div>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee">
+    <span>Handcrafted Decor</span><span class="dot">✦</span>
+    <span>Natural Materials</span><span class="dot">✦</span>
+    <span>Made with Love</span><span class="dot">✦</span>
+    <span>Ships Worldwide</span><span class="dot">✦</span>
+    <span>Unique Pieces</span><span class="dot">✦</span>
+    <span>Sustainable Wood</span><span class="dot">✦</span>
+    <span>Artisan Quality</span><span class="dot">✦</span>
+    <span>Home &amp; Living</span><span class="dot">✦</span>
+    <span>Handcrafted Decor</span><span class="dot">✦</span>
+    <span>Natural Materials</span><span class="dot">✦</span>
+    <span>Made with Love</span><span class="dot">✦</span>
+    <span>Ships Worldwide</span><span class="dot">✦</span>
+    <span>Unique Pieces</span><span class="dot">✦</span>
+    <span>Sustainable Wood</span><span class="dot">✦</span>
+    <span>Artisan Quality</span><span class="dot">✦</span>
+    <span>Home &amp; Living</span><span class="dot">✦</span>
   </div>
 </div>
 
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="products-header">
-    <div>
-      <div class="section-tag reveal">Our Collection</div>
-      <h2 class="section-title reveal">Featured pieces</h2>
-      <p class="section-sub reveal">Each item is one-of-a-kind, crafted with premium wood and finished by hand.</p>
-    </div>
-  </div>
-  <div class="product-grid">
-
-    <div class="product-card reveal">
-      <div class="product-img">
-        <div class="product-img-placeholder">ADD PHOTO</div>
-        <div class="product-badge">Wall Art</div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">Wall Decor</div>
-        <div class="product-name">Forest Shadow Panel</div>
-        <div class="product-desc">Layered wood panel with carved forest silhouette. Natural oak finish. Ships flat-packed.</div>
-        <div class="product-footer">
-          <div class="product-price">$89 <span>+ shipping</span></div>
-          <div class="coming-soon-tag">Coming Soon</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal">
-      <div class="product-img">
-        <div class="product-img-placeholder">ADD PHOTO</div>
-        <div class="product-badge">Wall Art</div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">Wall Decor</div>
-        <div class="product-name">Geometric Mountain</div>
-        <div class="product-desc">Abstract mountain range in geometric style. Walnut and pine combination. Ready to hang.</div>
-        <div class="product-footer">
-          <div class="product-price">$120 <span>+ shipping</span></div>
-          <div class="coming-soon-tag">Coming Soon</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal">
-      <div class="product-img">
-        <div class="product-img-placeholder">ADD PHOTO</div>
-        <div class="product-badge">Dog House</div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">Pet Furniture</div>
-        <div class="product-name">Classic Cedar Dog House</div>
-        <div class="product-desc">Weather-resistant cedar construction. Available in S, M, L sizes. Custom name engraving available.</div>
-        <div class="product-footer">
-          <div class="product-price">$240 <span>+ shipping</span></div>
-          <div class="coming-soon-tag">Coming Soon</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section id="categories">
-  <div class="section-tag">Browse by Category</div>
-  <h2 class="section-title">Two collections,<br>one craft</h2>
-  <div class="cat-grid">
-    <div class="cat-card reveal" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-      <div class="cat-content">
-        <h3>Wall Art</h3>
-        <p>Panels, frames, and sculptural pieces for your walls</p>
-      </div>
-    </div>
-    <div class="cat-card reveal" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-      <div class="cat-content">
-        <h3>Dog Houses</h3>
-        <p>Custom-built, weather-resistant homes for your best friend</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img reveal">
-      <div class="about-img-placeholder">
-        <span style="color:var(--muted);font-size:13px;letter-spacing:1px;">ADD WORKSHOP PHOTO</span>
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-pattern"></div>
+    <div class="about-icon">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="#7a4a2a" stroke-width="1"/>
+        <circle cx="100" cy="100" r="70" stroke="#7a4a2a" stroke-width="1"/>
+        <circle cx="100" cy="100" r="50" stroke="#7a4a2a" stroke-width="1"/>
+        <circle cx="100" cy="100" r="30" stroke="#7a4a2a" stroke-width="1"/>
+        <circle cx="100" cy="100" r="12" stroke="#7a4a2a" stroke-width="1"/>
+        <line x1="100" y1="10" x2="100" y2="190" stroke="#7a4a2a" stroke-width="0.5" opacity="0.3"/>
+        <line x1="10" y1="100" x2="190" y2="100" stroke="#7a4a2a" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+      <div class="about-icon-text">Wood Grain · Nature's Art</div>
+    </div>
+  </div>
+  <div class="about-content fade-up">
+    <div class="section-tag">Our Craft</div>
+    <h2 class="section-title">Where <em>nature</em><br/>meets artistry</h2>
+    <div class="divider"></div>
+    <p class="section-text">
+      Every item in our shop begins as a single piece of wood — full of grain, warmth, and character. We hand-shape each piece, letting the natural beauty of the material guide the design.
+    </p>
+    <p class="section-text">
+      From minimalist wall panels to ornate decorative objects, our collection brings the calm and warmth of nature into any space.
+    </p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header fade-up">
+    <div class="products-header-left">
+      <div class="section-tag">Our Collection</div>
+      <h2 class="section-title">Crafted <em>pieces</em></h2>
+    </div>
+    <a href="https://etsy.com" target="_blank" class="hero-cta">
+      View All on Etsy
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="products-grid fade-up">
+    <div class="product-card">
+      <div class="product-bg"></div>
+      <div class="product-grain"></div>
+      <div class="product-num">01</div>
+      <div class="product-label">Wall Art</div>
+      <div class="product-content">
+        <div class="product-name">Wall Panels</div>
+        <div class="product-desc-card">Geometric · Carved · Unique</div>
       </div>
     </div>
-    <div class="about-content">
-      <div class="section-tag reveal">Our Story</div>
-      <h2 class="section-title reveal">Made by hand,<br>made to last</h2>
-      <p class="reveal">We're a small workshop based in Turkey, passionate about the natural beauty of wood. Every piece we make starts as raw timber and ends as something you'll pass down for generations.</p>
-      <p class="reveal">We don't do mass production. Each item is crafted individually, which means longer wait times — but something truly unique at the end.</p>
-      <div class="about-features reveal">
-        <div class="about-feature">
-          <div class="feature-icon">🪵</div>
-          <div class="feature-text">
-            <h4>Premium materials</h4>
-            <p>Sustainably sourced oak, walnut, cedar and pine</p>
-          </div>
-        </div>
-        <div class="about-feature">
-          <div class="feature-icon">✂️</div>
-          <div class="feature-text">
-            <h4>Handcrafted</h4>
-            <p>Every cut, joint, and finish done by hand — no mass production</p>
-          </div>
-        </div>
-        <div class="about-feature">
-          <div class="feature-icon">📦</div>
-          <div class="feature-text">
-            <h4>Ships worldwide</h4>
-            <p>Carefully packaged and shipped to your door, anywhere</p>
-          </div>
-        </div>
+    <div class="product-card">
+      <div class="product-bg"></div>
+      <div class="product-grain"></div>
+      <div class="product-num">02</div>
+      <div class="product-label">Sculptures</div>
+      <div class="product-content">
+        <div class="product-name">Sculptures</div>
+        <div class="product-desc-card">Abstract · Natural · Tactile</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-bg"></div>
+      <div class="product-grain"></div>
+      <div class="product-num">03</div>
+      <div class="product-label">Home Decor</div>
+      <div class="product-content">
+        <div class="product-name">Home Decor</div>
+        <div class="product-desc-card">Functional · Beautiful · Warm</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMING SOON / NOTIFY -->
-<section id="shop">
-  <div class="section-tag" style="text-align:center">Online Shop</div>
-  <h2 class="section-title" style="text-align:center">Coming soon</h2>
-  <div class="shop-box reveal">
-    <div class="shop-icon">🛒</div>
-    <h3>Shop launching soon</h3>
-    <p>We're putting the finishing touches on our online store. Leave your email and we'll let you know the moment it's live — plus an exclusive early-bird discount.</p>
-    <form class="email-form" onsubmit="handleNotify(event)">
-      <input type="email" placeholder="your@email.com" required id="notify-email">
-      <button type="submit">Notify Me</button>
-    </form>
-    <p id="notify-msg" style="margin-top:16px;font-size:13px;color:var(--wood);display:none;">✓ You're on the list! We'll be in touch soon.</p>
+<!-- CTA -->
+<section class="cta-section">
+  <div class="fade-up">
+    <h2 class="cta-title">Find your<br/><em>perfect</em><br/>piece</h2>
+  </div>
+  <div class="cta-right fade-up">
+    <p class="cta-text">
+      Browse our full collection on Etsy — every item is handmade, one-of-a-kind, and ships worldwide with care.
+    </p>
+    <a href="https://etsy.com" target="_blank" class="cta-btn">
+      Shop on Etsy
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <div class="etsy-badge">Available on Etsy Marketplace</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Wooden<span>ArtShop</span></div>
-  <p>© 2026 WoodenArtShop. Handcrafted in Turkey.</p>
-  <ul class="footer-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="mailto:hello@woodenartshop.com">Contact</a></li>
-  </ul>
+  <div class="footer-logo">WoodenArtShop</div>
+  <div class="footer-copy">© 2026 WoodenArtShop · Handcrafted with love</div>
 </footer>
 
 <script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
-    }
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
   });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
 
-// Email notify
-function handleNotify(e) {
-  e.preventDefault();
-  const email = document.getElementById('notify-email').value;
-  document.getElementById('notify-msg').style.display = 'block';
-  document.getElementById('notify-email').value = '';
-  document.querySelector('.email-form button').textContent = '✓ Done';
-  document.querySelector('.email-form button').disabled = true;
-}
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '6px';
+      cursor.style.height = '6px';
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '12px';
+      cursor.style.height = '12px';
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Update Etsy links - replace with actual Etsy shop URL
+  // document.querySelectorAll('a[href="https://etsy.com"]').forEach(a => {
+  //   a.href = 'https://www.etsy.com/shop/YourShopName';
+  // });
 </script>
-
 </body>
 </html>
