@@ -1,845 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WoodenArtShop — Handcrafted Wood Decor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>WoodenArtShop Banner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Caveat:wght@700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream: #f5f0e8;
-      --warm-white: #faf8f3;
-      --wood-dark: #2c1a0e;
-      --wood-mid: #7a4a2a;
-      --wood-light: #c4895a;
-      --wood-pale: #e8c9a0;
-      --accent: #b85c2a;
-      --text: #1e1208;
-      --text-light: #6b4c35;
-    }
-
-    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Jost', sans-serif;
-      background: var(--warm-white);
-      color: var(--text);
-      overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* Custom cursor */
-    .cursor {
-      position: fixed;
-      width: 12px; height: 12px;
-      background: var(--wood-mid);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
-    }
-    .cursor-ring {
-      position: fixed;
-      width: 36px; height: 36px;
-      border: 1.5px solid var(--wood-light);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.18s ease-out, width 0.3s, height 0.3s;
-    }
-    body:hover .cursor { opacity: 1; }
-
-    /* Grain overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.035;
-      pointer-events: none;
-      z-index: 1000;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.8rem 4rem;
-      mix-blend-mode: multiply;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--wood-dark);
-    }
-    .nav-links {
-      display: flex; gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--wood-mid);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left {
+      background: #111;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8rem 4rem 4rem 4rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--wood-light);
-      margin-bottom: 2rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .hero-tag::before {
-      content: '';
-      display: block;
-      width: 40px; height: 1px;
-      background: var(--wood-light);
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--wood-dark);
-      margin-bottom: 2rem;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--wood-mid);
-    }
-
-    .hero-desc {
-      font-size: 0.9rem;
-      line-height: 1.9;
-      color: var(--text-light);
-      max-width: 380px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-
-    .hero-cta {
-      display: inline-flex;
       align-items: center;
-      gap: 1rem;
-      background: var(--wood-dark);
-      color: var(--cream);
-      text-decoration: none;
-      padding: 1.1rem 2.2rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      justify-content: center;
+      min-height: 100vh;
       font-family: 'Jost', sans-serif;
-      font-weight: 400;
-      transition: background 0.3s, gap 0.3s;
-      width: fit-content;
     }
-    .hero-cta:hover {
-      background: var(--accent);
-      gap: 1.6rem;
-    }
-    .hero-cta svg { transition: transform 0.3s; }
-    .hero-cta:hover svg { transform: translateX(4px); }
 
-    .hero-right {
+    .banner {
+      width: 1400px;
+      height: 350px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      border-radius: 4px;
     }
-    .hero-bg {
+
+    /* LEFT — product image */
+    .banner-left {
+      width: 48%;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .banner-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center left;
+      display: block;
+    }
+
+    /* Diagonal cut overlay */
+    .banner-left::after {
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, var(--wood-pale) 0%, var(--wood-light) 50%, var(--wood-mid) 100%);
-    }
-
-    /* Wood ring decoration */
-    .wood-rings {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px; height: 500px;
-    }
-    .ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(44, 26, 14, 0.15);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      animation: rotateRing 20s linear infinite;
-    }
-    .ring:nth-child(1) { width: 100px; height: 100px; animation-duration: 8s; }
-    .ring:nth-child(2) { width: 180px; height: 180px; animation-duration: 12s; animation-direction: reverse; }
-    .ring:nth-child(3) { width: 270px; height: 270px; animation-duration: 16s; border-color: rgba(44,26,14,0.1); }
-    .ring:nth-child(4) { width: 370px; height: 370px; animation-duration: 22s; animation-direction: reverse; border-color: rgba(44,26,14,0.07); }
-    .ring:nth-child(5) { width: 470px; height: 470px; animation-duration: 30s; border-color: rgba(44,26,14,0.05); }
-
-    @keyframes rotateRing {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    .hero-label {
-      position: absolute;
-      bottom: 3rem; right: 3rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 8rem;
-      font-weight: 300;
-      color: rgba(44, 26, 14, 0.08);
-      line-height: 1;
-      user-select: none;
-    }
-
-    .hero-stats {
-      position: absolute;
-      bottom: 3rem; left: 4rem;
-      display: flex; gap: 3rem;
-    }
-    .stat { text-align: left; }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--wood-dark);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-top: 0.3rem;
-    }
-
-    /* MARQUEE */
-    .marquee-wrap {
-      background: var(--wood-dark);
-      padding: 1rem 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 22s linear infinite;
-    }
-    .marquee-track span {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--wood-pale);
-      letter-spacing: 0.08em;
-      padding: 0 2rem;
-      opacity: 0.8;
-    }
-    .marquee-track span.dot {
-      color: var(--wood-light);
-      font-style: normal;
-      padding: 0;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* ABOUT SECTION */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 80vh;
-    }
-
-    .about-visual {
-      background: var(--cream);
-      position: relative;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    .about-pattern {
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 30px,
-          rgba(196,137,90,0.06) 30px,
-          rgba(196,137,90,0.06) 31px
-        ),
-        repeating-linear-gradient(
-          -45deg,
-          transparent,
-          transparent 30px,
-          rgba(122,74,42,0.04) 30px,
-          rgba(122,74,42,0.04) 31px
-        );
-    }
-
-    .about-icon {
-      position: relative; z-index: 1;
-      text-align: center;
-    }
-    .about-icon svg {
-      width: 180px; height: 180px;
-      opacity: 0.3;
-    }
-    .about-icon-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--wood-mid);
-      margin-top: 1.5rem;
-    }
-
-    .about-content {
-      padding: 6rem 5rem;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .section-tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--wood-light);
-      margin-bottom: 1.5rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 3.5vw, 3rem);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--wood-dark);
-      margin-bottom: 2rem;
-    }
-    .section-title em { font-style: italic; color: var(--wood-mid); }
-    .section-text {
-      font-size: 0.88rem;
-      line-height: 2;
-      color: var(--text-light);
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-      max-width: 460px;
-    }
-
-    .divider {
-      width: 40px; height: 1px;
-      background: var(--wood-light);
-      margin: 2rem 0;
-    }
-
-    /* PRODUCTS SECTION */
-    .products {
-      padding: 8rem 4rem;
-      background: var(--cream);
-    }
-    .products-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 4rem;
-    }
-    .products-header-left .section-title { margin-bottom: 0; }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .product-card {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      background: var(--wood-pale);
-      cursor: none;
-    }
-
-    .product-bg {
-      position: absolute; inset: 0;
-      transition: transform 0.6s ease;
-    }
-    .product-card:hover .product-bg { transform: scale(1.05); }
-
-    .product-card:nth-child(1) .product-bg {
-      background: linear-gradient(160deg, #e8c9a0 0%, #c4895a 100%);
-    }
-    .product-card:nth-child(2) .product-bg {
-      background: linear-gradient(160deg, #d4a574 0%, #a0622a 100%);
-    }
-    .product-card:nth-child(3) .product-bg {
-      background: linear-gradient(160deg, #c49070 0%, #8c5030 100%);
-    }
-
-    /* Wood grain SVG per card */
-    .product-grain {
-      position: absolute; inset: 0;
-      opacity: 0.12;
-      background-image: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 3px,
-        rgba(44,26,14,0.4) 3px,
-        rgba(44,26,14,0.4) 4px
+      background: linear-gradient(
+        to bottom right,
+        transparent 0%,
+        transparent 55%,
+        rgba(10,10,10,0.95) 70%,
+        rgba(10,10,10,1) 100%
       );
     }
 
-    .product-content {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2rem;
-      background: linear-gradient(to top, rgba(44,26,14,0.85) 0%, transparent 100%);
-      transform: translateY(100%);
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover .product-content { transform: translateY(0); }
-
-    .product-num {
+    /* Diagonal slice on right edge */
+    .banner-left::before {
+      content: '';
       position: absolute;
-      top: 1.5rem; right: 1.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      color: rgba(245,240,232,0.5);
+      top: 0; right: -40px; bottom: 0;
+      width: 80px;
+      background: #0a0a0a;
+      clip-path: polygon(40px 0, 100% 0, 100% 100%, 0% 100%);
+      z-index: 2;
     }
 
-    .product-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
-    }
-    .product-desc-card {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: rgba(245,240,232,0.7);
-      text-transform: uppercase;
-    }
-
-    /* Product label visible always */
-    .product-label {
-      position: absolute;
-      bottom: 1.5rem; left: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: rgba(245,240,232,0.6);
-      transition: opacity 0.3s;
-    }
-    .product-card:hover .product-label { opacity: 0; }
-
-    /* CTA SECTION */
-    .cta-section {
-      background: var(--wood-dark);
-      padding: 8rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+    /* RIGHT — text */
+    .banner-right {
+      flex: 1;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 3rem 2.5rem 2rem;
       position: relative;
       overflow: hidden;
     }
-    .cta-section::before {
+
+    /* Subtle red accent glow */
+    .banner-right::before {
       content: '';
       position: absolute;
-      right: -100px; top: -100px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,137,90,0.08) 0%, transparent 70%);
+      top: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(200,30,30,0.07) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .cta-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--cream);
-    }
-    .cta-title em { font-style: italic; color: var(--wood-light); }
-
-    .cta-right { position: relative; z-index: 1; }
-    .cta-text {
-      font-size: 0.88rem;
-      line-height: 2;
-      color: rgba(245,240,232,0.55);
-      font-weight: 300;
-      margin-bottom: 3rem;
+    /* Watermark text */
+    .banner-right::after {
+      content: 'WOOD';
+      position: absolute;
+      bottom: -20px; right: -10px;
+      font-family: 'Black Ops One', sans-serif;
+      font-size: 7rem;
+      color: rgba(255,255,255,0.03);
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      user-select: none;
     }
 
-    .cta-btn {
+    .banner-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #c8291e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .banner-tag::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1.5px;
+      background: #c8291e;
+    }
+
+    .banner-title {
+      font-family: 'Black Ops One', sans-serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      line-height: 1.05;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .banner-title span {
+      color: #c8291e;
+    }
+
+    .banner-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+      margin-bottom: 1.6rem;
+      font-weight: 700;
+    }
+
+    .banner-cta {
       display: inline-flex;
       align-items: center;
-      gap: 1rem;
-      background: var(--wood-light);
-      color: var(--wood-dark);
+      gap: 0.8rem;
+      background: #c8291e;
+      color: #fff;
       text-decoration: none;
-      padding: 1.2rem 2.8rem;
-      font-size: 0.72rem;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.68rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       font-family: 'Jost', sans-serif;
       font-weight: 500;
-      transition: background 0.3s, gap 0.3s;
+      width: fit-content;
+      transition: background 0.25s, gap 0.25s;
+      border-radius: 2px;
     }
-    .cta-btn:hover {
-      background: var(--cream);
-      gap: 1.6rem;
+    .banner-cta:hover {
+      background: #a31f16;
+      gap: 1.2rem;
     }
 
-    .etsy-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(245,240,232,0.3);
+    /* Animated entrance */
+    .banner-tag  { animation: fadeUp 0.6s 0.1s both; }
+    .banner-title { animation: fadeUp 0.6s 0.25s both; }
+    .banner-sub  { animation: fadeUp 0.6s 0.4s both; }
+    .banner-cta  { animation: fadeUp 0.6s 0.55s both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .etsy-badge::before {
+
+    /* Thin red top border accent */
+    .banner::before {
       content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #F56400;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 3rem 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid rgba(44,26,14,0.1);
-      background: var(--warm-white);
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--wood-dark);
-    }
-    .footer-copy {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      color: var(--text-light);
-    }
-
-    /* ANIMATIONS */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Scroll indicator */
-    .scroll-indicator {
       position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--text-light);
-      animation: bounceDown 2s ease-in-out infinite;
-      z-index: 3;
-    }
-    @keyframes bounceDown {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #c8291e 0%, #ff6b4a 50%, transparent 100%);
+      z-index: 10;
     }
 
-    @media (max-width: 900px) {
-      nav { padding: 1.5rem 2rem; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 7rem 2rem 4rem; }
-      .hero-right { height: 50vw; }
-      .hero-stats { display: none; }
-      .about { grid-template-columns: 1fr; }
-      .about-visual { height: 300px; }
-      .about-content { padding: 4rem 2rem; }
-      .products { padding: 4rem 2rem; }
-      .products-grid { grid-template-columns: 1fr; }
-      .cta-section { grid-template-columns: 1fr; padding: 5rem 2rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-      body { cursor: auto; }
-      .cursor, .cursor-ring { display: none; }
+    /* Bottom label */
+    .corner-label {
+      position: absolute;
+      bottom: 1rem; left: 1.5rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      z-index: 5;
     }
   </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div class="banner">
+  <!-- Left: product image -->
+  <div class="banner-left">
+    <img src="/mnt/user-data/uploads/web4.png" alt="Handcrafted Wood Decor"/>
+  </div>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">WoodenArtShop</div>
-  <ul class="nav-links">
-    <li><a href="#products">Collection</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="https://etsy.com" target="_blank">Shop on Etsy</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Handcrafted · Natural · Timeless</div>
-    <h1 class="hero-title">
-      Wood that<br/>
-      tells a<br/>
-      <em>story</em>
+  <!-- Right: text content -->
+  <div class="banner-right">
+    <div class="banner-tag">Handmade · Unique · Ships Worldwide</div>
+    <h1 class="banner-title">
+      Handcrafted<br/>
+      <span>Wood</span> Decor
     </h1>
-    <p class="hero-desc">
-      Each piece is hand-carved with care, shaped from sustainably sourced wood into unique decorative art for your home.
+    <p class="banner-sub">
+      Each multilayer piece is handmade<br/>
+      with care and creativity.
     </p>
-    <a href="https://etsy.com" target="_blank" class="hero-cta">
-      Explore the Shop
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    <a href="https://etsy.com" class="banner-cta">
+      Shop on Etsy
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </a>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Handmade</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">5★</div>
-        <div class="stat-label">Rated</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">Ship</div>
-        <div class="stat-label">Worldwide</div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-      Scroll
-    </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-bg"></div>
-    <div class="wood-rings">
-      <div class="ring"></div>
-      <div class="ring"></div>
-      <div class="ring"></div>
-      <div class="ring"></div>
-      <div class="ring"></div>
-    </div>
-    <div class="hero-label">Wood</div>
-  </div>
-</section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="marquee">
-    <span>Handcrafted Decor</span><span class="dot">✦</span>
-    <span>Natural Materials</span><span class="dot">✦</span>
-    <span>Made with Love</span><span class="dot">✦</span>
-    <span>Ships Worldwide</span><span class="dot">✦</span>
-    <span>Unique Pieces</span><span class="dot">✦</span>
-    <span>Sustainable Wood</span><span class="dot">✦</span>
-    <span>Artisan Quality</span><span class="dot">✦</span>
-    <span>Home &amp; Living</span><span class="dot">✦</span>
-    <span>Handcrafted Decor</span><span class="dot">✦</span>
-    <span>Natural Materials</span><span class="dot">✦</span>
-    <span>Made with Love</span><span class="dot">✦</span>
-    <span>Ships Worldwide</span><span class="dot">✦</span>
-    <span>Unique Pieces</span><span class="dot">✦</span>
-    <span>Sustainable Wood</span><span class="dot">✦</span>
-    <span>Artisan Quality</span><span class="dot">✦</span>
-    <span>Home &amp; Living</span><span class="dot">✦</span>
-  </div>
+  <div class="corner-label">WoodenArtShop</div>
 </div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-visual">
-    <div class="about-pattern"></div>
-    <div class="about-icon">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="90" stroke="#7a4a2a" stroke-width="1"/>
-        <circle cx="100" cy="100" r="70" stroke="#7a4a2a" stroke-width="1"/>
-        <circle cx="100" cy="100" r="50" stroke="#7a4a2a" stroke-width="1"/>
-        <circle cx="100" cy="100" r="30" stroke="#7a4a2a" stroke-width="1"/>
-        <circle cx="100" cy="100" r="12" stroke="#7a4a2a" stroke-width="1"/>
-        <line x1="100" y1="10" x2="100" y2="190" stroke="#7a4a2a" stroke-width="0.5" opacity="0.3"/>
-        <line x1="10" y1="100" x2="190" y2="100" stroke="#7a4a2a" stroke-width="0.5" opacity="0.3"/>
-      </svg>
-      <div class="about-icon-text">Wood Grain · Nature's Art</div>
-    </div>
-  </div>
-  <div class="about-content fade-up">
-    <div class="section-tag">Our Craft</div>
-    <h2 class="section-title">Where <em>nature</em><br/>meets artistry</h2>
-    <div class="divider"></div>
-    <p class="section-text">
-      Every item in our shop begins as a single piece of wood — full of grain, warmth, and character. We hand-shape each piece, letting the natural beauty of the material guide the design.
-    </p>
-    <p class="section-text">
-      From minimalist wall panels to ornate decorative objects, our collection brings the calm and warmth of nature into any space.
-    </p>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="products-header fade-up">
-    <div class="products-header-left">
-      <div class="section-tag">Our Collection</div>
-      <h2 class="section-title">Crafted <em>pieces</em></h2>
-    </div>
-    <a href="https://etsy.com" target="_blank" class="hero-cta">
-      View All on Etsy
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-    </a>
-  </div>
-  <div class="products-grid fade-up">
-    <div class="product-card">
-      <div class="product-bg"></div>
-      <div class="product-grain"></div>
-      <div class="product-num">01</div>
-      <div class="product-label">Wall Art</div>
-      <div class="product-content">
-        <div class="product-name">Wall Panels</div>
-        <div class="product-desc-card">Geometric · Carved · Unique</div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-bg"></div>
-      <div class="product-grain"></div>
-      <div class="product-num">02</div>
-      <div class="product-label">Sculptures</div>
-      <div class="product-content">
-        <div class="product-name">Sculptures</div>
-        <div class="product-desc-card">Abstract · Natural · Tactile</div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-bg"></div>
-      <div class="product-grain"></div>
-      <div class="product-num">03</div>
-      <div class="product-label">Home Decor</div>
-      <div class="product-content">
-        <div class="product-name">Home Decor</div>
-        <div class="product-desc-card">Functional · Beautiful · Warm</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="fade-up">
-    <h2 class="cta-title">Find your<br/><em>perfect</em><br/>piece</h2>
-  </div>
-  <div class="cta-right fade-up">
-    <p class="cta-text">
-      Browse our full collection on Etsy — every item is handmade, one-of-a-kind, and ships worldwide with care.
-    </p>
-    <a href="https://etsy.com" target="_blank" class="cta-btn">
-      Shop on Etsy
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-    </a>
-    <div class="etsy-badge">Available on Etsy Marketplace</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">WoodenArtShop</div>
-  <div class="footer-copy">© 2026 WoodenArtShop · Handcrafted with love</div>
-</footer>
-
-<script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
-
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '6px';
-      cursor.style.height = '6px';
-      ring.style.width = '52px';
-      ring.style.height = '52px';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '12px';
-      cursor.style.height = '12px';
-      ring.style.width = '36px';
-      ring.style.height = '36px';
-    });
-  });
-
-  // Scroll animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 120);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Update Etsy links - replace with actual Etsy shop URL
-  // document.querySelectorAll('a[href="https://etsy.com"]').forEach(a => {
-  //   a.href = 'https://www.etsy.com/shop/YourShopName';
-  // });
-</script>
 </body>
 </html>
