@@ -83,25 +83,27 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       text-decoration: none;
     }
-    .brand-title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--wood-dark);
-      line-height: 1;
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: var(--transition);
     }
-    .brand-sub {
-      font-size: 0.58rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--wood-amber);
-      margin-top: 0.25rem;
-      font-weight: 500;
+    .brand-logo-img:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+    .footer-logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      margin-bottom: 1.2rem;
+      display: block;
     }
 
     .nav-menu {
@@ -987,9 +989,8 @@
   <!-- NAVIGATION -->
   <header id="header">
     <div class="nav-container">
-      <a href="#home" class="brand">
-        <span class="brand-title">WoodenArtShop</span>
-        <span class="brand-sub">Artisan Studio</span>
+      <a href="#home" class="brand" aria-label="WoodenArtShop Home">
+        <img src="images/logo.png" alt="WoodenArtShopping" class="brand-logo-img" />
       </a>
 
       <ul class="nav-menu" id="navMenu">
@@ -1322,7 +1323,7 @@
     <div class="footer-wrap">
       <div class="footer-main">
         <div class="footer-brand">
-          <h3>WoodenArtShop</h3>
+          <img src="images/logo.png" alt="WoodenArtShopping" class="footer-logo-img" />
           <p>
             An independent artisanal studio dedicated to unique multilayer woodwork and home accents.
           </p>
