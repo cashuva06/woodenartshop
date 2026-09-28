@@ -484,6 +484,410 @@
       transform: translateX(3px);
     }
 
+    /* CATEGORY DETAIL VIEW (KAFT-STYLE REVEAL) */
+    .category-detail-view {
+      animation: catFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    @keyframes catFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cat-detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cat-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .cat-back-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border-color: var(--charcoal-deep);
+      transform: translateX(-3px);
+    }
+
+    .cat-breadcrumb {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .cat-breadcrumb strong {
+      color: var(--wood-terracotta);
+    }
+
+    .cat-story-banner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .cat-story-meta {
+      max-width: 760px;
+    }
+    .cat-count-badge {
+      background: rgba(184, 115, 51, 0.1);
+      border: 1px solid rgba(184, 115, 51, 0.25);
+      color: var(--wood-terracotta);
+      padding: 0.45rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* PRODUCT CARDS IN CATEGORY GRID */
+    .cat-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .cat-product-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-clean);
+      position: relative;
+    }
+    .cat-product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(184, 115, 51, 0.35);
+    }
+
+    .cpc-img-box {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--bg-stone-subtle);
+    }
+    .cpc-main-img, .cpc-hover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .cpc-hover-img {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+    .cat-product-card:hover .cpc-hover-img {
+      opacity: 1;
+    }
+    .cat-product-card:hover .cpc-main-img {
+      transform: scale(1.04);
+    }
+    .cat-product-card:hover .cpc-hover-img {
+      transform: scale(1.04);
+    }
+
+    .cpc-badges {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+    .cpc-badge {
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(35, 28, 23, 0.1);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .cpc-sizes-tag {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(35, 28, 23, 0.82);
+      color: #ffffff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      z-index: 2;
+    }
+
+    .cpc-body {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .cpc-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .cpc-code {
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .cpc-status {
+      color: var(--text-light);
+    }
+    .cpc-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+    .cpc-story {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+      flex: 1;
+    }
+    .cpc-specs-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .cpc-spec {
+      background: var(--bg-stone);
+      border: 1px solid var(--border-subtle);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      color: var(--charcoal-soft);
+      letter-spacing: 0.1em;
+    }
+    .cpc-footer-row {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cpc-explore-btn {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--wood-terracotta);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+    .cat-product-card:hover .cpc-explore-btn {
+      transform: translateX(4px);
+      color: var(--charcoal-deep);
+    }
+
+    /* CURATION PLACEHOLDER FOR OTHER CATEGORIES */
+    .cat-empty-state {
+      background: var(--bg-card);
+      border-radius: 14px;
+      border: 1px dashed var(--border-subtle);
+      padding: 4.5rem 2rem;
+      text-align: center;
+      max-width: 680px;
+      margin: 1rem auto;
+      grid-column: 1 / -1;
+    }
+    .cat-empty-state h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--charcoal-deep);
+    }
+    .cat-empty-state p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .cat-empty-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .cat-empty-btn:hover {
+      background: var(--wood-terracotta);
+    }
+
+    /* EXPANDED LUXURY MODAL STYLING */
+    .modal-box.expanded-modal {
+      max-width: 1040px;
+      grid-template-columns: 1.15fr 1fr;
+      max-height: 90vh;
+    }
+    .modal-gallery-column {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-stone-subtle);
+      padding: 2rem;
+      overflow-y: auto;
+      gap: 1.2rem;
+    }
+    .modal-main-display {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .modal-main-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #faf8f5;
+    }
+    .modal-thumbs-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+    .modal-thumb {
+      aspect-ratio: 1 / 1;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      background: #ffffff;
+      transition: var(--transition-smooth);
+    }
+    .modal-thumb.active {
+      border-color: var(--wood-terracotta);
+    }
+    .modal-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .modal-scroll-info {
+      padding: 2.5rem;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+    .modal-subheading {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .size-table-wrap {
+      overflow-x: auto;
+      margin: 0.8rem 0 1.4rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .size-table th, .size-table td {
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .size-table th {
+      background: var(--bg-stone);
+      font-weight: 600;
+      color: var(--charcoal-deep);
+      text-transform: uppercase;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+    }
+    .size-table tr:last-child td {
+      border-bottom: none;
+    }
+    .modal-notes-list {
+      list-style: none;
+      margin-bottom: 1.8rem;
+    }
+    .modal-notes-list li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      line-height: 1.6;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .modal-notes-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--wood-terracotta);
+      font-size: 0.75rem;
+    }
+    .modal-notes-list strong {
+      color: var(--charcoal-deep);
+    }
+    .cert-link {
+      color: var(--wood-terracotta);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
     /* KAFT-INSPIRED PRODUCT CARD */
     .product-card {
       background: var(--bg-card);
@@ -1269,7 +1673,7 @@
   <!-- PRODUCT SHOWCASE (CATEGORY COLLECTIONS) -->
   <section class="products-section" id="products">
     <div class="section-wrap">
-      <div class="section-head">
+      <div class="section-head" id="productsMainHead">
         <span class="section-eyebrow">Studio Collections</span>
         <h2 class="section-heading">Curated Dimensions. <em>Six Distinct Worlds.</em></h2>
         <p class="section-desc">
@@ -1278,7 +1682,7 @@
       </div>
 
       <!-- 6 Category Cards Grid (Row 1: PETS, HOME DECOR, SETS | Row 2: FLAGS, GOTHIC, HALLOWEEN) -->
-      <div class="category-grid">
+      <div class="category-grid" id="categoryGridSection">
 
         <!-- Row 1, Card 1: PETS -->
         <div class="category-card" data-category="pets" onclick="selectCategory('pets')">
@@ -1376,6 +1780,38 @@
           </div>
         </div>
 
+      </div>
+      <!-- /#categoryGridSection -->
+
+      <!-- Active Category Detail & Products View (KAFT-Inspired In-Place Drilldown) -->
+      <div id="categoryDetailView" class="category-detail-view" style="display: none;">
+        <div class="cat-detail-header">
+          <button class="cat-back-btn" onclick="backToCategories()">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All Collections
+          </button>
+          <div class="cat-breadcrumb">
+            <span>Studio Collections</span> / <strong id="catBreadcrumbTitle">PETS</strong>
+          </div>
+        </div>
+
+        <div class="cat-story-banner">
+          <div class="cat-story-meta">
+            <span class="section-eyebrow" id="catEyebrow">Collection 01</span>
+            <h2 class="section-heading" id="catHeading">PETS — <em>Architectural Havens &amp; Companions</em></h2>
+            <p class="section-desc" id="catDesc">
+              Modern living spaces meet pure canine and feline comfort. Designed with sustainable birch wood, tool-free slot joinery, and non-toxic certified finishes for pets who are truly part of the family.
+            </p>
+          </div>
+          <div class="cat-count-badge" id="catCountBadge">
+            1 Studio Design Available
+          </div>
+        </div>
+
+        <!-- Category Products Grid -->
+        <div id="catProductsGrid" class="cat-products-grid">
+          <!-- Dynamic product cards -->
+        </div>
       </div>
     </div>
   </section>
@@ -1563,23 +1999,27 @@
     </div>
   </section>
 
-  <!-- PRODUCT SPECIFICATION MODAL -->
+  <!-- PRODUCT SPECIFICATION MODAL (KAFT-INSPIRED STORY & SPEC SHEET) -->
   <div class="modal-backdrop" id="productModal">
-    <div class="modal-box">
+    <div class="modal-box expanded-modal">
       <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
-      <div class="modal-img-wrap">
-        <img src="" id="modalImg" alt="Product detail view" />
+      
+      <!-- Gallery Column -->
+      <div class="modal-gallery-column">
+        <div class="modal-main-display">
+          <img src="images/pets-aruv-bourbon-2.jpg" id="modalMainDisplayImg" alt="ARUV BOURBON Detail View" />
+        </div>
+        <div class="modal-thumbs-grid" id="modalThumbsGrid">
+          <!-- Populated dynamically by JS -->
+        </div>
       </div>
-      <div class="modal-info">
+
+      <!-- Info Column -->
+      <div class="modal-scroll-info" id="modalScrollInfo">
         <span class="modal-cat" id="modalCat">Category</span>
         <h3 class="modal-title" id="modalTitle">Product Title</h3>
         <p class="modal-desc" id="modalDesc">Product description and story.</p>
-        <ul class="modal-specs">
-          <li><span>Craft Technique:</span> <strong>Multilayer 3D Laser &amp; Hand Build</strong></li>
-          <li><span>Finish &amp; Sealer:</span> <strong>Eco-Friendly Wood Stains &amp; Wax</strong></li>
-          <li><span>Wholesale Availability:</span> <strong>Bulk &amp; Volume Orders Welcome</strong></li>
-          <li><span>International Freight:</span> <strong>Insured Export Box with Tracking</strong></li>
-        </ul>
+        <div id="modalExtraContent"></div>
         <a href="#contact" class="modal-btn" onclick="inquireProduct()">Request Wholesale Quote</a>
       </div>
     </div>
@@ -1674,9 +2114,282 @@
       });
     });
 
-    // Category Selection Handler (Ready for detail loading)
-    function selectCategory(category) {
-      console.log('Category selected:', category);
+    // ==========================================
+    // KAFT-STYLE CATEGORY & PRODUCT DRILLDOWN
+    // ==========================================
+    const categoriesData = {
+      pets: {
+        eyebrow: "Collection 01",
+        title: "PETS",
+        heading: "PETS — <em>Architectural Havens &amp; Companions</em>",
+        desc: "Modern living spaces meet pure canine and feline comfort. Designed with sustainable birch wood, tool-free slot joinery, and non-toxic certified finishes for pets who are truly part of the family.",
+        count: "1 Studio Design Available",
+        type: "pets"
+      },
+      homedecor: {
+        eyebrow: "Collection 02",
+        title: "HOME DECOR",
+        heading: "HOME DECOR — <em>Tactile Spaces &amp; Living Geometry</em>",
+        desc: "Multi-tiered dimensional wall panels, architectural reliefs, and statement centerpieces crafted to evoke tranquility and depth in living spaces.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      sets: {
+        eyebrow: "Collection 03",
+        title: "SETS",
+        heading: "SETS — <em>Harmonious Polyptychs &amp; Series</em>",
+        desc: "Multi-piece coordinated woodwork designed to span across walls in graceful, interconnected geometric harmony.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      flags: {
+        eyebrow: "Collection 04",
+        title: "FLAGS",
+        heading: "FLAGS — <em>Heritage, Emblems &amp; Dimensional Identity</em>",
+        desc: "Distinctive relief emblems and layered flag designs celebrating national identities through hand-stained artisanal timber.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      gothic: {
+        eyebrow: "Collection 05",
+        title: "GOTHIC",
+        heading: "GOTHIC — <em>Shadows, Arches &amp; Mystical Reliefs</em>",
+        desc: "Moody, cathedral-inspired wood carvings and intricate layered silhouettes with evocative physical depth.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      halloween: {
+        eyebrow: "Collection 06",
+        title: "HALLOWEEN",
+        heading: "HALLOWEEN — <em>Nocturnal Whimsy &amp; Autumn Keep</em>",
+        desc: "Sculpted full moons, ravens, and festive dimensional timber art crafted for autumn lovers and collectors.",
+        count: "Curation in Progress",
+        type: "curating"
+      }
+    };
+
+    const aruvBourbonImages = [
+      { src: "images/pets-aruv-bourbon-2.jpg", title: "ARUV BOURBON — Navy Blue Canopy & Cushion Setup" },
+      { src: "images/pets-aruv-bourbon-1.jpg", title: "ARUV BOURBON — Pure White Canopy & Cushion Setup" },
+      { src: "images/pets-aruv-bourbon-3.jpg", title: "ARUV BOURBON — Open Birch Frame with Indigo Cushion" },
+      { src: "images/pets-aruv-bourbon-4.jpg", title: "ARUV BOURBON — Open Birch Frame with White Cushion" },
+      { src: "images/pets-aruv-bourbon-5.jpg", title: "ARUV BOURBON — Low Angle Architectural Frame" },
+      { src: "images/pets-aruv-bourbon-front.jpg", title: "ARUV BOURBON — Front Elevation" },
+      { src: "images/pets-aruv-bourbon-angle.jpg", title: "ARUV BOURBON — 3/4 Perspective Joinery" },
+      { src: "images/pets-aruv-bourbon-sizes.png", title: "ARUV BOURBON — S / M / L Dimension Chart" },
+      { src: "images/pets-aruv-bourbon-cushions.png", title: "ARUV BOURBON — Cushion Color Options" },
+      { src: "images/pets-aruv-bourbon-joints.jpg", title: "ARUV BOURBON — Screwless Slot Joinery Details" }
+    ];
+
+    function selectCategory(categoryKey) {
+      const data = categoriesData[categoryKey];
+      if (!data) return;
+
+      // Update titles and copy
+      document.getElementById('catBreadcrumbTitle').textContent = data.title;
+      document.getElementById('catEyebrow').textContent = data.eyebrow;
+      document.getElementById('catHeading').innerHTML = data.heading;
+      document.getElementById('catDesc').textContent = data.desc;
+      document.getElementById('catCountBadge').textContent = data.count;
+
+      const grid = document.getElementById('catProductsGrid');
+      grid.innerHTML = '';
+
+      if (categoryKey === 'pets') {
+        grid.innerHTML = `
+          <div class="cat-product-card" onclick="openAruvBourbonModal()">
+            <div class="cpc-img-box">
+              <img src="images/pets-aruv-bourbon-2.jpg" class="cpc-main-img" alt="ARUV BOURBON Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-bourbon-1.jpg" class="cpc-hover-img" alt="ARUV BOURBON alternate view" loading="lazy"/>
+              <div class="cpc-badges">
+                <span class="cpc-badge">Screwless Interlocking</span>
+                <span class="cpc-badge">9 mm Birch Plywood</span>
+              </div>
+              <span class="cpc-sizes-tag">3 Sizes (S / M / L)</span>
+            </div>
+            <div class="cpc-body">
+              <div class="cpc-meta-row">
+                <span class="cpc-code">WAS-PET-01</span>
+                <span class="cpc-status">Studio Production • Wholesale Available</span>
+              </div>
+              <h3 class="cpc-title">ARUV BOURBON</h3>
+              <p class="cpc-story">
+                An indoor architectural haven built without screws or metal hardware. Made from premium 9 mm birch plywood, featuring pet-safe Rubio Monocoat® oil coating, washable canopy, and ergonomic cushion.
+              </p>
+              <div class="cpc-specs-row">
+                <span class="cpc-spec">Tool-Free Assembly</span>
+                <span class="cpc-spec">Certified Pet-Safe</span>
+                <span class="cpc-spec">Indigo &amp; White Options</span>
+              </div>
+              <div class="cpc-footer-row">
+                <span class="cpc-explore-btn">
+                  View Specifications &amp; Inquire
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        grid.innerHTML = `
+          <div class="cat-empty-state">
+            <span class="section-eyebrow">${data.title} COLLECTION</span>
+            <h3>Studio Curation in Progress</h3>
+            <p>
+              We are currently hand-finishing new dimensional designs for the <strong>${data.title}</strong> collection. In the meantime, you can reach out directly to request our private wholesale catalog or discuss custom architectural commissions.
+            </p>
+            <a href="#contact" class="cat-empty-btn" onclick="inquireCategory('${data.title}')">
+              Inquire About ${data.title} Wholesale
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        `;
+      }
+
+      // Transition views
+      document.getElementById('productsMainHead').style.display = 'none';
+      document.getElementById('categoryGridSection').style.display = 'none';
+      const detailView = document.getElementById('categoryDetailView');
+      detailView.style.display = 'block';
+
+      // Scroll smoothly to section top
+      const target = document.getElementById('products');
+      if (target) {
+        const headerHeight = header ? header.offsetHeight : 80;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    }
+
+    function backToCategories() {
+      document.getElementById('categoryDetailView').style.display = 'none';
+      document.getElementById('productsMainHead').style.display = 'block';
+      document.getElementById('categoryGridSection').style.display = 'grid';
+
+      const target = document.getElementById('products');
+      if (target) {
+        const headerHeight = header ? header.offsetHeight : 80;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    }
+
+    function inquireCategory(catName) {
+      const textarea = document.getElementById('messageText');
+      if (textarea) {
+        textarea.value = `Hello! I would like to inquire about upcoming designs and wholesale catalog availability for the: "${catName}" collection.`;
+      }
+      const select = document.getElementById('inquiryType');
+      if (select) select.value = 'wholesale';
+    }
+
+    function openAruvBourbonModal() {
+      // Setup main display
+      const mainImg = document.getElementById('modalMainDisplayImg');
+      if (mainImg) {
+        mainImg.src = aruvBourbonImages[0].src;
+        mainImg.alt = aruvBourbonImages[0].title;
+      }
+
+      // Setup thumbnails
+      const thumbsContainer = document.getElementById('modalThumbsGrid');
+      if (thumbsContainer) {
+        thumbsContainer.innerHTML = aruvBourbonImages.map((img, idx) => `
+          <div class="modal-thumb ${idx === 0 ? 'active' : ''}" onclick="switchModalThumb(${idx})">
+            <img src="${img.src}" alt="${img.title}" loading="lazy"/>
+          </div>
+        `).join('');
+      }
+
+      // Setup Info
+      document.getElementById('modalCat').textContent = 'PETS Collection • Model WAS-PET-01';
+      document.getElementById('modalTitle').textContent = 'ARUV BOURBON';
+      document.getElementById('modalDesc').textContent = 'A serene indoor architectural sanctuary designed to harmonize with modern interiors while providing an intuitive, secure haven for your companion. Precision-machined from 9 mm sustainable birch plywood, ARUV BOURBON features an innovative screwless slot-lock structure that assembles seamlessly by hand without tools or metallic fasteners.';
+
+      // Extra Content: Sizes Table, Materials, Care Notes
+      const extra = document.getElementById('modalExtraContent');
+      if (extra) {
+        extra.innerHTML = `
+          <h4 class="modal-subheading">Available Dimensions</h4>
+          <div class="size-table-wrap">
+            <table class="size-table">
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Width</th>
+                  <th>Height</th>
+                  <th>Depth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>SMALL</strong></td>
+                  <td>22.83" (580 mm)</td>
+                  <td>16.92" (430 mm)</td>
+                  <td>15.74" (400 mm)</td>
+                </tr>
+                <tr>
+                  <td><strong>MEDIUM</strong></td>
+                  <td>26.37" (750 mm)</td>
+                  <td>23.62" (600 mm)</td>
+                  <td>20.07" (510 mm)</td>
+                </tr>
+                <tr>
+                  <td><strong>LARGE</strong></td>
+                  <td>37.79" (960 mm)</td>
+                  <td>32.08" (815 mm)</td>
+                  <td>26.37" (670 mm)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="modal-subheading">Materials &amp; Health Certification</h4>
+          <ul class="modal-specs">
+            <li><span>Structure:</span> <strong>9 mm First-Quality Birch Plywood</strong></li>
+            <li><span>Protective Oil:</span> <strong>Rubio Monocoat® Zero-VOC Plant Oil (<a href="https://www.rubiomonocoat.com/en/certificates?country=aaa" target="_blank" rel="noopener" class="cert-link">Health &amp; Toy Safe Certified</a>)</strong></li>
+            <li><span>Cushion &amp; Canopy:</span> <strong>Washable Durable Fabrics (Indigo Blue &amp; White Options)</strong></li>
+            <li><span>Joinery:</span> <strong>Screwless Interlocking Slot System (Tool-Free)</strong></li>
+          </ul>
+
+          <h4 class="modal-subheading">Studio &amp; Assembly Notes</h4>
+          <ul class="modal-notes-list">
+            <li><strong>Tool-Free Installation:</strong> Installs cleanly without screws, bolts, or tools. Simple slot guide included.</li>
+            <li><strong>Parts Replacement:</strong> Spare or replacement parts can be ordered individually whenever needed.</li>
+            <li><strong>Organic Character:</strong> Since each piece is handcrafted from genuine birch, natural wood grains and coloring may vary subtly, giving every sanctuary unique character.</li>
+            <li><strong>Indoor Living:</strong> Specially engineered for indoor home and apartment environments.</li>
+            <li><strong>Care:</strong> Removable cushions and canopy cloth are suitable for washing.</li>
+          </ul>
+        `;
+      }
+
+      // Configure Inquiry Button
+      const modalBtn = document.querySelector('#productModal .modal-btn');
+      if (modalBtn) {
+        modalBtn.textContent = 'Request Wholesale & Production Quote';
+        modalBtn.onclick = function() {
+          closeModal();
+          const textarea = document.getElementById('messageText');
+          if (textarea) {
+            textarea.value = `Hello! I would like to inquire about wholesale/bulk pricing and production details for: "ARUV BOURBON" (PETS Collection).`;
+          }
+          const select = document.getElementById('inquiryType');
+          if (select) select.value = 'wholesale';
+        };
+      }
+
+      document.getElementById('productModal').classList.add('open');
+    }
+
+    function switchModalThumb(index) {
+      const mainImg = document.getElementById('modalMainDisplayImg');
+      if (mainImg && aruvBourbonImages[index]) {
+        mainImg.src = aruvBourbonImages[index].src;
+        mainImg.alt = aruvBourbonImages[index].title;
+      }
+      document.querySelectorAll('.modal-thumb').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
     }
 
     // Mobile Hamburger Toggle
