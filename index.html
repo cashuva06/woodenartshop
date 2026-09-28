@@ -787,8 +787,9 @@
       aspect-ratio: 4 / 3;
       border-radius: 12px;
       overflow: hidden;
-      background: #ffffff;
+      background: #faf8f5;
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
     }
     .modal-main-display img {
       width: 100%;
@@ -796,6 +797,70 @@
       object-fit: contain;
       display: block;
       background: #faf8f5;
+      transition: opacity 0.3s ease;
+    }
+    .modal-main-display img.is-changing {
+      opacity: 0.2;
+    }
+
+    /* Modal Slider Arrows (KAFT aesthetic) */
+    .modal-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(35, 28, 23, 0.12);
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: var(--transition-smooth);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .modal-slider-arrow:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border-color: var(--charcoal-deep);
+    }
+    .modal-slider-arrow.prev { left: 0.8rem; }
+    .modal-slider-arrow.next { right: 0.8rem; }
+
+    /* Modal Gallery Counter (KAFT style) */
+    .modal-gallery-counter {
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      background: rgba(35, 28, 23, 0.72);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      z-index: 5;
+    }
+
+    /* Auto Slider Progress Bar */
+    .modal-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(35, 28, 23, 0.08);
+      z-index: 5;
+    }
+    .modal-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--wood-terracotta);
     }
     .modal-thumbs-grid {
       display: grid;
@@ -2006,8 +2071,18 @@
       
       <!-- Gallery Column -->
       <div class="modal-gallery-column">
-        <div class="modal-main-display">
+        <div class="modal-main-display" id="modalMainDisplayWrap">
           <img src="images/pets-aruv-bourbon-2.jpg" id="modalMainDisplayImg" alt="ARUV BOURBON Detail View" />
+          <button class="modal-slider-arrow prev" onclick="prevModalImage(event)" aria-label="Previous photo">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="modal-slider-arrow next" onclick="nextModalImage(event)" aria-label="Next photo">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="modal-gallery-counter" id="modalGalleryCounter">01 / 10</span>
+          <div class="modal-progress-bar">
+            <div class="modal-progress-fill" id="modalProgressFill"></div>
+          </div>
         </div>
         <div class="modal-thumbs-grid" id="modalThumbsGrid">
           <!-- Populated dynamically by JS -->
@@ -2379,17 +2454,116 @@
       }
 
       document.getElementById('productModal').classList.add('open');
+
+      // Initialize and start automatic sliding
+      setModalImage(0, false);
+      startModalAutoSlide();
+    }
+
+    // ==========================================
+    // MODAL AUTO-SLIDER (KAFT-STYLE PHOTO CAROUSEL)
+    // ==========================================
+    let currentModalImgIndex = 0;
+    const modalSlideIntervalTime = 3800; // 3.8s per slide
+    let modalProgressStartTime = null;
+    let modalProgressAnimFrame = null;
+    let isModalHovered = false;
+
+    function startModalAutoSlide() {
+      cancelAnimationFrame(modalProgressAnimFrame);
+      modalProgressStartTime = null;
+      const progressFill = document.getElementById('modalProgressFill');
+      if (progressFill) progressFill.style.width = '0%';
+      modalProgressAnimFrame = requestAnimationFrame(animateModalProgress);
+    }
+
+    function stopModalAutoSlide() {
+      cancelAnimationFrame(modalProgressAnimFrame);
+      const progressFill = document.getElementById('modalProgressFill');
+      if (progressFill) progressFill.style.width = '0%';
+    }
+
+    function animateModalProgress(timestamp) {
+      if (isModalHovered) {
+        modalProgressAnimFrame = requestAnimationFrame(animateModalProgress);
+        return;
+      }
+      if (!modalProgressStartTime) modalProgressStartTime = timestamp;
+      const elapsed = timestamp - modalProgressStartTime;
+      const progressPercent = Math.min((elapsed / modalSlideIntervalTime) * 100, 100);
+      const progressFill = document.getElementById('modalProgressFill');
+      if (progressFill) progressFill.style.width = `${progressPercent}%`;
+
+      if (elapsed < modalSlideIntervalTime) {
+        modalProgressAnimFrame = requestAnimationFrame(animateModalProgress);
+      } else {
+        nextModalImage();
+      }
+    }
+
+    function restartModalAutoSlide() {
+      stopModalAutoSlide();
+      startModalAutoSlide();
+    }
+
+    function setModalImage(index, animateFade = true) {
+      if (!aruvBourbonImages || aruvBourbonImages.length === 0) return;
+      currentModalImgIndex = (index + aruvBourbonImages.length) % aruvBourbonImages.length;
+      const item = aruvBourbonImages[currentModalImgIndex];
+      const mainImg = document.getElementById('modalMainDisplayImg');
+
+      if (mainImg) {
+        if (animateFade) {
+          mainImg.classList.add('is-changing');
+          setTimeout(() => {
+            mainImg.src = item.src;
+            mainImg.alt = item.title;
+            mainImg.classList.remove('is-changing');
+          }, 120);
+        } else {
+          mainImg.src = item.src;
+          mainImg.alt = item.title;
+        }
+      }
+
+      // Update counter badge
+      const counter = document.getElementById('modalGalleryCounter');
+      if (counter) {
+        const currentNum = String(currentModalImgIndex + 1).padStart(2, '0');
+        const totalNum = String(aruvBourbonImages.length).padStart(2, '0');
+        counter.textContent = `${currentNum} / ${totalNum}`;
+      }
+
+      // Update active thumbnail
+      const thumbs = document.querySelectorAll('.modal-thumb');
+      thumbs.forEach((thumb, i) => {
+        const isActive = i === currentModalImgIndex;
+        thumb.classList.toggle('active', isActive);
+      });
+    }
+
+    function nextModalImage(e) {
+      if (e) e.stopPropagation();
+      setModalImage(currentModalImgIndex + 1);
+      restartModalAutoSlide();
+    }
+
+    function prevModalImage(e) {
+      if (e) e.stopPropagation();
+      setModalImage(currentModalImgIndex - 1);
+      restartModalAutoSlide();
     }
 
     function switchModalThumb(index) {
-      const mainImg = document.getElementById('modalMainDisplayImg');
-      if (mainImg && aruvBourbonImages[index]) {
-        mainImg.src = aruvBourbonImages[index].src;
-        mainImg.alt = aruvBourbonImages[index].title;
-      }
-      document.querySelectorAll('.modal-thumb').forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
-      });
+      setModalImage(index);
+      restartModalAutoSlide();
+    }
+
+    // Attach hover listener for pause
+    const wrap = document.getElementById('modalMainDisplayWrap');
+    if (wrap) {
+      wrap.addEventListener('mouseenter', () => { isModalHovered = true; });
+      wrap.addEventListener('mouseleave', () => { isModalHovered = false; });
     }
 
     // Mobile Hamburger Toggle
@@ -2533,6 +2707,7 @@
       modal.classList.add('open');
     }
     function closeModal() {
+      stopModalAutoSlide();
       modal.classList.remove('open');
     }
     modal.addEventListener('click', e => {
