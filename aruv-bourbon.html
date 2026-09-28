@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ARUV BOURBON — WoodenArtShop</title>
+  <meta name="description" content="ARUV BOURBON — Premium birch plywood pet kennel with screwless slot-lock joinery and certified zero-VOC coating. Available in S, M, L sizes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-stone: #faf7f2;
+      --bg-stone-subtle: #f2eae1;
+      --bg-card: #ffffff;
+      --charcoal: #231c17;
+      --charcoal-deep: #191410;
+      --charcoal-soft: #3d332a;
+      --text-muted: #6b5c51;
+      --text-light: #96867a;
+      --wood-terracotta: #b87333;
+      --wood-sand: #ebdcca;
+      --border-subtle: rgba(45, 30, 20, 0.08);
+      --border-focus: rgba(184, 115, 51, 0.35);
+      --shadow-clean: 0 4px 20px rgba(35, 25, 18, 0.04);
+      --shadow-elevated: 0 16px 36px rgba(35, 25, 18, 0.08);
+    }
+
+    html { scroll-behavior: smooth; color-scheme: light; }
+
+    body {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-stone);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.65;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── HEADER ── */
+    .product-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+    .header-back:hover { color: var(--wood-terracotta); }
+    .header-back svg { transition: transform 0.25s ease; }
+    .header-back:hover svg { transform: translateX(-3px); }
+
+    .header-brand {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .header-collection {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    /* ── FULL-PAGE GALLERY ── */
+    .gallery-section {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--charcoal-deep);
+    }
+
+    .gallery-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+      will-change: transform;
+    }
+
+    .gallery-slide {
+      min-width: 100vw;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Slide overlay for readability */
+    .gallery-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(25, 20, 16, 0.08) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(25, 20, 16, 0.28) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* ── GALLERY CONTROLS ── */
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 52px;
+      height: 52px;
+      background: rgba(250, 247, 242, 0.15);
+      border: 1px solid rgba(250, 247, 242, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #faf7f2;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .gallery-btn:hover {
+      background: rgba(184, 115, 51, 0.6);
+      border-color: rgba(184, 115, 51, 0.8);
+      transform: translateY(-50%) scale(1.05);
+    }
+    .gallery-btn.prev { left: 24px; }
+    .gallery-btn.next { right: 24px; }
+
+    /* ── SLIDE COUNTER ── */
+    .gallery-counter {
+      position: absolute;
+      bottom: 28px;
+      right: 32px;
+      z-index: 20;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: rgba(250, 247, 242, 0.75);
+    }
+
+    /* ── SLIDE DOTS ── */
+    .gallery-dots {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+    }
+    .gallery-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(250, 247, 242, 0.35);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .gallery-dot.active {
+      background: var(--wood-terracotta);
+      transform: scale(1.4);
+    }
+
+    /* ── PRODUCT INFO SECTION ── */
+    .product-info {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .product-title-block h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .product-title-block .collection-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .product-title-block .product-tagline {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* Sizes grid */
+    .sizes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .size-card {
+      background: var(--bg-stone-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 18px 14px;
+      text-align: center;
+    }
+    .size-card .size-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .size-card .size-dims {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+    .size-card .size-desc {
+      font-size: 10px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* Material highlights */
+    .material-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .material-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--charcoal-soft);
+      background: var(--bg-stone-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      padding: 6px 14px;
+    }
+    .material-pill .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--wood-terracotta);
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .cta-block {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--charcoal);
+      color: var(--bg-stone);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: var(--wood-terracotta);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 13px 24px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+      border-color: var(--wood-terracotta);
+      color: var(--wood-terracotta);
+    }
+
+    /* Right column — description */
+    .product-description h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      color: var(--charcoal);
+    }
+    .product-description p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+      margin: 24px 0 0;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      line-height: 1.55;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li .fi-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--wood-terracotta);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 0;
+    }
+
+    /* ── CARE & MATERIAL SECTION ── */
+    .care-section {
+      background: var(--charcoal-deep);
+      color: var(--bg-stone);
+      padding: 80px 40px;
+    }
+    .care-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    .care-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      color: var(--wood-sand);
+    }
+    .care-block p, .care-block li {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(250, 247, 242, 0.6);
+      line-height: 1.8;
+    }
+    .care-block ul { list-style: none; }
+    .care-block ul li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(250, 247, 242, 0.06);
+    }
+    .care-block ul li:last-child { border-bottom: none; }
+    .care-block a {
+      color: var(--wood-terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 115, 51, 0.3);
+      transition: border-color 0.2s;
+    }
+    .care-block a:hover { border-color: var(--wood-terracotta); }
+
+    /* ── FOOTER ── */
+    .product-footer {
+      background: var(--charcoal-deep);
+      border-top: 1px solid rgba(250, 247, 242, 0.06);
+      text-align: center;
+      padding: 40px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(250, 247, 242, 0.3);
+      text-transform: uppercase;
+    }
+
+    /* ── THUMBNAIL STRIP ── */
+    .thumb-strip {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 6px;
+      padding: 12px;
+      background: rgba(25, 20, 16, 0.55);
+      border-radius: 8px 8px 0 0;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .thumb-item {
+      width: 52px;
+      height: 36px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .thumb-item.active {
+      border-color: var(--wood-terracotta);
+    }
+    .thumb-item:hover {
+      border-color: rgba(250, 247, 242, 0.6);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .product-header { padding: 0 20px; }
+      .header-collection { display: none; }
+      .product-info {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 56px 24px 48px;
+      }
+      .care-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .care-section { padding: 60px 24px; }
+      .thumb-strip { display: none; }
+      .gallery-btn { width: 40px; height: 40px; }
+      .gallery-btn.prev { left: 12px; }
+      .gallery-btn.next { right: 12px; }
+    }
+    @media (max-width: 600px) {
+      .sizes-grid { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+      .size-card { padding: 14px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── FIXED HEADER ── -->
+  <header class="product-header">
+    <a href="index.html#products" class="header-back" onclick="sessionStorage.setItem('returnCat','pets')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Back to Pets
+    </a>
+    <a href="index.html" class="header-brand">WoodenArtShop</a>
+    <span class="header-collection">Pets Collection</span>
+  </header>
+
+  <!-- ── FULL-PAGE GALLERY ── -->
+  <section class="gallery-section" id="gallery">
+
+    <div class="gallery-track" id="galleryTrack">
+      <!-- Slides will be injected by JS -->
+    </div>
+
+    <!-- Prev / Next -->
+    <button class="gallery-btn prev" id="galleryPrev" aria-label="Previous photo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <button class="gallery-btn next" id="galleryNext" aria-label="Next photo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+
+    <!-- Counter -->
+    <div class="gallery-counter" id="galleryCounter">1 / 10</div>
+
+    <!-- Dots -->
+    <div class="gallery-dots" id="galleryDots"></div>
+
+    <!-- Thumbnail strip -->
+    <div class="thumb-strip" id="thumbStrip"></div>
+
+  </section>
+
+  <!-- ── PRODUCT INFO ── -->
+  <section class="product-info">
+
+    <!-- LEFT: Title, Sizes, Pills, CTA -->
+    <div class="product-title-block">
+      <span class="collection-tag">Pets Collection</span>
+      <h1>Aruv<br>Bourbon</h1>
+      <p class="product-tagline">
+        An architectural kennel where sculptural birch joinery meets the calm of slow living.
+        Screwless slot-lock assembly. Certified zero-VOC finish. Three sizes for every companion.
+      </p>
+
+      <!-- Size cards -->
+      <div class="sizes-grid">
+        <div class="size-card">
+          <span class="size-label">Small</span>
+          <div class="size-dims">580 × 430<br>× 400 mm</div>
+          <div class="size-desc">22.8 × 16.9 × 15.7 in</div>
+        </div>
+        <div class="size-card">
+          <span class="size-label">Medium</span>
+          <div class="size-dims">750 × 600<br>× 510 mm</div>
+          <div class="size-desc">29.5 × 23.6 × 20.1 in</div>
+        </div>
+        <div class="size-card">
+          <span class="size-label">Large</span>
+          <div class="size-dims">960 × 815<br>× 670 mm</div>
+          <div class="size-desc">37.8 × 32.1 × 26.4 in</div>
+        </div>
+      </div>
+
+      <!-- Material pills -->
+      <div class="material-pills">
+        <span class="material-pill"><span class="dot"></span> 9mm Birch Plywood</span>
+        <span class="material-pill"><span class="dot"></span> Screwless Assembly</span>
+        <span class="material-pill"><span class="dot"></span> Zero-VOC Coating</span>
+        <span class="material-pill"><span class="dot"></span> Flat-Pack Delivery</span>
+        <span class="material-pill"><span class="dot"></span> Washable Cushion</span>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <a href="index.html#contact" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Wholesale Inquiry
+        </a>
+        <a href="#care" class="btn-secondary">Materials & Care</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Description & Features -->
+    <div class="product-description">
+      <h2>Crafted for quiet interiors</h2>
+      <p>
+        The Aruv Bourbon kennel is assembled without a single screw — each panel clicks into place through precision-cut slot-lock joints milled from first-quality 9 mm Baltic Birch Plywood. The result is a structure of unexpected rigidity and warmth that feels at home beside Scandinavian furniture as much as rustic farmhouse interiors.
+      </p>
+      <p>
+        Every surface is treated with <a href="https://www.rubiomonocoat.com/en/certificates?country=aaa" target="_blank" rel="noopener" style="color:var(--wood-terracotta);text-decoration:none;border-bottom:1px solid rgba(184,115,51,0.35);">Rubio Monocoat® Plant Oil</a> — a certified zero-VOC, zero-formaldehyde finish that is completely safe for pets and children. The coating enhances the natural birch grain while protecting it from daily wear.
+      </p>
+      <p>
+        Cushion and canopy fabrics in Indigo Blue and White are machine-washable and removable. Each kennel ships flat-pack with a detailed installation guide; no tools are required. Individual parts can be ordered separately if needed.
+      </p>
+
+      <ul class="feature-list">
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Installs without screws, bolts or glue — slot-lock joinery only
+        </li>
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Rubio Monocoat® certified: health & toy safe, zero VOC
+        </li>
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Machine-washable cushion and removable canopy
+        </li>
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Available in Indigo Blue and White fabric combinations
+        </li>
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Flat-pack ships worldwide; spare parts available on request
+        </li>
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Natural birch grain varies — each piece is uniquely patterned
+        </li>
+        <li>
+          <svg class="fi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Contents: kennel, cushion, installation guide, cloth
+        </li>
+      </ul>
+    </div>
+
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ── CARE & MATERIAL ── -->
+  <section class="care-section" id="care">
+    <div class="care-inner">
+
+      <div class="care-block">
+        <h3>Material</h3>
+        <p>
+          First-quality 9 mm Baltic Birch Plywood, selected for its uniform core, consistent density, and natural warmth. Each sheet is CNC-milled for precise joinery tolerance — panels align with hand-pressure only, no mallet required.
+        </p>
+        <p style="margin-top:14px;">
+          The birch grain is a living pattern. Every kennel carries a subtly different surface character — no two pieces are identical.
+        </p>
+      </div>
+
+      <div class="care-block">
+        <h3>Coating & Safety</h3>
+        <p>
+          All wood surfaces are finished with <a href="https://www.rubiomonocoat.com/en/certificates?country=aaa" target="_blank" rel="noopener">Rubio Monocoat® Pure Plant Oil</a> — an industry-certified, single-coat wood finish that is:
+        </p>
+        <ul style="margin-top:12px;">
+          <li>Zero VOC (volatile organic compounds)</li>
+          <li>Zero formaldehyde</li>
+          <li>Health & toy safety certified</li>
+          <li>Food contact safe</li>
+          <li>Biodegradable</li>
+        </ul>
+      </div>
+
+      <div class="care-block">
+        <h3>Care Instructions</h3>
+        <ul>
+          <li>Wipe wood surfaces with a slightly damp cloth</li>
+          <li>Avoid prolonged exposure to direct sunlight</li>
+          <li>Recommended for indoor use only</li>
+          <li>Remove cushion and machine-wash at 30°C</li>
+          <li>Do not bleach or tumble dry cushion fabric</li>
+          <li>Reassemble panels by hand — no tools needed</li>
+          <li>Contact us for support at any stage</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="product-footer">
+    © 2025 WoodenArtShop &nbsp;·&nbsp; Handcrafted Studio &nbsp;·&nbsp; All Rights Reserved
+  </footer>
+
+  <script>
+    // ── GALLERY DATA ──
+    const slides = [
+      { src: 'images/pets-aruv-bourbon-1.jpg',      alt: 'ARUV BOURBON — White canopy lifestyle' },
+      { src: 'images/pets-aruv-bourbon-2.jpg',      alt: 'ARUV BOURBON — Navy canopy lifestyle' },
+      { src: 'images/pets-aruv-bourbon-3.jpg',      alt: 'ARUV BOURBON — Open frame with blue cushion' },
+      { src: 'images/pets-aruv-bourbon-4.jpg',      alt: 'ARUV BOURBON — Open frame with white cushion' },
+      { src: 'images/pets-aruv-bourbon-5.jpg',      alt: 'ARUV BOURBON — Frame detail on floor' },
+      { src: 'images/pets-aruv-bourbon-front.jpg',  alt: 'ARUV BOURBON — Front elevation' },
+      { src: 'images/pets-aruv-bourbon-angle.jpg',  alt: 'ARUV BOURBON — 3/4 perspective' },
+      { src: 'images/pets-aruv-bourbon-sizes.png',  alt: 'ARUV BOURBON — S, M, L dimensions' },
+      { src: 'images/pets-aruv-bourbon-cushions.png', alt: 'ARUV BOURBON — Cushion colour options' },
+      { src: 'images/pets-aruv-bourbon-joints.jpg', alt: 'ARUV BOURBON — Screwless slot-lock joints' },
+    ];
+
+    let current = 0;
+    const track   = document.getElementById('galleryTrack');
+    const counter = document.getElementById('galleryCounter');
+    const dotsEl  = document.getElementById('galleryDots');
+    const thumbEl = document.getElementById('thumbStrip');
+
+    // Build slides
+    slides.forEach((s, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'gallery-slide';
+      const img = document.createElement('img');
+      img.src = s.src;
+      img.alt = s.alt;
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    });
+
+    // Build thumbnails
+    slides.forEach((s, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb-item' + (i === 0 ? ' active' : '');
+      const img = document.createElement('img');
+      img.src = s.src;
+      img.alt = 'Thumb ' + (i + 1);
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+      thumb.addEventListener('click', () => goTo(i));
+      thumbEl.appendChild(thumb);
+    });
+
+    function goTo(n) {
+      current = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}vw)`;
+      counter.textContent = `${current + 1} / ${slides.length}`;
+      // Dots
+      dotsEl.querySelectorAll('.gallery-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      // Thumbs
+      thumbEl.querySelectorAll('.thumb-item').forEach((t, i) => {
+        t.classList.toggle('active', i === current);
+      });
+    }
+
+    document.getElementById('galleryPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('galleryNext').addEventListener('click', () => goTo(current + 1));
+
+    // ── TOUCH / SWIPE SUPPORT ──
+    let touchStartX = 0;
+    const galleryEl = document.getElementById('gallery');
+    galleryEl.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    galleryEl.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    // ── KEYBOARD SUPPORT ──
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+  </script>
+
+</body>
+</html>
