@@ -149,23 +149,20 @@
 
     /* HOME / EDITORIAL SLIDER SECTION */
     .home-banner-section {
-      padding-top: 5.8rem;
-      padding-bottom: 2rem;
+      padding: 5.8rem 0 2rem;
     }
     .banner-wrapper {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
     .slider-box {
       position: relative;
       width: 100%;
-      border-radius: 14px;
+      border-radius: 0;
       overflow: hidden;
-      background: #e6e5df;
+      background: #f2eae1;
       aspect-ratio: 21 / 9;
-      box-shadow: var(--shadow-clean);
-      border: 1px solid var(--border-subtle);
     }
 
     .slider-track {
@@ -194,45 +191,18 @@
       user-select: none;
     }
 
-    /* Minimal Floating Meta Tag */
-    .slide-badge {
-      position: absolute;
-      top: 1.8rem;
-      left: 2rem;
-      background: rgba(250, 247, 242, 0.88);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(35, 28, 23, 0.1);
-      padding: 0.45rem 1.1rem;
-      border-radius: 30px;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--charcoal);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 5;
-    }
-    .slide-badge-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--wood-terracotta);
-    }
-
-    /* Slider Controls */
+    /* Slider Controls — transparent arrows */
     .slider-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(35, 28, 23, 0.1);
-      color: var(--charcoal);
+      background: transparent;
+      border: none;
+      color: #faf7f2;
+      filter: drop-shadow(0 1px 3px rgba(35, 28, 23, 0.55));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -240,9 +210,10 @@
       transition: var(--transition-smooth);
       z-index: 10;
     }
+    .slider-arrow svg { width: 26px; height: 26px; }
     .slider-arrow:hover {
-      background: var(--charcoal-deep);
-      color: #fff;
+      background: rgba(250, 247, 242, 0.12);
+      color: #ffffff;
     }
     .slider-arrow.prev { left: 1.5rem; }
     .slider-arrow.next { right: 1.5rem; }
@@ -1630,11 +1601,11 @@
       .nav-menu.open {
         right: 0;
       }
-      .slider-box { aspect-ratio: 16 / 9; border-radius: 10px; }
-      .slider-arrow { width: 36px; height: 36px; }
-      .slider-arrow.prev { left: 0.6rem; }
-      .slider-arrow.next { right: 0.6rem; }
-      .slide-badge { top: 0.8rem; left: 0.8rem; padding: 0.35rem 0.8rem; font-size: 0.58rem; }
+      .slider-box { aspect-ratio: 16 / 9; border-radius: 0; }
+      .slider-arrow { width: 40px; height: 40px; }
+      .slider-arrow svg { width: 22px; height: 22px; }
+      .slider-arrow.prev { left: 0.4rem; }
+      .slider-arrow.next { right: 0.4rem; }
       .category-grid { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -1688,12 +1659,6 @@
           </div>
         </div>
 
-        <!-- Floating Studio Tag -->
-        <div class="slide-badge">
-          <span class="slide-badge-dot"></span>
-          <span>Bespoke &amp; Volume Crafting · Studio Series</span>
-        </div>
-
         <!-- Arrows -->
         <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous Slide">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -1704,7 +1669,6 @@
 
         <!-- Bottom Controls -->
         <div class="slider-bottom-bar">
-          <span class="slide-counter" id="slideCounter">01 / 03</span>
           <div class="slider-dots" id="sliderDots">
             <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
             <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
