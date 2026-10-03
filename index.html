@@ -2689,15 +2689,64 @@
       document.getElementById('inquiryType').value = 'wholesale';
     }
 
-    // Contact Form Submission
-    function handleFormSubmit(e) {
+    // Contact Form Submission (Connected to info@woodenartshop.com)
+    async function handleFormSubmit(e) {
       e.preventDefault();
+      const submitBtn = e.target.querySelector('.form-submit-btn');
+      const originalText = submitBtn ? submitBtn.textContent : 'Submit Inquiry';
       const alertBox = document.getElementById('formSuccessAlert');
-      alertBox.style.display = 'block';
-      setTimeout(() => {
-        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
-      document.getElementById('inquiryForm').reset();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending to Studio...';
+      }
+
+      const payload = {
+        name: document.getElementById('senderName') ? document.getElementById('senderName').value : '',
+        email: document.getElementById('senderEmail') ? document.getElementById('senderEmail').value : '',
+        country: document.getElementById('senderCountry') ? document.getElementById('senderCountry').value : '',
+        inquiry_type: document.getElementById('inquiryType') ? document.getElementById('inquiryType').value : '',
+        message: document.getElementById('messageText') ? document.getElementById('messageText').value : '',
+        _subject: 'New Wholesale / Studio Inquiry — WoodenArtShop',
+        _captcha: 'false'
+      };
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/info@woodenartshop.com", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          alertBox.style.display = 'block';
+          alertBox.style.background = 'rgba(46, 125, 50, 0.08)';
+          alertBox.style.borderColor = 'rgba(46, 125, 50, 0.25)';
+          alertBox.style.color = '#2e7d32';
+          alertBox.textContent = '✦ Thank you! Your inquiry has been delivered directly to info@woodenartshop.com. We will respond within 24 hours.';
+          if (submitBtn) {
+            submitBtn.textContent = 'Inquiry Delivered ✓';
+            submitBtn.style.background = '#2e7d32';
+          }
+          setTimeout(() => {
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+          document.getElementById('inquiryForm').reset();
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        alertBox.style.display = 'block';
+        alertBox.textContent = 'Notice: If delivery is pending, please reach our workshop directly at info@woodenartshop.com.';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+        }
+      }
     }
   </script>
 </body>
