@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ARUV BOURBON — WoodenArtShop | Yatay Vitrin Showcase</title>
-  <meta name="description" content="ARUV BOURBON — Vidasız geçmeli kilit mekanizması ve %100 doğal huş ağacıyla üretilen lüks mimari evcil hayvan yuvası." />
+  <title>ARUV BOURBON — Artisanal Pet Residence | WoodenArtShop</title>
+  <meta name="description" content="ARUV BOURBON — Architectural wooden pet kennel featuring screwless slot-lock joinery and 100% natural Baltic birch craftsmanship." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -55,7 +55,7 @@
       z-index: 9999;
     }
 
-    /* ── HEADER (KAFT STYLE MINIMAL & ELEVATED) ── */
+    /* ── FIXED HEADER ── */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -145,6 +145,8 @@
       border: 1px solid var(--border-subtle);
       border-radius: 30px;
       transition: var(--transition-smooth);
+      background: transparent;
+      cursor: pointer;
     }
     .quick-inquire-btn:hover {
       border-color: var(--charcoal);
@@ -162,17 +164,16 @@
       padding-top: 72px; /* Header offset */
     }
 
-    /* ── HORIZONTAL SCROLL TRACK ── */
+    /* ── CONTINUOUS AUTO-SCROLL VIEWPORT ── */
     .showcase-viewport {
       width: 100%;
       height: calc(100vh - 72px);
       overflow-x: auto;
       overflow-y: hidden;
       display: flex;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
+      scroll-behavior: auto; /* continuous smooth RAF driving */
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Hide default scrollbar */
+      scrollbar-width: none;
       cursor: grab;
       user-select: none;
       -webkit-user-select: none;
@@ -182,11 +183,9 @@
     }
     .showcase-viewport.is-dragging {
       cursor: grabbing;
-      scroll-behavior: auto;
-      scroll-snap-type: none;
     }
 
-    /* Each Slide in the Horizontal Horizon */
+    /* Slide Item */
     .showcase-slide {
       flex: 0 0 auto;
       height: 100%;
@@ -194,7 +193,6 @@
       min-width: 58vw;
       max-width: 82vw;
       position: relative;
-      scroll-snap-align: start;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -231,7 +229,7 @@
       transform: scale(1.02);
     }
 
-    /* Slide Caption Tag (Kaft Bottom Badge) */
+    /* Slide Caption Tag */
     .slide-badge {
       position: absolute;
       bottom: 2rem;
@@ -259,7 +257,7 @@
       background: var(--wood-terracotta);
     }
 
-    /* ── FLOATING KAFT-STYLE PRODUCT PANEL (RIGHT) ── */
+    /* ── FLOATING EDITORIAL CARD (RIGHT SIDE) ── */
     .kaft-floating-panel {
       position: fixed;
       right: 3.5rem;
@@ -335,7 +333,7 @@
       font-style: italic;
     }
 
-    /* Finish / Material Block */
+    /* Size Selector Block */
     .option-group {
       margin-bottom: 1.4rem;
     }
@@ -354,40 +352,6 @@
       color: var(--wood-terracotta);
     }
 
-    .finish-swatches {
-      display: flex;
-      gap: 0.75rem;
-    }
-    .finish-swatch {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.5rem 0.9rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      background: var(--bg-card);
-      cursor: pointer;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      transition: var(--transition-smooth);
-    }
-    .finish-swatch:hover {
-      border-color: var(--charcoal-soft);
-    }
-    .finish-swatch.active {
-      border-color: var(--wood-terracotta);
-      background: #fffdf9;
-      box-shadow: 0 0 0 1px var(--wood-terracotta);
-    }
-    .swatch-circle {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-    }
-
-    /* Size Selector Block */
     .sizes-flex {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -397,7 +361,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
-      padding: 0.8rem 0.5rem;
+      padding: 0.85rem 0.5rem;
       text-align: center;
       cursor: pointer;
       transition: var(--transition-smooth);
@@ -412,17 +376,17 @@
       color: #ffffff;
     }
     .size-name {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       display: block;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
     }
     .size-detail {
-      font-size: 0.62rem;
-      opacity: 0.8;
+      font-size: 0.65rem;
+      opacity: 0.85;
       display: block;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     /* Specs Pills Row */
@@ -446,28 +410,39 @@
     }
     .spec-tag svg { width: 12px; height: 12px; fill: var(--wood-terracotta); }
 
-    /* Price & Purchase CTA Block */
+    /* Studio Presentation & Inquiry Block */
     .purchase-box {
       border-top: 1px solid var(--border-subtle);
       padding-top: 1.4rem;
     }
-    .price-row {
+    .presentation-status-row {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
     }
-    .price-val {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 2rem;
-      font-weight: 500;
+    .current-dims-badge {
+      font-size: 0.74rem;
       color: var(--charcoal-deep);
-      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0.08em;
     }
-    .price-sub {
-      font-size: 0.72rem;
-      color: var(--text-light);
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      color: #2e7d32;
+      font-weight: 600;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2e7d32;
+      display: inline-block;
     }
 
     .btn-action-main {
@@ -522,10 +497,10 @@
     }
 
     .trust-bullets {
-      margin-top: 1.1rem;
+      margin-top: 1.2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.45rem;
     }
     .trust-bullet {
       font-size: 0.68rem;
@@ -539,7 +514,7 @@
       font-weight: 700;
     }
 
-    /* ── BOTTOM HUD CONTROLS (KAFT INSPIRED) ── */
+    /* ── BOTTOM HUD CONTROLS ── */
     .showcase-hud {
       position: absolute;
       bottom: 1.8rem;
@@ -636,6 +611,7 @@
       padding: 0.5rem 1rem;
       border-radius: 30px;
       border: 1px solid var(--border-subtle);
+      text-decoration: none;
     }
     .scroll-down-prompt:hover {
       color: var(--wood-terracotta);
@@ -705,7 +681,7 @@
       display: block;
     }
 
-    /* Feature Pillars (3 Columns) */
+    /* Feature Pillars */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -780,7 +756,7 @@
       border-bottom: none;
     }
 
-    /* Kaft-style Accordion FAQ */
+    /* FAQ Accordion */
     .faq-section {
       background: var(--bg-stone-subtle);
       padding: 6rem 3.5rem;
@@ -942,7 +918,7 @@
     <div class="header-left">
       <a href="index.html" class="back-btn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Koleksiyona Dön
+        Back to Collection
       </a>
       <span class="category-crumb">Studio <strong>/ Pets Collection</strong></span>
     </div>
@@ -952,150 +928,128 @@
     </a>
 
     <div class="header-right">
-      <a href="#story" class="quick-inquire-btn">Tasarım Hikayesi</a>
-      <button class="quick-inquire-btn" onclick="openInquireModal()">Teklif / İletişim</button>
+      <a href="#story" class="quick-inquire-btn">Design Story</a>
+      <button class="quick-inquire-btn" onclick="openInquireModal()">Studio Inquiries</button>
     </div>
   </header>
 
   <!-- ── KAFT SHOWCASE SECTION (FULL VIEWPORT HORIZONTAL SHOWCASE) ── -->
   <section class="showcase-hero">
     
-    <!-- Horizontal Scrollable Viewport -->
+    <!-- Continuously Auto-Scrolling Horizontal Viewport -->
     <div class="showcase-viewport" id="showcaseViewport">
       
-      <!-- Slide 1: Front Architectural View -->
-      <div class="showcase-slide" data-slide="1" data-caption="01. MİMARİ CEPHE GÖRÜNÜMÜ">
+      <!-- Slide 1: Front Elevation -->
+      <div class="showcase-slide" data-slide="1">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-front.jpg" alt="ARUV BOURBON Ön Cephe" loading="eager" />
+          <img src="images/pets-aruv-bourbon-front.jpg" alt="ARUV BOURBON Front Elevation" loading="eager" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>01 / Mimari Form & Ön Cephe</span>
+          <span>01 / Architectural Elevation & Front View</span>
         </div>
       </div>
 
       <!-- Slide 2: Angled 3D Perspective -->
-      <div class="showcase-slide" data-slide="2" data-caption="02. AÇILI BAKIŞ & 3D HACİM">
+      <div class="showcase-slide" data-slide="2">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-angle.jpg" alt="ARUV BOURBON Açılı Bakış" loading="lazy" />
+          <img src="images/pets-aruv-bourbon-angle.jpg" alt="ARUV BOURBON Angled View" loading="lazy" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>02 / Açılı Perspektif & Derinlik</span>
+          <span>02 / 3D Perspective & Volume</span>
         </div>
       </div>
 
-      <!-- Slide 3: Screwless Joint Craftsmanship -->
-      <div class="showcase-slide" data-slide="3" data-caption="03. VİDASIZ GEÇMELİ KİLİT ZANAATI">
+      <!-- Slide 3: Screwless Slot-Lock Joinery -->
+      <div class="showcase-slide" data-slide="3">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-joints.jpg" alt="Vidasız Geçmeli Kilit Detayı" loading="lazy" />
+          <img src="images/pets-aruv-bourbon-joints.jpg" alt="Screwless Slot-Lock Joinery" loading="lazy" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>03 / Geçmeli Kilit Zanaatı</span>
+          <span>03 / Screwless Slot-Lock Joinery</span>
         </div>
       </div>
 
-      <!-- Slide 4: Modern Interior Lifestyle -->
-      <div class="showcase-slide" data-slide="4" data-caption="04. YAŞAM ALANI UYUMU (LIFESTYLE)">
+      <!-- Slide 4: Living Space Lifestyle -->
+      <div class="showcase-slide" data-slide="4">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-1.jpg" alt="ARUV BOURBON Yaşam Alanı" loading="lazy" />
+          <img src="images/pets-aruv-bourbon-1.jpg" alt="Living Space Interior Lifestyle" loading="lazy" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>04 / Ev & Yaşam Alanı Ambiyansı</span>
+          <span>04 / Interior Living Space Ambience</span>
         </div>
       </div>
 
       <!-- Slide 5: Natural Birch Grain Detail -->
-      <div class="showcase-slide" data-slide="5" data-caption="05. DOĞAL AĞAÇ DOKUSU & GÖLGE KATMANLARI">
+      <div class="showcase-slide" data-slide="5">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-2.jpg" alt="Doğal Ağaç Dokusu" loading="lazy" />
+          <img src="images/pets-aruv-bourbon-2.jpg" alt="Solid Baltic Birch Wood Grain" loading="lazy" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>05 / Doğal Huş Ağacı Dokusu</span>
+          <span>05 / Natural Birch Grain & Shadow Layers</span>
         </div>
       </div>
 
-      <!-- Slide 6: Premium Cushion Craft -->
-      <div class="showcase-slide" data-slide="6" data-caption="06. ORTOPEDİK MİNDER & KUMAŞ DOKUSU">
+      <!-- Slide 6: Removable Upholstered Cushion -->
+      <div class="showcase-slide" data-slide="6">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-cushions.png" alt="Ortopedik Minder ve Kumaş" loading="lazy" />
+          <img src="images/pets-aruv-bourbon-cushions.png" alt="Upholstered Cushion Craft" loading="lazy" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>06 / Çıkarılabilir Yıkanabilir Minder</span>
+          <span>06 / Removable Linen Upholstered Cushion</span>
         </div>
       </div>
 
-      <!-- Slide 7: Technical Size Drawing -->
-      <div class="showcase-slide" data-slide="7" data-caption="07. TEKNİK ÖLÇÜLER & S / M / L FORMLARI">
+      <!-- Slide 7: Technical Dimensional Drawing -->
+      <div class="showcase-slide" data-slide="7">
         <div class="slide-media-wrap">
-          <img src="images/pets-aruv-bourbon-sizes.png" alt="Teknik Ölçü Çizimi" loading="lazy" />
+          <img src="images/pets-aruv-bourbon-sizes.png" alt="Technical Architectural Dimensions" loading="lazy" />
         </div>
         <div class="slide-badge">
           <span class="badge-dot"></span>
-          <span>07 / Mimari Teknik Ölçü Çizimi</span>
+          <span>07 / Architectural Technical Dimension Drawing</span>
         </div>
       </div>
 
     </div>
 
-    <!-- ── KAFT-STYLE FLOATING RIGHT PANEL ── -->
+    <!-- ── EDITORIAL RIGHT PANEL (STICKY / FLOATING) ── -->
     <aside class="kaft-floating-panel">
       <div class="panel-eyebrow">
-        <span class="panel-tag">PETS COLLECTION • 2026 EDITION</span>
+        <span class="panel-tag">PETS COLLECTION • STUDIO EDITION</span>
         <span class="panel-sku">SKU: WA-PET-01</span>
       </div>
 
       <h2 class="panel-title">ARUV BOURBON</h2>
-      <p class="panel-subtitle">Mimari Vidasız Geçmeli Kedi & Köpek Evi</p>
+      <p class="panel-subtitle">Architectural Wooden Pet Residence</p>
 
       <div class="panel-quote">
-        “Her parça tek bir vida dahi gerektirmeksizin birbirine kilitlenir; ahşabın yaşayan dokusu dostunuza sıcak, güvenli bir sığınak sunar.”
+        “Every component locks together without a single screw; the living warmth of solid birch creates a sculpted, serene sanctuary.”
       </div>
 
-      <!-- Finish Selection -->
+      <!-- Size Selection (Clean: Only Size & Dimensions) -->
       <div class="option-group">
         <div class="option-header">
-          <span>Yüzey & Renk:</span>
-          <span class="option-val" id="selectedFinish">Bourbon Meşe</span>
-        </div>
-        <div class="finish-swatches">
-          <div class="finish-swatch active" onclick="selectFinish(this, 'Bourbon Meşe')">
-            <span class="swatch-circle" style="background: #8b5a2b;"></span>
-            Bourbon
-          </div>
-          <div class="finish-swatch" onclick="selectFinish(this, 'Doğal Huş')">
-            <span class="swatch-circle" style="background: #e6cba8;"></span>
-            Doğal
-          </div>
-          <div class="finish-swatch" onclick="selectFinish(this, 'Koyu Fındık')">
-            <span class="swatch-circle" style="background: #3c2415;"></span>
-            Koyu
-          </div>
-        </div>
-      </div>
-
-      <!-- Size Selection -->
-      <div class="option-group">
-        <div class="option-header">
-          <span>Beden & Ölçü:</span>
-          <span class="option-val" id="selectedSize">M (Orta Irk)</span>
+          <span>Available Sizes:</span>
+          <span class="option-val" id="selectedSize">M (Medium)</span>
         </div>
         <div class="sizes-flex">
-          <div class="size-btn" onclick="selectSize(this, 'S (Küçük Irk & Kedi)', '4.250 TL', '50 x 42 x 45 cm')">
+          <div class="size-btn" onclick="selectSize(this, 'S (Small)', '50 × 42 × 45 cm (19.7″ × 16.5″ × 17.7″)')">
             <span class="size-name">S</span>
-            <span class="size-detail">Kedi & Toy<br>50×42 cm</span>
+            <span class="size-detail">50 × 42 × 45 cm<br>19.7″ × 16.5″</span>
           </div>
-          <div class="size-btn active" onclick="selectSize(this, 'M (Orta Irk)', '4.850 TL', '64 x 54 x 58 cm')">
+          <div class="size-btn active" onclick="selectSize(this, 'M (Medium)', '64 × 54 × 58 cm (25.2″ × 21.3″ × 22.8″)')">
             <span class="size-name">M</span>
-            <span class="size-detail">Fransız Bulldog<br>64×54 cm</span>
+            <span class="size-detail">64 × 54 × 58 cm<br>25.2″ × 21.3″</span>
           </div>
-          <div class="size-btn" onclick="selectSize(this, 'L (Büyük Irk)', '5.650 TL', '80 x 68 x 72 cm')">
+          <div class="size-btn" onclick="selectSize(this, 'L (Large)', '80 × 68 × 72 cm (31.5″ × 26.8″ × 28.3″)')">
             <span class="size-name">L</span>
-            <span class="size-detail">Golden / Boxer<br>80×68 cm</span>
+            <span class="size-detail">80 × 68 × 72 cm<br>31.5″ × 26.8″</span>
           </div>
         </div>
       </div>
@@ -1104,49 +1058,51 @@
       <div class="specs-tag-row">
         <span class="spec-tag">
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-          %100 Doğal Huş
+          100% Baltic Birch
         </span>
         <span class="spec-tag">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          Zero-VOC Sertifikalı
+          Zero-VOC Certified
         </span>
         <span class="spec-tag">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          3 Dk. Vidasız Kurulum
+          3-Min Tool-Free Setup
         </span>
       </div>
 
-      <!-- Purchase / Inquire Block -->
+      <!-- Studio Presentation & Inquiry Block (No Price / No Add to Cart) -->
       <div class="purchase-box">
-        <div class="price-row">
-          <div>
-            <div class="price-val" id="priceDisplay">4.850 TL</div>
-            <div class="price-sub" id="dimsDisplay">Ölçü: 64 × 54 × 58 cm</div>
+        <div class="presentation-status-row">
+          <div class="current-dims-badge" id="dimsDisplay">
+            Dimensions: 64 × 54 × 58 cm
           </div>
-          <span style="font-size: 0.72rem; color: #2e7d32; font-weight: 600;">✓ Stokta Hazır</span>
+          <span class="status-badge">
+            <span class="status-dot"></span>
+            Studio Handcrafted
+          </span>
         </div>
 
-        <button class="btn-action-main" onclick="handleAddToCart()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-          Sepete Ekle
+        <button class="btn-action-main" onclick="openInquireModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Inquire / Request Studio Quote
         </button>
 
-        <button class="btn-action-secondary" onclick="openInquireModal()">
-          Toptan & Özel Ölçü Teklifi Al
-        </button>
+        <a href="#specs" class="btn-action-secondary">
+          View Technical Specifications
+        </a>
 
         <div class="trust-bullets">
           <div class="trust-bullet">
             <span class="check">✦</span>
-            <span>Tüm Türkiye'ye <strong>Ücretsiz Kargo</strong> (Demonteli düz paket)</span>
+            <span>Worldwide Studio Delivery • Flat-packed with interlocking joinery</span>
           </div>
           <div class="trust-bullet">
             <span class="check">✦</span>
-            <span>30 Gün Koşulsuz İade & Değişim Güvencesi</span>
+            <span>Eco-friendly organic vegetable oil & wax protective finish</span>
           </div>
           <div class="trust-bullet">
             <span class="check">✦</span>
-            <span>Yıkanabilir keten dokulu ortopedik minder dahil</span>
+            <span>Washable organic linen-textured orthopedic cushion included</span>
           </div>
         </div>
       </div>
@@ -1155,10 +1111,10 @@
     <!-- ── BOTTOM HUD CONTROLS ── -->
     <div class="showcase-hud">
       <div class="hud-arrows">
-        <button class="hud-arrow-btn" onclick="scrollPrev()" title="Önceki Görsel">
+        <button class="hud-arrow-btn" onclick="userStep(-1)" title="Previous View">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button class="hud-arrow-btn" onclick="scrollNext()" title="Sonraki Görsel">
+        <button class="hud-arrow-btn" onclick="userStep(1)" title="Next View">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
       </div>
@@ -1170,14 +1126,14 @@
       </div>
 
       <div class="hud-hint">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8l4 4-4 4"></path></svg>
-        <span>Tekerlek veya Sürükle</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Auto-Gliding • Drag or Wheel to Explore</span>
       </div>
     </div>
 
     <!-- Scroll down prompt to story -->
     <a href="#story" class="scroll-down-prompt">
-      <span>Hikaye & Detaylar</span>
+      <span>Design Story & Specs</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
     </a>
 
@@ -1189,17 +1145,17 @@
       
       <div class="story-grid">
         <div class="story-text-col">
-          <span class="story-eyebrow">ZANAAT FELSEFESİ</span>
-          <h2 class="story-heading">Vidasız, Eklemesiz.<br><em>Saf Ahşap Mühendisliği.</em></h2>
+          <span class="story-eyebrow">DESIGN PHILOSOPHY</span>
+          <h2 class="story-heading">No Screws, No Hardware.<br><em>Pure Architectural Woodwork.</em></h2>
           <p class="story-p">
-            Geleneksel evcil hayvan yuvalarında karşılaşılan paslanan metal vidalar, gevşeyen somunlar ve kimyasal yapıştırıcılar yerine ARUV BOURBON, kadim Japon ahşap geçme tekniklerinden ilham alan <strong>"Slot-Lock"</strong> geometrisiyle geliştirildi.
+            Moving away from flimsy metal fasteners, rusting screws, and synthetic adhesives, ARUV BOURBON was engineered around an ancient Japanese joinery philosophy adapted for modern living: precision <strong>Slot-Lock</strong> geometry.
           </p>
           <p class="story-p">
-            Her parça yüksek hassasiyetli CNC lazer kesimle hazırlanır ve birbirine mikron seviyesinde kenetlenir. Kurulumu tek bir alet dahi kullanmadan yalnızca 3 dakika sürer; ahşap paneller birbirini kilitlerken sağlam ve sarsılmaz bir mimari kütle oluşturur.
+            Each component is sculpted from premium Baltic birch using ultra-precise laser calibration. The pieces self-align and lock securely by hand in under 3 minutes with zero tools, forming an unshakeable, sculptural haven.
           </p>
         </div>
         <div class="story-visual-col">
-          <img src="images/pets-aruv-bourbon-joints.jpg" alt="Slot-Lock Detayı" />
+          <img src="images/pets-aruv-bourbon-joints.jpg" alt="Slot-Lock Joinery Craftsmanship" />
         </div>
       </div>
 
@@ -1207,25 +1163,25 @@
       <div class="pillars-grid">
         <div class="pillar-card">
           <div class="pillar-icon">✦</div>
-          <h3 class="pillar-title">Doğal Huş Kontraplak</h3>
+          <h3 class="pillar-title">Solid Baltic Birch</h3>
           <p class="pillar-desc">
-            Sürdürülebilir ormanlardan temin edilen 1. sınıf huş kontraplak. Yüksek mukavemeti sayesinde esnemez, çizilmelere karşı dayanıklıdır ve evinize doğal bir koku yayar.
+            Sourced responsibly from certified renewable forests. Its multi-ply dense core prevents warping, resists claw marks, and imbues the interior with the subtle, comforting aroma of natural wood.
           </p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-icon">◈</div>
-          <h3 class="pillar-title">Zero-VOC Güvenliği</h3>
+          <h3 class="pillar-title">Certified Zero-VOC</h3>
           <p class="pillar-desc">
-            Evcil dostlarımızın hassas koku duyuları düşünülerek formüle edilmiş, solvent ve kimyasal içermeyen bitkisel esaslı koruyucu yağ kaplaması. EN 71-3 çocuk oyuncağı sertifikalıdır.
+            Formulated specifically for the sensitive respiratory systems and keen senses of animals. Finished exclusively with solvent-free plant oils and carnauba wax, fully compliant with EN 71-3 toy safety standards.
           </p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-icon">◉</div>
-          <h3 class="pillar-title">Akustik Sığınak Formu</h3>
+          <h3 class="pillar-title">Acoustic Cocoon</h3>
           <p class="pillar-desc">
-            Üçgen piramidal çatı açısı, dışarıdan gelen ani sesleri kırarak içeride dingin ve korunaklı bir akustik koza yaratır. Gök gürültüsü ve fırtınalı havalarda güven verir.
+            The pyramidal roof geometry naturally diffuses ambient household reverberation, creating a calm acoustic refuge that instills security during storms, gatherings, or restless evenings.
           </p>
         </div>
       </div>
@@ -1234,13 +1190,13 @@
   </section>
 
   <!-- ── SECTION: SIZES & TECHNICAL SPECS ── -->
-  <section class="specs-section">
+  <section class="specs-section" id="specs">
     <div class="section-container">
       <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="story-eyebrow">TEKNİK BOYUT REHBERİ</span>
-        <h2 class="story-heading">Hangi Beden Dostunuz İçin Uygun?</h2>
+        <span class="story-eyebrow">TECHNICAL SPECIFICATIONS</span>
+        <h2 class="story-heading">Dimensions & Proportions</h2>
         <p class="story-p" style="margin-top: 1rem;">
-          Dostunuzun rahatça dönebilmesi ve yatabilmesi için doğru ebadı seçebilirsiniz.
+          Clean architectural proportions engineered for effortless domestic integration and ultimate pet comfort.
         </p>
       </div>
 
@@ -1248,34 +1204,30 @@
         <table class="lux-table">
           <thead>
             <tr>
-              <th>Beden</th>
-              <th>Dış Ölçüler (G × D × Y)</th>
-              <th>Kapı Genişliği</th>
-              <th>Önerilen Irklar</th>
-              <th>Ağırlık</th>
+              <th>Size</th>
+              <th>Exterior Dimensions (W × D × H)</th>
+              <th>Entrance Aperture</th>
+              <th>Unit Weight</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Small (S)</strong></td>
-              <td>50 × 42 × 45 cm</td>
-              <td>22 × 26 cm</td>
-              <td>Tüm Kediler, Pomeranian, Chihuahua, Maltese</td>
-              <td>5.2 kg</td>
+              <td>50 × 42 × 45 cm &nbsp;(19.7″ × 16.5″ × 17.7″)</td>
+              <td>22 × 26 cm &nbsp;(8.7″ × 10.2″)</td>
+              <td>5.2 kg &nbsp;(11.5 lbs)</td>
             </tr>
             <tr>
               <td><strong>Medium (M)</strong></td>
-              <td>64 × 54 × 58 cm</td>
-              <td>28 × 34 cm</td>
-              <td>Fransız Bulldog, Pug, Cavalier, Corgi, Beagle</td>
-              <td>8.4 kg</td>
+              <td>64 × 54 × 58 cm &nbsp;(25.2″ × 21.3″ × 22.8″)</td>
+              <td>28 × 34 cm &nbsp;(11.0″ × 13.4″)</td>
+              <td>8.4 kg &nbsp;(18.5 lbs)</td>
             </tr>
             <tr>
               <td><strong>Large (L)</strong></td>
-              <td>80 × 68 × 72 cm</td>
-              <td>35 × 42 cm</td>
-              <td>Golden Retriever, Labrador, Boxer, Border Collie</td>
-              <td>12.8 kg</td>
+              <td>80 × 68 × 72 cm &nbsp;(31.5″ × 26.8″ × 28.3″)</td>
+              <td>35 × 42 cm &nbsp;(13.8″ × 16.5″)</td>
+              <td>12.8 kg &nbsp;(28.2 lbs)</td>
             </tr>
           </tbody>
         </table>
@@ -1283,52 +1235,52 @@
     </div>
   </section>
 
-  <!-- ── SECTION: KAFT-STYLE ACCORDION FAQ ── -->
+  <!-- ── SECTION: ACCORDION FAQ ── -->
   <section class="faq-section">
     <div class="section-container">
       <div style="text-align: center;">
-        <span class="story-eyebrow">SIKÇA SORULAN SORULAR</span>
-        <h2 class="story-heading">Merak Edilenler</h2>
+        <span class="story-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="story-heading">Everything You Need to Know</h2>
       </div>
 
       <div class="faq-list">
         <div class="faq-item open">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Kurulum için tornavida veya vida gerekiyor mu?</span>
+            <span>Does assembly require any screws or tools?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            Hayır, kesinlikle vida veya alet gerekmez. Özel "Slot-Lock" geçme yuvaları sayesinde parçalar el ile birbirine takılır ve kendi ağırlığıyla kilitlenir. Kutusundan çıkarıp kurmanız ortalama 3 dakika sürer.
+            None at all. The proprietary "Slot-Lock" system allows every wooden tier to slide and lock firmly into place by hand under its own structural tension. Setup takes approximately 3 minutes out of the flat-pack box.
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>İçindeki minder yıkanabilir mi?</span>
+            <span>How do I clean and maintain the wood and cushion?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            Evet, minder kılıfı gizli fermuarlıdır. Kılıfı kolayca çıkarıp çamaşır makinesinde 30 derecede hassas programda yıkayabilirsiniz. Kumaşı leke tutmaz ve tüy yapışmasını önleyen özel keten dokuludur.
+            The included orthopedic cushion features a concealed zipper; its linen cover can be machine-washed on a gentle 30°C cycle. For the birch wood, simply wipe down with a soft, slightly damp cloth.
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Ahşap verniği evcil hayvanım için zararlı mı?</span>
+            <span>Are the wood oils and protective sealants safe for pets?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            Asla. Kullandığımız tüm yüzey yağları %100 bitkisel keten tohumu ve karnauba balmumu bazlıdır. Zero-VOC (sıfır uçucu bileşen) sertifikasına sahiptir. Dostunuz ahşabı yalasa dahi tamamen zararsızdır.
+            Completely safe. We treat the timber exclusively with food-safe linseed oil and carnauba wax compounds bearing Zero-VOC ratings and certified under EN 71-3 standards. Even if licked or gnawed, it is harmless.
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Toptan sipariş veya özel logo gravürü yaptırabilir miyiz?</span>
+            <span>Can I commission bespoke dimensions or private branding?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            Evet, stüdyomuz mimari projeler, butik oteller ve toptan alıcılar için özel ebat, renk ve lazer gravür markalama imkanı sunmaktadır. "Teklif / İletişim" butonu üzerinden talebinizi iletebilirsiniz.
+            Yes. Our artisanal studio frequently collaborates with interior designers, boutique hospitality venues, and private collectors for custom sizing, laser engravings, and tailored wood tones. Reach out via the inquiry button to discuss your project.
           </div>
         </div>
       </div>
@@ -1338,167 +1290,204 @@
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-brand">WoodenArtShop</div>
-    <p class="footer-copy">Artisanal Woodcraft Studio • © 2026 Tüm Hakları Saklıdır.</p>
+    <p class="footer-copy">Artisanal Woodcraft & Architectural Studio • © 2026 All Rights Reserved.</p>
   </footer>
 
   <!-- ── INQUIRE / WHOLESALE MODAL ── -->
   <div class="inquire-modal" id="inquireModal" onclick="if(event.target===this)closeInquireModal()">
     <div class="inquire-modal-box">
       <button class="inquire-modal-close" onclick="closeInquireModal()">✕</button>
-      <span class="story-eyebrow">ÖZEL SİPARİŞ & TOPTAN</span>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size: 1.8rem; margin: 0.4rem 0 1rem;">ARUV BOURBON Teklif Formu</h3>
+      <span class="story-eyebrow">STUDIO INQUIRIES & COMMISSIONS</span>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size: 1.8rem; margin: 0.4rem 0 1rem;">ARUV BOURBON Inquiries</h3>
       <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-        Mimari projeleriniz, evcil hayvan butikleriniz veya kişiselleştirilmiş ölçüler için stüdyomuza hemen mesaj bırakın.
+        Get in touch with our studio for bespoke dimensions, private commissions, or architectural boutique supply.
       </p>
 
       <form onsubmit="handleModalSubmit(event)" style="display:flex; flex-direction:column; gap: 0.9rem;">
         <div>
-          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Adınız Soyadınız / Firma</label>
-          <input type="text" required placeholder="Örn: Ahmet Yılmaz" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Your Name / Studio</label>
+          <input type="text" required placeholder="e.g. John Doe / Studio Interior" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
         </div>
         <div>
-          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">E-Posta Adresiniz</label>
-          <input type="email" required placeholder="ornek@alanadi.com" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Email Address</label>
+          <input type="email" required placeholder="yourname@domain.com" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
         </div>
         <div>
-          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Talebiniz</label>
-          <textarea rows="3" placeholder="Talep edilen adet, özel ölçü veya sorularınız..." style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;"></textarea>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Your Inquiry / Quantity / Size Request</label>
+          <textarea rows="3" placeholder="Please specify your desired sizes, custom dimensions, or delivery destination..." style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;"></textarea>
         </div>
-        <button type="submit" class="btn-action-main" style="margin-top:0.5rem;">Talebi Gönder</button>
+        <button type="submit" class="btn-action-main" style="margin-top:0.5rem;">Send Inquiry to Studio</button>
       </form>
     </div>
   </div>
 
-  <!-- ── JAVASCRIPT: KAFT HORIZONTAL SCROLL & INTERACTIVE LOGIC ── -->
+  <!-- ── JAVASCRIPT: CONTINUOUS SMOOTH AUTO-GLIDE & INTERACTION LOGIC ── -->
   <script>
     const viewport = document.getElementById('showcaseViewport');
-    const slides = document.querySelectorAll('.showcase-slide');
+    const originalSlides = Array.from(viewport.querySelectorAll('.showcase-slide'));
+    const totalOriginal = originalSlides.length;
     const slideCounter = document.getElementById('slideCounter');
     const hudProgress = document.getElementById('hudProgress');
-    const totalSlides = slides.length;
 
-    // ── 1. MOUSE WHEEL TO HORIZONTAL SCROLL (KAFT SIGNATURE) ──
+    // ── 1. DUPLICATE SLIDES FOR SEAMLESS INFINITE LOOPING ──
+    originalSlides.forEach(slide => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('data-clone', 'true');
+      viewport.appendChild(clone);
+    });
+
+    let singleSetWidth = 0;
+    function computeSetWidth() {
+      let width = 0;
+      for (let i = 0; i < totalOriginal; i++) {
+        width += originalSlides[i].offsetWidth;
+      }
+      singleSetWidth = width;
+    }
+    window.addEventListener('load', computeSetWidth);
+    window.addEventListener('resize', computeSetWidth);
+    computeSetWidth();
+
+    // ── 2. CONTINUOUS SLOW DRIFT AUTO-SCROLL (NEVER STOPS, GLIDES RIGHT-TO-LEFT) ──
+    const autoScrollSpeed = 0.75; // Smooth slow cinematic drift
+    let isUserInteracting = false;
+    let interactionTimeout = null;
+
+    function autoScrollLoop() {
+      if (!isUserInteracting) {
+        viewport.scrollLeft += autoScrollSpeed;
+
+        // When the first complete set has passed, loop back seamlessly
+        if (singleSetWidth > 0 && viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+        }
+      }
+      updateHUD();
+      requestAnimationFrame(autoScrollLoop);
+    }
+    requestAnimationFrame(autoScrollLoop);
+
+    function pauseAutoDriftTemporarily(ms = 3500) {
+      isUserInteracting = true;
+      clearTimeout(interactionTimeout);
+      interactionTimeout = setTimeout(() => {
+        isUserInteracting = false;
+      }, ms);
+    }
+
+    // ── 3. MOUSE WHEEL TO HORIZONTAL GLIDE ──
     viewport.addEventListener('wheel', (e) => {
-      // If user is at the very end of horizontal gallery and scrolls down,
-      // allow default scroll to naturally flow into the story section!
-      const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
-      const isAtEnd = viewport.scrollLeft >= maxScrollLeft - 10;
-      const isAtStart = viewport.scrollLeft <= 10;
+      pauseAutoDriftTemporarily(3000);
+      e.preventDefault();
+      viewport.scrollLeft += e.deltaY * 1.4;
 
-      if ((e.deltaY > 0 && !isAtEnd) || (e.deltaY < 0 && !isAtStart)) {
-        e.preventDefault();
-        viewport.scrollLeft += e.deltaY * 1.5;
+      if (singleSetWidth > 0) {
+        if (viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft < 0) {
+          viewport.scrollLeft += singleSetWidth;
+        }
       }
     }, { passive: false });
 
-    // ── 2. DRAG TO SCROLL (TOUCH & DESKTOP MOUSE GRAB) ──
+    // ── 4. DRAG TO SCROLL (DESKTOP & TOUCH) ──
     let isDown = false;
     let startX;
-    let scrollLeft;
+    let startScrollLeft;
 
     viewport.addEventListener('mousedown', (e) => {
       isDown = true;
+      pauseAutoDriftTemporarily(10000);
       viewport.classList.add('is-dragging');
       startX = e.pageX - viewport.offsetLeft;
-      scrollLeft = viewport.scrollLeft;
+      startScrollLeft = viewport.scrollLeft;
     });
 
     window.addEventListener('mouseup', () => {
       if (!isDown) return;
       isDown = false;
       viewport.classList.remove('is-dragging');
+      pauseAutoDriftTemporarily(3000);
     });
 
     viewport.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - viewport.offsetLeft;
-      const walk = (x - startX) * 1.8;
-      viewport.scrollLeft = scrollLeft - walk;
+      const walk = (x - startX) * 1.6;
+      viewport.scrollLeft = startScrollLeft - walk;
+
+      if (singleSetWidth > 0) {
+        if (viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+          startScrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft < 0) {
+          viewport.scrollLeft += singleSetWidth;
+          startScrollLeft += singleSetWidth;
+        }
+      }
     });
 
-    // ── 3. DYNAMIC HUD PROGRESS & SLIDE COUNTER TRACKING ──
+    // Touch support
+    viewport.addEventListener('touchstart', () => pauseAutoDriftTemporarily(6000), { passive: true });
+    viewport.addEventListener('touchend', () => pauseAutoDriftTemporarily(3000), { passive: true });
+
+    // ── 5. HUD PROGRESS & SLIDE COUNTER ──
     function updateHUD() {
-      const scrollPos = viewport.scrollLeft;
-      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
-      const progressPercent = maxScroll > 0 ? (scrollPos / maxScroll) * 100 : 0;
-      
+      if (!singleSetWidth) computeSetWidth();
+      const currentPos = singleSetWidth > 0 ? (viewport.scrollLeft % singleSetWidth) : 0;
+      const progressPercent = singleSetWidth > 0 ? (currentPos / singleSetWidth) * 100 : 0;
+
       hudProgress.style.width = Math.max(14, Math.min(100, progressPercent)) + '%';
 
-      // Detect active slide
+      // Determine active slide index
+      const viewportMid = currentPos + (viewport.clientWidth * 0.35);
       let currentActive = 1;
-      const viewportMid = scrollPos + (viewport.clientWidth / 2);
+      let accum = 0;
 
-      slides.forEach((slide, idx) => {
-        const slideStart = slide.offsetLeft;
-        const slideEnd = slideStart + slide.offsetWidth;
-        if (viewportMid >= slideStart && viewportMid <= slideEnd) {
-          currentActive = idx + 1;
+      for (let i = 0; i < totalOriginal; i++) {
+        const slideW = originalSlides[i].offsetWidth;
+        if (viewportMid >= accum && viewportMid < accum + slideW) {
+          currentActive = i + 1;
+          break;
         }
-      });
-
-      slideCounter.textContent = `0${currentActive} / 0${totalSlides}`;
+        accum += slideW;
+      }
+      slideCounter.textContent = `0${currentActive} / 0${totalOriginal}`;
     }
 
-    viewport.addEventListener('scroll', updateHUD, { passive: true });
-    window.addEventListener('resize', updateHUD);
-    updateHUD();
-
-    // ── 4. ARROW BUTTONS NAVIGATION ──
-    function scrollNext() {
-      const currentScroll = viewport.scrollLeft;
-      const slideWidth = slides[0].offsetWidth;
-      viewport.scrollTo({
-        left: currentScroll + slideWidth,
+    // ── 6. NAVIGATION ARROWS ──
+    function userStep(direction) {
+      pauseAutoDriftTemporarily(4000);
+      const slideW = originalSlides[0].offsetWidth;
+      viewport.scrollBy({
+        left: direction * slideW,
         behavior: 'smooth'
       });
     }
 
-    function scrollPrev() {
-      const currentScroll = viewport.scrollLeft;
-      const slideWidth = slides[0].offsetWidth;
-      viewport.scrollTo({
-        left: currentScroll - slideWidth,
-        behavior: 'smooth'
-      });
-    }
-
-    // Keyboard navigation (Arrow keys)
+    // Keyboard navigation
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') scrollNext();
-      if (e.key === 'ArrowLeft') scrollPrev();
+      if (e.key === 'ArrowRight') userStep(1);
+      if (e.key === 'ArrowLeft') userStep(-1);
       if (e.key === 'Escape') closeInquireModal();
     });
 
-    // ── 5. INTERACTIVE PRODUCT SELECTIONS ──
-    function selectFinish(el, finishName) {
-      document.querySelectorAll('.finish-swatch').forEach(s => s.classList.remove('active'));
-      el.classList.add('active');
-      document.getElementById('selectedFinish').textContent = finishName;
-    }
-
-    function selectSize(el, sizeName, price, dims) {
+    // ── 7. SIZE SELECTION (DIMENSIONS ONLY, NO BREEDS) ──
+    function selectSize(el, sizeName, dims) {
       document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
       document.getElementById('selectedSize').textContent = sizeName;
-      document.getElementById('priceDisplay').textContent = price;
-      document.getElementById('dimsDisplay').textContent = 'Ölçü: ' + dims;
+      document.getElementById('dimsDisplay').textContent = 'Dimensions: ' + dims;
     }
 
-    function handleAddToCart() {
-      const finish = document.getElementById('selectedFinish').textContent;
-      const size = document.getElementById('selectedSize').textContent;
-      const price = document.getElementById('priceDisplay').textContent;
-      alert(`Sepete Eklendi:\nARUV BOURBON\n• Kaplama: ${finish}\n• Beden: ${size}\n• Tutar: ${price}`);
-    }
-
-    // ── 6. FAQ ACCORDION ──
+    // ── 8. ACCORDION FAQ ──
     function toggleFaq(headerEl) {
       const item = headerEl.parentElement;
       item.classList.toggle('open');
     }
 
-    // ── 7. INQUIRE MODAL ──
+    // ── 9. INQUIRE MODAL ──
     function openInquireModal() {
       document.getElementById('inquireModal').classList.add('active');
     }
@@ -1507,7 +1496,7 @@
     }
     function handleModalSubmit(e) {
       e.preventDefault();
-      alert('Talebiniz stüdyomuza iletildi. En kısa sürede sizinle iletişime geçeceğiz.');
+      alert('Thank you! Your inquiry has been received by our studio. We will get back to you shortly.');
       closeInquireModal();
     }
   </script>
