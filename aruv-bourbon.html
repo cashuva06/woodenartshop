@@ -103,78 +103,195 @@
       color: var(--wood-terracotta);
     }
 
-    /* ── KAFT-STYLE PRODUCT SHOWCASE CONTAINER ── */
+    /* ── PRODUCT SHOWCASE CONTAINER ── */
     .product-showcase {
       max-width: 1440px;
       margin: 0 auto;
-      padding: 94px 40px 80px;
+      padding: 90px 40px 60px;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(380px, 0.85fr);
-      gap: 60px;
+      grid-template-columns: minmax(0, 1.28fr) minmax(370px, 0.82fr);
+      gap: 56px;
       align-items: start;
       position: relative;
     }
 
-    /* ── LEFT: VERTICAL PHOTO STREAM (KAFT STYLE) ── */
-    .product-gallery-stream {
+    /* ── LEFT: HORIZONTAL SLIDING GALLERY (KAFT STYLE) ── */
+    .gallery-column {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 16px;
+      position: relative;
     }
 
-    .gallery-photo-card {
+    .gallery-stage {
       position: relative;
+      width: 100%;
+      aspect-ratio: 1.38 / 1;
+      min-height: 420px;
+      max-height: 640px;
+      border-radius: 10px;
+      overflow: hidden;
       background: var(--bg-stone-subtle);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      overflow: hidden;
       box-shadow: var(--shadow-clean);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .gallery-photo-card:hover {
-      box-shadow: var(--shadow-elevated);
-    }
-
-    .gallery-photo-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
+      cursor: grab;
       user-select: none;
+      -webkit-user-select: none;
     }
 
-    .photo-caption-tag {
+    .gallery-stage:active {
+      cursor: grabbing;
+    }
+
+    .gallery-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .gallery-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--bg-stone-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Top progress bar */
+    .gallery-progress-bar {
       position: absolute;
-      bottom: 16px;
-      left: 18px;
-      background: rgba(250, 247, 242, 0.9);
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 10%;
+      background: var(--wood-terracotta);
+      z-index: 25;
+      transition: width 0.4s ease;
+    }
+
+    /* Top Right: Counter */
+    .gallery-counter-badge {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      z-index: 20;
+      background: rgba(35, 28, 23, 0.72);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      padding: 6px 14px;
+      color: var(--bg-stone);
+      padding: 5px 12px;
       border-radius: 100px;
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.1em;
-      color: var(--charcoal-soft);
-      border: 1px solid var(--border-subtle);
-      pointer-events: none;
+      letter-spacing: 0.15em;
     }
 
-    .photo-number-tag {
+    /* Bottom Left: Title / Caption */
+    .gallery-caption-badge {
       position: absolute;
-      top: 16px;
-      right: 18px;
-      background: rgba(35, 28, 23, 0.65);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: var(--bg-stone);
-      padding: 4px 10px;
+      bottom: 20px;
+      left: 20px;
+      z-index: 20;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--charcoal-soft);
+      padding: 7px 16px;
       border-radius: 100px;
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 500;
-      letter-spacing: 0.15em;
-      pointer-events: none;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 12px rgba(35, 28, 23, 0.06);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Prev / Next Buttons */
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 44px;
+      height: 44px;
+      background: rgba(250, 247, 242, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--charcoal);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(35, 28, 23, 0.08);
+    }
+    .gallery-nav-btn:hover {
+      background: var(--charcoal);
+      color: var(--bg-stone);
+      transform: translateY(-50%) scale(1.06);
+    }
+    .gallery-nav-btn.prev { left: 16px; }
+    .gallery-nav-btn.next { right: 16px; }
+
+    /* Thumbnails strip below the slider */
+    .gallery-thumbnails {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 6px 2px 10px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(184, 115, 51, 0.25) transparent;
+    }
+    .gallery-thumbnails::-webkit-scrollbar {
+      height: 4px;
+    }
+    .gallery-thumbnails::-webkit-scrollbar-thumb {
+      background: rgba(184, 115, 51, 0.25);
+      border-radius: 4px;
+    }
+    .thumb-btn {
+      width: 62px;
+      height: 44px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      background: var(--bg-stone-subtle);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+      transition: all 0.2s ease;
+      opacity: 0.6;
+    }
+    .thumb-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    .thumb-btn.active {
+      opacity: 1;
+      border-color: var(--wood-terracotta);
+      box-shadow: 0 2px 8px rgba(184, 115, 51, 0.25);
+    }
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ── RIGHT: STICKY PRODUCT INFO PANEL (KAFT STYLE) ── */
@@ -184,7 +301,7 @@
       align-self: start;
       max-height: calc(100vh - 108px);
       overflow-y: auto;
-      padding: 10px 10px 20px 4px;
+      padding-right: 6px;
       scrollbar-width: thin;
       scrollbar-color: rgba(184, 115, 51, 0.3) transparent;
     }
@@ -203,13 +320,13 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--wood-terracotta);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: inline-block;
     }
 
     .product-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 3.6vw, 3.5rem);
+      font-size: clamp(2.4rem, 3.4vw, 3.3rem);
       font-weight: 300;
       letter-spacing: 0.04em;
       line-height: 1.12;
@@ -222,68 +339,23 @@
       font-weight: 300;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
-    /* Mini photo jumping strip in sticky panel */
-    .sticky-thumb-nav {
-      margin-bottom: 28px;
-    }
-    .sticky-thumb-title {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 10px;
-      display: block;
-    }
-    .sticky-thumb-list {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      scrollbar-width: none;
-    }
-    .sticky-thumb-list::-webkit-scrollbar { display: none; }
-    .sticky-thumb-btn {
-      width: 44px;
-      height: 32px;
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1.5px solid var(--border-subtle);
-      background: var(--bg-stone-subtle);
-      cursor: pointer;
-      flex-shrink: 0;
-      padding: 0;
-      transition: all 0.2s ease;
-    }
-    .sticky-thumb-btn:hover {
-      border-color: var(--wood-terracotta);
-      transform: translateY(-2px);
-    }
-    .sticky-thumb-btn img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Section divider inside panel */
     .panel-divider {
       height: 1px;
       background: var(--border-subtle);
-      margin: 24px 0;
+      margin: 22px 0;
     }
 
-    /* Sizes block */
+    /* SIZES */
     .section-label {
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--charcoal-soft);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -300,13 +372,13 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
     .size-card {
       background: var(--bg-stone-subtle);
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
-      padding: 14px 10px;
+      padding: 13px 8px;
       text-align: center;
       transition: border-color 0.2s ease, background 0.2s ease;
     }
@@ -335,12 +407,12 @@
       margin-top: 4px;
     }
 
-    /* Material pills */
+    /* MATERIAL PILLS */
     .material-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .material-pill {
       display: inline-flex;
@@ -363,12 +435,12 @@
       flex-shrink: 0;
     }
 
-    /* CTA Buttons */
+    /* CTA BLOCK */
     .cta-block {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 26px;
     }
     .btn-primary {
       display: flex;
@@ -382,7 +454,7 @@
       font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      padding: 16px 28px;
+      padding: 15px 28px;
       border-radius: 4px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 14px rgba(35, 28, 23, 0.12);
@@ -404,7 +476,7 @@
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 13px 24px;
+      padding: 12px 24px;
       border-radius: 4px;
       border: 1px solid var(--border-subtle);
       transition: all 0.25s ease;
@@ -414,7 +486,7 @@
       color: var(--wood-terracotta);
     }
 
-    /* Feature summary */
+    /* QUICK SPECS */
     .quick-specs {
       list-style: none;
       margin-top: 10px;
@@ -438,12 +510,12 @@
       margin-top: 2px;
     }
 
-    /* ── DETAILED DESCRIPTION SECTION (Below showcase) ── */
+    /* ── CRAFT STORY SECTION ── */
     .product-story-section {
       background: var(--bg-stone-subtle);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 80px 40px;
+      padding: 70px 40px;
     }
 
     .story-inner {
@@ -524,14 +596,18 @@
       text-transform: uppercase;
     }
 
-    /* ── MOBILE / TABLET RESPONSIVE ── */
-    @media (max-width: 960px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 992px) {
       .product-header { padding: 0 20px; }
       .header-collection { display: none; }
       .product-showcase {
         grid-template-columns: 1fr;
         gap: 36px;
         padding: 76px 20px 50px;
+      }
+      .gallery-stage {
+        min-height: 320px;
+        aspect-ratio: 1.35 / 1;
       }
       .product-info-sticky {
         position: static;
@@ -559,6 +635,24 @@
       .size-card { padding: 12px 6px; }
       .size-card .size-dims { font-size: 10px; }
       .product-title { font-size: 2.2rem; }
+      .gallery-caption-badge {
+        font-size: 10px;
+        padding: 5px 12px;
+        bottom: 12px;
+        left: 12px;
+      }
+      .gallery-counter-badge {
+        font-size: 10px;
+        padding: 4px 10px;
+        top: 12px;
+        right: 12px;
+      }
+      .gallery-nav-btn {
+        width: 36px;
+        height: 36px;
+      }
+      .gallery-nav-btn.prev { left: 8px; }
+      .gallery-nav-btn.next { right: 8px; }
     }
   </style>
 </head>
@@ -576,85 +670,89 @@
     <span class="header-collection">Pets Collection</span>
   </header>
 
-  <!-- ── PRODUCT SHOWCASE (KAFT DUAL-COLUMN LAYOUT) ── -->
+  <!-- ── PRODUCT SHOWCASE (KAFT HORIZONTAL SLIDER & STICKY PANEL) ── -->
   <main class="product-showcase">
 
-    <!-- LEFT: VERTICALLY SCROLLING PHOTOS -->
-    <div class="product-gallery-stream" id="galleryStream">
+    <!-- LEFT: HORIZONTAL SLIDING GALLERY -->
+    <div class="gallery-column">
 
-      <!-- Photo 1 -->
-      <article class="gallery-photo-card" id="photo-1">
-        <img src="images/pets-aruv-bourbon-1.jpg" alt="ARUV BOURBON — White canopy and cushion lifestyle view" loading="eager" />
-        <span class="photo-caption-tag">White Canopy Lifestyle</span>
-        <span class="photo-number-tag">01 / 10</span>
-      </article>
+      <div class="gallery-stage" id="galleryStage">
 
-      <!-- Photo 2 -->
-      <article class="gallery-photo-card" id="photo-2">
-        <img src="images/pets-aruv-bourbon-2.jpg" alt="ARUV BOURBON — Navy blue canopy lifestyle setup" loading="lazy" />
-        <span class="photo-caption-tag">Indigo Navy Canopy Setup</span>
-        <span class="photo-number-tag">02 / 10</span>
-      </article>
+        <!-- Progress bar on top -->
+        <div class="gallery-progress-bar" id="galleryProgress"></div>
 
-      <!-- Photo 3 -->
-      <article class="gallery-photo-card" id="photo-3">
-        <img src="images/pets-aruv-bourbon-3.jpg" alt="ARUV BOURBON — Open birch frame with indigo blue cushion" loading="lazy" />
-        <span class="photo-caption-tag">Open Frame with Indigo Cushion</span>
-        <span class="photo-number-tag">03 / 10</span>
-      </article>
+        <!-- Counter badge -->
+        <div class="gallery-counter-badge" id="galleryCounter">01 / 10</div>
 
-      <!-- Photo 4 -->
-      <article class="gallery-photo-card" id="photo-4">
-        <img src="images/pets-aruv-bourbon-4.jpg" alt="ARUV BOURBON — Open birch frame with white cushion" loading="lazy" />
-        <span class="photo-caption-tag">Open Frame with Off-White Cushion</span>
-        <span class="photo-number-tag">04 / 10</span>
-      </article>
+        <!-- Caption badge -->
+        <div class="gallery-caption-badge" id="galleryCaption">White Canopy Lifestyle</div>
 
-      <!-- Photo 5 -->
-      <article class="gallery-photo-card" id="photo-5">
-        <img src="images/pets-aruv-bourbon-5.jpg" alt="ARUV BOURBON — Low angle architectural frame on floor" loading="lazy" />
-        <span class="photo-caption-tag">Low-Angle Architectural Floor Perspective</span>
-        <span class="photo-number-tag">05 / 10</span>
-      </article>
+        <!-- Track with 10 slides side by side -->
+        <div class="gallery-track" id="galleryTrack">
+          <!-- Slide 1 -->
+          <div class="gallery-slide" data-caption="White Canopy Lifestyle">
+            <img src="images/pets-aruv-bourbon-1.jpg" alt="ARUV BOURBON — White canopy and cushion lifestyle view" loading="eager" />
+          </div>
+          <!-- Slide 2 -->
+          <div class="gallery-slide" data-caption="Indigo Navy Canopy Setup">
+            <img src="images/pets-aruv-bourbon-2.jpg" alt="ARUV BOURBON — Navy blue canopy lifestyle setup" loading="lazy" />
+          </div>
+          <!-- Slide 3 -->
+          <div class="gallery-slide" data-caption="Open Birch Frame & Indigo Cushion">
+            <img src="images/pets-aruv-bourbon-3.jpg" alt="ARUV BOURBON — Open birch frame with indigo blue cushion" loading="lazy" />
+          </div>
+          <!-- Slide 4 -->
+          <div class="gallery-slide" data-caption="Open Birch Frame & Off-White Cushion">
+            <img src="images/pets-aruv-bourbon-4.jpg" alt="ARUV BOURBON — Open birch frame with white cushion" loading="lazy" />
+          </div>
+          <!-- Slide 5 -->
+          <div class="gallery-slide" data-caption="Architectural Low-Angle Floor View">
+            <img src="images/pets-aruv-bourbon-5.jpg" alt="ARUV BOURBON — Low angle architectural frame on floor" loading="lazy" />
+          </div>
+          <!-- Slide 6 -->
+          <div class="gallery-slide" data-caption="Front Elevation Geometry">
+            <img src="images/pets-aruv-bourbon-front.jpg" alt="ARUV BOURBON — Front elevation architectural view" loading="lazy" />
+          </div>
+          <!-- Slide 7 -->
+          <div class="gallery-slide" data-caption="Three-Quarter Perspective & Roofline">
+            <img src="images/pets-aruv-bourbon-angle.jpg" alt="ARUV BOURBON — 3/4 perspective joinery and roofline" loading="lazy" />
+          </div>
+          <!-- Slide 8 -->
+          <div class="gallery-slide" data-caption="Dimension Blueprint (S / M / L)">
+            <img src="images/pets-aruv-bourbon-sizes.png" alt="ARUV BOURBON — S, M, L dimensions and sizing guide" loading="lazy" />
+          </div>
+          <!-- Slide 9 -->
+          <div class="gallery-slide" data-caption="Textile & Cushion Palettes">
+            <img src="images/pets-aruv-bourbon-cushions.png" alt="ARUV BOURBON — Cushion color combinations" loading="lazy" />
+          </div>
+          <!-- Slide 10 -->
+          <div class="gallery-slide" data-caption="Screwless Slot-Lock Joint Detail">
+            <img src="images/pets-aruv-bourbon-joints.jpg" alt="ARUV BOURBON — Screwless interlocking slot-lock joints" loading="lazy" />
+          </div>
+        </div>
 
-      <!-- Photo 6 -->
-      <article class="gallery-photo-card" id="photo-6">
-        <img src="images/pets-aruv-bourbon-front.jpg" alt="ARUV BOURBON — Front elevation architectural view" loading="lazy" />
-        <span class="photo-caption-tag">Front Elevation</span>
-        <span class="photo-number-tag">06 / 10</span>
-      </article>
+        <!-- Prev / Next Navigation Arrows -->
+        <button class="gallery-nav-btn prev" id="galleryPrev" aria-label="Previous photo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="gallery-nav-btn next" id="galleryNext" aria-label="Next photo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
 
-      <!-- Photo 7 -->
-      <article class="gallery-photo-card" id="photo-7">
-        <img src="images/pets-aruv-bourbon-angle.jpg" alt="ARUV BOURBON — 3/4 perspective joinery and roofline" loading="lazy" />
-        <span class="photo-caption-tag">Three-Quarter Perspective</span>
-        <span class="photo-number-tag">07 / 10</span>
-      </article>
+      </div>
 
-      <!-- Photo 8 -->
-      <article class="gallery-photo-card" id="photo-8">
-        <img src="images/pets-aruv-bourbon-sizes.png" alt="ARUV BOURBON — S, M, L dimensions and sizing guide" loading="lazy" />
-        <span class="photo-caption-tag">Dimension & Sizing Blueprint (S / M / L)</span>
-        <span class="photo-number-tag">08 / 10</span>
-      </article>
-
-      <!-- Photo 9 -->
-      <article class="gallery-photo-card" id="photo-9">
-        <img src="images/pets-aruv-bourbon-cushions.png" alt="ARUV BOURBON — Cushion color combinations" loading="lazy" />
-        <span class="photo-caption-tag">Fabric & Cushion Palettes</span>
-        <span class="photo-number-tag">09 / 10</span>
-      </article>
-
-      <!-- Photo 10 -->
-      <article class="gallery-photo-card" id="photo-10">
-        <img src="images/pets-aruv-bourbon-joints.jpg" alt="ARUV BOURBON — Screwless interlocking slot-lock joints" loading="lazy" />
-        <span class="photo-caption-tag">Precision Slot-Lock Joint Detail</span>
-        <span class="photo-number-tag">10 / 10</span>
-      </article>
+      <!-- Thumbnail Strip below slider -->
+      <div class="gallery-thumbnails" id="galleryThumbnails">
+        <!-- Rendered by JS -->
+      </div>
 
     </div>
 
-    <!-- RIGHT: STICKY PRODUCT INFO PANEL -->
+    <!-- RIGHT: STICKY PRODUCT INFO PANEL (KAFT STYLE) -->
     <aside class="product-info-sticky">
       <span class="collection-tag">Pets Collection</span>
       <h1 class="product-title">Aruv<br>Bourbon</h1>
@@ -662,14 +760,6 @@
         An architectural pet kennel where sculptural birch joinery meets the calm of slow living.
         Screwless slot-lock assembly, zero-VOC Rubio Monocoat® finish, and washable textiles.
       </p>
-
-      <!-- Quick Thumbnail Navigator to jump to any photo -->
-      <div class="sticky-thumb-nav">
-        <span class="sticky-thumb-title">Jump to Photo (10 Views)</span>
-        <div class="sticky-thumb-list" id="thumbList">
-          <!-- Populated by JS for instant click-to-scroll -->
-        </div>
-      </div>
 
       <div class="panel-divider"></div>
 
@@ -815,44 +905,165 @@
   </footer>
 
   <script>
-    // ── THUMBNAIL QUICK-JUMP GENERATOR ──
-    const photos = [
-      { id: 'photo-1', src: 'images/pets-aruv-bourbon-1.jpg', alt: 'Photo 1' },
-      { id: 'photo-2', src: 'images/pets-aruv-bourbon-2.jpg', alt: 'Photo 2' },
-      { id: 'photo-3', src: 'images/pets-aruv-bourbon-3.jpg', alt: 'Photo 3' },
-      { id: 'photo-4', src: 'images/pets-aruv-bourbon-4.jpg', alt: 'Photo 4' },
-      { id: 'photo-5', src: 'images/pets-aruv-bourbon-5.jpg', alt: 'Photo 5' },
-      { id: 'photo-6', src: 'images/pets-aruv-bourbon-front.jpg', alt: 'Photo 6' },
-      { id: 'photo-7', src: 'images/pets-aruv-bourbon-angle.jpg', alt: 'Photo 7' },
-      { id: 'photo-8', src: 'images/pets-aruv-bourbon-sizes.png', alt: 'Photo 8' },
-      { id: 'photo-9', src: 'images/pets-aruv-bourbon-cushions.png', alt: 'Photo 9' },
-      { id: 'photo-10', src: 'images/pets-aruv-bourbon-joints.jpg', alt: 'Photo 10' }
+    // ── SLIDER DATA & LOGIC ──
+    const slidesData = [
+      { src: 'images/pets-aruv-bourbon-1.jpg',      caption: 'White Canopy Lifestyle' },
+      { src: 'images/pets-aruv-bourbon-2.jpg',      caption: 'Indigo Navy Canopy Setup' },
+      { src: 'images/pets-aruv-bourbon-3.jpg',      caption: 'Open Birch Frame & Indigo Cushion' },
+      { src: 'images/pets-aruv-bourbon-4.jpg',      caption: 'Open Birch Frame & Off-White Cushion' },
+      { src: 'images/pets-aruv-bourbon-5.jpg',      caption: 'Architectural Low-Angle Floor View' },
+      { src: 'images/pets-aruv-bourbon-front.jpg',  caption: 'Front Elevation Geometry' },
+      { src: 'images/pets-aruv-bourbon-angle.jpg',  caption: 'Three-Quarter Perspective & Roofline' },
+      { src: 'images/pets-aruv-bourbon-sizes.png',  caption: 'Dimension Blueprint (S / M / L)' },
+      { src: 'images/pets-aruv-bourbon-cushions.png', caption: 'Textile & Cushion Palettes' },
+      { src: 'images/pets-aruv-bourbon-joints.jpg', caption: 'Screwless Slot-Lock Joint Detail' }
     ];
 
-    const thumbList = document.getElementById('thumbList');
-    if (thumbList) {
-      photos.forEach((p, idx) => {
-        const btn = document.createElement('button');
-        btn.className = 'sticky-thumb-btn';
-        btn.setAttribute('aria-label', `Scroll to photo ${idx + 1}`);
-        btn.title = `View photo ${idx + 1}`;
-        btn.innerHTML = `<img src="${p.src}" alt="${p.alt}" loading="lazy"/>`;
-        btn.addEventListener('click', () => {
-          const target = document.getElementById(p.id);
-          if (target) {
-            // Scroll to the photo with offset for fixed header
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }
-        });
-        thumbList.appendChild(btn);
+    let currentIndex = 0;
+    const totalSlides = slidesData.length;
+
+    const stageEl = document.getElementById('galleryStage');
+    const trackEl = document.getElementById('galleryTrack');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+    const counterEl = document.getElementById('galleryCounter');
+    const captionEl = document.getElementById('galleryCaption');
+    const progressEl = document.getElementById('galleryProgress');
+    const thumbsContainer = document.getElementById('galleryThumbnails');
+
+    // Build thumbnails
+    slidesData.forEach((s, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'thumb-btn' + (idx === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', `Go to photo ${idx + 1}`);
+      btn.innerHTML = `<img src="${s.src}" alt="Thumb ${idx + 1}" loading="lazy"/>`;
+      btn.addEventListener('click', () => goToSlide(idx));
+      thumbsContainer.appendChild(btn);
+    });
+
+    const thumbBtns = thumbsContainer.querySelectorAll('.thumb-btn');
+
+    function goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+      currentIndex = index;
+
+      // Smooth horizontal transform (right-to-left slide)
+      trackEl.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Update counter & caption
+      const numStr = String(currentIndex + 1).padStart(2, '0');
+      const totalStr = String(totalSlides).padStart(2, '0');
+      counterEl.textContent = `${numStr} / ${totalStr}`;
+      captionEl.textContent = slidesData[currentIndex].caption;
+
+      // Update progress bar
+      progressEl.style.width = `${((currentIndex + 1) / totalSlides) * 100}%`;
+
+      // Update active thumbnail
+      thumbBtns.forEach((tb, i) => {
+        tb.classList.toggle('active', i === currentIndex);
       });
+
+      // Scroll thumbnail into view if needed
+      const activeThumb = thumbBtns[currentIndex];
+      if (activeThumb) {
+        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
     }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        goToSlide(currentIndex - 1);
+      } else {
+        goToSlide(totalSlides - 1); // wrap around
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < totalSlides - 1) {
+        goToSlide(currentIndex + 1);
+      } else {
+        goToSlide(0); // wrap around
+      }
+    });
+
+    // ── MOUSEWHEEL HORIZONTAL SLIDE TRANSITION (KAFT STYLE) ──
+    let isWheelThrottled = false;
+    stageEl.addEventListener('wheel', (e) => {
+      // Determine vertical wheel delta
+      const delta = e.deltaY;
+
+      // If at start and scrolling up, or at end and scrolling down, allow natural page scroll
+      if (delta > 0 && currentIndex === totalSlides - 1) return;
+      if (delta < 0 && currentIndex === 0) return;
+
+      // Prevent vertical page jump while scrolling inside gallery
+      e.preventDefault();
+
+      if (isWheelThrottled) return;
+      isWheelThrottled = true;
+
+      if (delta > 0) {
+        // Scroll down -> next slide (slides right to left)
+        goToSlide(currentIndex + 1);
+      } else if (delta < 0) {
+        // Scroll up -> previous slide
+        goToSlide(currentIndex - 1);
+      }
+
+      setTimeout(() => {
+        isWheelThrottled = false;
+      }, 420);
+    }, { passive: false });
+
+    // ── TOUCH & MOUSE DRAG / SWIPE SUPPORT ──
+    let startX = 0;
+    let isDragging = false;
+
+    // Mouse drag
+    stageEl.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diffX = e.clientX - startX;
+      if (Math.abs(diffX) > 45) {
+        if (diffX < 0) {
+          goToSlide(currentIndex + 1); // swipe left -> next slide
+        } else {
+          goToSlide(currentIndex - 1); // swipe right -> prev slide
+        }
+      }
+    });
+
+    // Touch swipe
+    stageEl.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    stageEl.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          goToSlide(currentIndex + 1); // swipe left
+        } else {
+          goToSlide(currentIndex - 1); // swipe right
+        }
+      }
+    }, { passive: true });
+
+    // ── KEYBOARD ARROWS ──
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+      if (e.key === 'ArrowLeft')  goToSlide(currentIndex - 1);
+    });
+
+    // Initial state
+    goToSlide(0);
   </script>
 
 </body>
