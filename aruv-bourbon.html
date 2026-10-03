@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ARUV BOURBON — WoodenArtShop</title>
-  <meta name="description" content="ARUV BOURBON — Premium birch plywood pet kennel with screwless slot-lock joinery and certified zero-VOC coating. Available in S, M, L sizes." />
+  <title>ARUV BOURBON — WoodenArtShop | Yatay Vitrin Showcase</title>
+  <meta name="description" content="ARUV BOURBON — Vidasız geçmeli kilit mekanizması ve %100 doğal huş ağacıyla üretilen lüks mimari evcil hayvan yuvası." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,24 +24,28 @@
       --wood-terracotta: #b87333;
       --wood-sand: #ebdcca;
       --border-subtle: rgba(45, 30, 20, 0.08);
-      --border-focus: rgba(184, 115, 51, 0.35);
-      --shadow-clean: 0 4px 20px rgba(35, 25, 18, 0.04);
-      --shadow-elevated: 0 16px 36px rgba(35, 25, 18, 0.08);
+      --border-focus: rgba(184, 115, 51, 0.4);
+      --shadow-clean: 0 4px 20px rgba(35, 25, 18, 0.05);
+      --shadow-elevated: 0 20px 48px rgba(35, 25, 18, 0.12);
+      --transition-smooth: all 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
     }
 
-    html { scroll-behavior: smooth; color-scheme: light; }
+    html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+    }
 
     body {
-      font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-stone);
       color: var(--charcoal);
       overflow-x: hidden;
-      line-height: 1.65;
+      line-height: 1.6;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Subtle grain texture overlay */
+    /* Subtle Paper/Wood Texture */
     body::before {
       content: '';
       position: fixed;
@@ -51,1019 +55,1461 @@
       z-index: 9999;
     }
 
-    /* ── FIXED HEADER ── */
-    .product-header {
+    /* ── HEADER (KAFT STYLE MINIMAL & ELEVATED) ── */
+    header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      padding: 0 3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
-      height: 64px;
-      background: rgba(250, 247, 242, 0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      transition: var(--transition-smooth);
     }
 
-    .header-back {
+    .header-left {
       display: flex;
       align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.25s ease;
+      gap: 1.8rem;
     }
-    .header-back:hover { color: var(--wood-terracotta); }
-    .header-back svg { transition: transform 0.25s ease; }
-    .header-back:hover svg { transform: translateX(-3px); }
 
-    .header-brand {
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       text-decoration: none;
       color: var(--charcoal);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 0.74rem;
+      font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      background: rgba(45, 30, 20, 0.04);
+      transition: var(--transition-smooth);
+    }
+    .back-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      transform: translateX(-3px);
     }
 
-    .header-collection {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+    .category-crumb {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .category-crumb strong {
       color: var(--wood-terracotta);
+      font-weight: 600;
     }
 
-    /* ── PRODUCT SHOWCASE CONTAINER ── */
-    .product-showcase {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 90px 40px 60px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.28fr) minmax(370px, 0.82fr);
-      gap: 56px;
-      align-items: start;
-      position: relative;
-    }
-
-    /* ── LEFT: HORIZONTAL SLIDING GALLERY (KAFT STYLE) ── */
-    .gallery-column {
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      position: relative;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--charcoal);
+    }
+    .header-brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 400;
     }
 
-    .gallery-stage {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1.38 / 1;
-      min-height: 420px;
-      max-height: 640px;
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--bg-stone-subtle);
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .quick-inquire-btn {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.45rem 1.1rem;
       border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-clean);
+      border-radius: 30px;
+      transition: var(--transition-smooth);
+    }
+    .quick-inquire-btn:hover {
+      border-color: var(--charcoal);
+      background: var(--charcoal-deep);
+      color: #fff;
+    }
+
+    /* ── KAFT SHOWCASE WRAPPER (VIEWPORT SIZED) ── */
+    .showcase-hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg-stone);
+      padding-top: 72px; /* Header offset */
+    }
+
+    /* ── HORIZONTAL SCROLL TRACK ── */
+    .showcase-viewport {
+      width: 100%;
+      height: calc(100vh - 72px);
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide default scrollbar */
       cursor: grab;
       user-select: none;
       -webkit-user-select: none;
     }
-
-    .gallery-stage:active {
+    .showcase-viewport::-webkit-scrollbar {
+      display: none;
+    }
+    .showcase-viewport.is-dragging {
       cursor: grabbing;
+      scroll-behavior: auto;
+      scroll-snap-type: none;
     }
 
-    .gallery-track {
-      display: flex;
-      width: 100%;
+    /* Each Slide in the Horizontal Horizon */
+    .showcase-slide {
+      flex: 0 0 auto;
       height: 100%;
-      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
-    }
-
-    .gallery-slide {
-      min-width: 100%;
-      height: 100%;
+      width: auto;
+      min-width: 58vw;
+      max-width: 82vw;
       position: relative;
-      flex-shrink: 0;
-      overflow: hidden;
-      background: var(--bg-stone-subtle);
+      scroll-snap-align: start;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 2.2rem 2.8rem;
+      border-right: 1px solid var(--border-subtle);
+      background: var(--bg-stone);
+      transition: opacity 0.4s ease;
     }
 
-    .gallery-slide img {
+    .slide-media-wrap {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #faf8f5;
+      box-shadow: 0 8px 30px rgba(35, 25, 18, 0.06);
+    }
+
+    .slide-media-wrap img {
+      max-height: 100%;
+      max-width: 100%;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       pointer-events: none;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.25, 1);
+    }
+    .showcase-slide:hover .slide-media-wrap img {
+      transform: scale(1.02);
     }
 
-    /* Top progress bar */
-    .gallery-progress-bar {
+    /* Slide Caption Tag (Kaft Bottom Badge) */
+    .slide-badge {
       position: absolute;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 10%;
-      background: var(--wood-terracotta);
-      z-index: 25;
-      transition: width 0.4s ease;
-    }
-
-    /* Top Right: Counter */
-    .gallery-counter-badge {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      z-index: 20;
-      background: rgba(35, 28, 23, 0.72);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: var(--bg-stone);
-      padding: 5px 12px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-    }
-
-    /* Bottom Left: Title / Caption */
-    .gallery-caption-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      z-index: 20;
-      background: rgba(250, 247, 242, 0.92);
+      bottom: 2rem;
+      left: 2rem;
+      background: rgba(35, 28, 23, 0.85);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      color: var(--charcoal-soft);
-      padding: 7px 16px;
-      border-radius: 100px;
-      font-size: 11.5px;
+      color: #ffffff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       font-weight: 500;
-      letter-spacing: 0.08em;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 4px 12px rgba(35, 28, 23, 0.06);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 5;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    }
+    .slide-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--wood-terracotta);
     }
 
-    /* Prev / Next Buttons */
-    .gallery-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 20;
-      width: 44px;
-      height: 44px;
-      background: rgba(250, 247, 242, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+    /* ── FLOATING KAFT-STYLE PRODUCT PANEL (RIGHT) ── */
+    .kaft-floating-panel {
+      position: fixed;
+      right: 3.5rem;
+      top: 100px;
+      width: 410px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(45, 30, 20, 0.12);
+      border-radius: 20px;
+      box-shadow: var(--shadow-elevated);
+      padding: 2.2rem 2.2rem 2rem;
+      z-index: 200;
+      transition: var(--transition-smooth);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(184, 115, 51, 0.3) transparent;
+    }
+    .kaft-floating-panel::-webkit-scrollbar {
+      width: 4px;
+    }
+    .kaft-floating-panel::-webkit-scrollbar-thumb {
+      background: rgba(184, 115, 51, 0.3);
+      border-radius: 4px;
+    }
+
+    .panel-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+    .panel-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .panel-sku {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+    }
+
+    .panel-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.3rem;
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .panel-subtitle {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 1.1rem;
+    }
+
+    .panel-quote {
+      font-size: 0.88rem;
+      color: var(--charcoal-soft);
+      line-height: 1.6;
+      padding: 0.85rem 1.1rem;
+      background: rgba(235, 220, 202, 0.35);
+      border-left: 2px solid var(--wood-terracotta);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.6rem;
+      font-style: italic;
+    }
+
+    /* Finish / Material Block */
+    .option-group {
+      margin-bottom: 1.4rem;
+    }
+    .option-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.65rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+    }
+    .option-val {
+      color: var(--wood-terracotta);
+    }
+
+    .finish-swatches {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .finish-swatch {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 0.9rem;
       border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      background: var(--bg-card);
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+    .finish-swatch:hover {
+      border-color: var(--charcoal-soft);
+    }
+    .finish-swatch.active {
+      border-color: var(--wood-terracotta);
+      background: #fffdf9;
+      box-shadow: 0 0 0 1px var(--wood-terracotta);
+    }
+    .swatch-circle {
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    /* Size Selector Block */
+    .sizes-flex {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .size-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.8rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .size-btn:hover {
+      border-color: var(--border-focus);
+      background: #fffdf9;
+    }
+    .size-btn.active {
+      border-color: var(--charcoal-deep);
+      background: var(--charcoal-deep);
+      color: #ffffff;
+    }
+    .size-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .size-detail {
+      font-size: 0.62rem;
+      opacity: 0.8;
+      display: block;
+      line-height: 1.3;
+    }
+
+    /* Specs Pills Row */
+    .specs-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.6rem;
+    }
+    .spec-tag {
+      background: rgba(45, 30, 20, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--charcoal-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .spec-tag svg { width: 12px; height: 12px; fill: var(--wood-terracotta); }
+
+    /* Price & Purchase CTA Block */
+    .purchase-box {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.4rem;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .price-val {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      line-height: 1;
+    }
+    .price-sub {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+    }
+
+    .btn-action-main {
+      width: 100%;
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 1.05rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 16px rgba(25, 20, 16, 0.2);
+    }
+    .btn-action-main:hover {
+      background: var(--wood-terracotta);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 115, 51, 0.35);
+    }
+
+    .btn-action-secondary {
+      width: 100%;
+      margin-top: 0.65rem;
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.75rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: var(--transition-smooth);
+    }
+    .btn-action-secondary:hover {
+      background: rgba(45, 30, 20, 0.05);
+      border-color: var(--charcoal);
+    }
+
+    .trust-bullets {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .trust-bullet {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .trust-bullet span.check {
+      color: var(--wood-terracotta);
+      font-weight: 700;
+    }
+
+    /* ── BOTTOM HUD CONTROLS (KAFT INSPIRED) ── */
+    .showcase-hud {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow-clean);
+    }
+
+    .hud-arrows {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hud-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--charcoal);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: var(--charcoal);
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(35, 28, 23, 0.08);
+      transition: var(--transition-smooth);
     }
-    .gallery-nav-btn:hover {
-      background: var(--charcoal);
-      color: var(--bg-stone);
-      transform: translateY(-50%) scale(1.06);
+    .hud-arrow-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
     }
-    .gallery-nav-btn.prev { left: 16px; }
-    .gallery-nav-btn.next { right: 16px; }
 
-    /* Thumbnails strip below the slider */
-    .gallery-thumbnails {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 6px 2px 10px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(184, 115, 51, 0.25) transparent;
+    .hud-counter {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+      min-width: 54px;
+      text-align: center;
     }
-    .gallery-thumbnails::-webkit-scrollbar {
+
+    .hud-progress-wrap {
+      width: 140px;
       height: 4px;
-    }
-    .gallery-thumbnails::-webkit-scrollbar-thumb {
-      background: rgba(184, 115, 51, 0.25);
+      background: rgba(45, 30, 20, 0.1);
       border-radius: 4px;
-    }
-    .thumb-btn {
-      width: 62px;
-      height: 44px;
-      border-radius: 6px;
       overflow: hidden;
-      border: 2px solid transparent;
-      background: var(--bg-stone-subtle);
+      position: relative;
+    }
+    .hud-progress-bar {
+      height: 100%;
+      width: 14%;
+      background: var(--wood-terracotta);
+      border-radius: 4px;
+      transition: width 0.2s ease-out;
+    }
+
+    .hud-hint {
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Scroll Down Indicator to Story */
+    .scroll-down-prompt {
+      position: absolute;
+      bottom: 2rem;
+      right: calc(410px + 5.5rem);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
       cursor: pointer;
-      flex-shrink: 0;
-      padding: 0;
-      transition: all 0.2s ease;
-      opacity: 0.6;
+      z-index: 90;
+      transition: var(--transition-smooth);
+      background: rgba(250, 247, 242, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
     }
-    .thumb-btn:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-    .thumb-btn.active {
-      opacity: 1;
+    .scroll-down-prompt:hover {
+      color: var(--wood-terracotta);
       border-color: var(--wood-terracotta);
-      box-shadow: 0 2px 8px rgba(184, 115, 51, 0.25);
+      transform: translateY(2px);
     }
-    .thumb-btn img {
+
+    /* ── DETAILED STORY & SPECS SECTIONS (BELOW THE SHOWCASE) ── */
+    .story-section {
+      background: var(--bg-stone-subtle);
+      padding: 7rem 3.5rem;
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    .story-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .story-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .story-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+    }
+    .story-p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .story-visual-col {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-elevated);
+      background: var(--bg-card);
+      aspect-ratio: 4 / 3;
+    }
+    .story-visual-col img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    /* ── RIGHT: STICKY PRODUCT INFO PANEL (KAFT STYLE) ── */
-    .product-info-sticky {
-      position: sticky;
-      top: 88px;
-      align-self: start;
-      max-height: calc(100vh - 108px);
-      overflow-y: auto;
-      padding-right: 6px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(184, 115, 51, 0.3) transparent;
+    /* Feature Pillars (3 Columns) */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin-top: 2rem;
     }
-
-    .product-info-sticky::-webkit-scrollbar {
-      width: 4px;
+    .pillar-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2.4rem 2rem;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
     }
-    .product-info-sticky::-webkit-scrollbar-thumb {
-      background: rgba(184, 115, 51, 0.25);
-      border-radius: 4px;
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(184, 115, 51, 0.35);
     }
-
-    .collection-tag {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
+    .pillar-icon {
+      font-size: 1.6rem;
       color: var(--wood-terracotta);
-      margin-bottom: 10px;
+      margin-bottom: 1.2rem;
       display: inline-block;
     }
-
-    .product-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 3.4vw, 3.3rem);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      line-height: 1.12;
-      color: var(--charcoal);
-      margin-bottom: 12px;
+    .pillar-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.6rem;
     }
-
-    .product-tagline {
-      font-size: 14px;
-      font-weight: 300;
+    .pillar-desc {
+      font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 24px;
     }
 
-    .panel-divider {
-      height: 1px;
-      background: var(--border-subtle);
-      margin: 22px 0;
+    /* Size Chart & Specs Section */
+    .specs-section {
+      background: var(--bg-stone);
+      padding: 7rem 3.5rem;
+      border-top: 1px solid var(--border-subtle);
     }
 
-    /* SIZES */
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+    .table-responsive {
+      overflow-x: auto;
+      background: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-clean);
+      margin-top: 2.5rem;
+    }
+    .lux-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    .lux-table th, .lux-table td {
+      padding: 1.2rem 1.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lux-table th {
+      background: var(--bg-stone-subtle);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--charcoal-soft);
-      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--charcoal-deep);
+    }
+    .lux-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Kaft-style Accordion FAQ */
+    .faq-section {
+      background: var(--bg-stone-subtle);
+      padding: 6rem 3.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .faq-list {
+      max-width: 820px;
+      margin: 2.5rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .faq-item.open {
+      border-color: var(--wood-terracotta);
+    }
+    .faq-question {
+      padding: 1.3rem 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      user-select: none;
     }
-    .section-label span {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      color: var(--text-light);
-      text-transform: none;
-    }
-
-    .sizes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-    .size-card {
-      background: var(--bg-stone-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 13px 8px;
-      text-align: center;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-    .size-card:hover {
-      border-color: var(--border-focus);
-      background: rgba(242, 234, 225, 0.7);
-    }
-    .size-card .size-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+    .faq-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
       color: var(--wood-terracotta);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 1.8rem 1.4rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-answer {
       display: block;
-      margin-bottom: 4px;
-    }
-    .size-card .size-dims {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--charcoal);
-      line-height: 1.4;
-    }
-    .size-card .size-desc {
-      font-size: 9px;
-      color: var(--text-light);
-      margin-top: 4px;
     }
 
-    /* MATERIAL PILLS */
-    .material-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .material-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--charcoal-soft);
-      background: var(--bg-stone-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: 100px;
-      padding: 6px 12px;
-    }
-    .material-pill .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--wood-terracotta);
-      flex-shrink: 0;
-    }
-
-    /* CTA BLOCK */
-    .cta-block {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-    .btn-primary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--charcoal);
-      color: var(--bg-stone);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 15px 28px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 14px rgba(35, 28, 23, 0.12);
-    }
-    .btn-primary:hover {
-      background: var(--wood-terracotta);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(184, 115, 51, 0.25);
-    }
-    .btn-secondary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--charcoal);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 12px 24px;
-      border-radius: 4px;
-      border: 1px solid var(--border-subtle);
-      transition: all 0.25s ease;
-    }
-    .btn-secondary:hover {
-      border-color: var(--wood-terracotta);
-      color: var(--wood-terracotta);
-    }
-
-    /* QUICK SPECS */
-    .quick-specs {
-      list-style: none;
-      margin-top: 10px;
-    }
-    .quick-specs li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 12.5px;
-      color: var(--text-muted);
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border-subtle);
-      line-height: 1.5;
-    }
-    .quick-specs li:last-child { border-bottom: none; }
-    .quick-specs svg {
-      width: 15px;
-      height: 15px;
-      color: var(--wood-terracotta);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* ── CRAFT STORY SECTION ── */
-    .product-story-section {
-      background: var(--bg-stone-subtle);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 70px 40px;
-    }
-
-    .story-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .story-text h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      margin-bottom: 20px;
-      color: var(--charcoal);
-    }
-    .story-text p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.85;
-      margin-bottom: 16px;
-    }
-
-    /* ── CARE & MATERIAL SECTION ── */
-    .care-section {
+    /* Footer */
+    footer {
       background: var(--charcoal-deep);
-      color: var(--bg-stone);
-      padding: 80px 40px;
-    }
-    .care-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 60px;
-    }
-    .care-block h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      margin-bottom: 18px;
-      color: var(--wood-sand);
-    }
-    .care-block p, .care-block li {
-      font-size: 13px;
-      font-weight: 300;
-      color: rgba(250, 247, 242, 0.65);
-      line-height: 1.8;
-    }
-    .care-block ul { list-style: none; }
-    .care-block ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(250, 247, 242, 0.06);
-    }
-    .care-block ul li:last-child { border-bottom: none; }
-    .care-block a {
-      color: var(--wood-terracotta);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(184, 115, 51, 0.3);
-      transition: border-color 0.2s;
-    }
-    .care-block a:hover { border-color: var(--wood-terracotta); }
-
-    /* ── FOOTER ── */
-    .product-footer {
-      background: var(--charcoal-deep);
-      border-top: 1px solid rgba(250, 247, 242, 0.06);
+      color: #faf7f2;
+      padding: 4rem 3.5rem;
       text-align: center;
-      padding: 40px;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      color: rgba(250, 247, 242, 0.35);
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 992px) {
-      .product-header { padding: 0 20px; }
-      .header-collection { display: none; }
-      .product-showcase {
-        grid-template-columns: 1fr;
-        gap: 36px;
-        padding: 76px 20px 50px;
+    /* Inquire Modal */
+    .inquire-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 20, 16, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 1.5rem;
+    }
+    .inquire-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .inquire-modal-box {
+      background: var(--bg-card);
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: var(--shadow-elevated);
+    }
+    .inquire-modal-close {
+      position: absolute;
+      top: 1.4rem; right: 1.4rem;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+
+    /* ── RESPONSIVE DESIGN (TABLET & MOBILE) ── */
+    @media (max-width: 1024px) {
+      .showcase-hero {
+        height: auto;
+        overflow: visible;
+        padding-top: 72px;
       }
-      .gallery-stage {
-        min-height: 320px;
-        aspect-ratio: 1.35 / 1;
+      .showcase-viewport {
+        height: 60vh;
       }
-      .product-info-sticky {
-        position: static;
+      .showcase-slide {
+        min-width: 85vw;
+        padding: 1.5rem;
+      }
+      .kaft-floating-panel {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 100%;
         max-height: none;
-        overflow-y: visible;
-        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
+        padding: 2.5rem 1.8rem;
       }
-      .story-inner {
+      .scroll-down-prompt {
+        display: none;
+      }
+      .showcase-hud {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1.2rem;
+      }
+      .story-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 3rem;
       }
-      .care-inner {
+      .pillars-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
       }
-      .care-section { padding: 60px 20px; }
-      .product-story-section { padding: 60px 20px; }
-    }
-
-    @media (max-width: 600px) {
-      .sizes-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 6px;
-      }
-      .size-card { padding: 12px 6px; }
-      .size-card .size-dims { font-size: 10px; }
-      .product-title { font-size: 2.2rem; }
-      .gallery-caption-badge {
-        font-size: 10px;
-        padding: 5px 12px;
-        bottom: 12px;
-        left: 12px;
-      }
-      .gallery-counter-badge {
-        font-size: 10px;
-        padding: 4px 10px;
-        top: 12px;
-        right: 12px;
-      }
-      .gallery-nav-btn {
-        width: 36px;
-        height: 36px;
-      }
-      .gallery-nav-btn.prev { left: 8px; }
-      .gallery-nav-btn.next { right: 8px; }
     }
   </style>
 </head>
 <body>
 
   <!-- ── FIXED HEADER ── -->
-  <header class="product-header">
-    <a href="index.html#products" class="header-back" onclick="sessionStorage.setItem('returnCat','pets')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M19 12H5M12 5l-7 7 7 7"/>
-      </svg>
-      Back to Pets
+  <header>
+    <div class="header-left">
+      <a href="index.html" class="back-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Koleksiyona Dön
+      </a>
+      <span class="category-crumb">Studio <strong>/ Pets Collection</strong></span>
+    </div>
+
+    <a href="index.html" class="header-center">
+      <h1 class="header-brand-title">WoodenArtShop</h1>
     </a>
-    <a href="index.html" class="header-brand">WoodenArtShop</a>
-    <span class="header-collection">Pets Collection</span>
+
+    <div class="header-right">
+      <a href="#story" class="quick-inquire-btn">Tasarım Hikayesi</a>
+      <button class="quick-inquire-btn" onclick="openInquireModal()">Teklif / İletişim</button>
+    </div>
   </header>
 
-  <!-- ── PRODUCT SHOWCASE (KAFT HORIZONTAL SLIDER & STICKY PANEL) ── -->
-  <main class="product-showcase">
-
-    <!-- LEFT: HORIZONTAL SLIDING GALLERY -->
-    <div class="gallery-column">
-
-      <div class="gallery-stage" id="galleryStage">
-
-        <!-- Progress bar on top -->
-        <div class="gallery-progress-bar" id="galleryProgress"></div>
-
-        <!-- Counter badge -->
-        <div class="gallery-counter-badge" id="galleryCounter">01 / 10</div>
-
-        <!-- Caption badge -->
-        <div class="gallery-caption-badge" id="galleryCaption">White Canopy Lifestyle</div>
-
-        <!-- Track with 10 slides side by side -->
-        <div class="gallery-track" id="galleryTrack">
-          <!-- Slide 1 -->
-          <div class="gallery-slide" data-caption="White Canopy Lifestyle">
-            <img src="images/pets-aruv-bourbon-1.jpg" alt="ARUV BOURBON — White canopy and cushion lifestyle view" loading="eager" />
-          </div>
-          <!-- Slide 2 -->
-          <div class="gallery-slide" data-caption="Indigo Navy Canopy Setup">
-            <img src="images/pets-aruv-bourbon-2.jpg" alt="ARUV BOURBON — Navy blue canopy lifestyle setup" loading="lazy" />
-          </div>
-          <!-- Slide 3 -->
-          <div class="gallery-slide" data-caption="Open Birch Frame & Indigo Cushion">
-            <img src="images/pets-aruv-bourbon-3.jpg" alt="ARUV BOURBON — Open birch frame with indigo blue cushion" loading="lazy" />
-          </div>
-          <!-- Slide 4 -->
-          <div class="gallery-slide" data-caption="Open Birch Frame & Off-White Cushion">
-            <img src="images/pets-aruv-bourbon-4.jpg" alt="ARUV BOURBON — Open birch frame with white cushion" loading="lazy" />
-          </div>
-          <!-- Slide 5 -->
-          <div class="gallery-slide" data-caption="Architectural Low-Angle Floor View">
-            <img src="images/pets-aruv-bourbon-5.jpg" alt="ARUV BOURBON — Low angle architectural frame on floor" loading="lazy" />
-          </div>
-          <!-- Slide 6 -->
-          <div class="gallery-slide" data-caption="Front Elevation Geometry">
-            <img src="images/pets-aruv-bourbon-front.jpg" alt="ARUV BOURBON — Front elevation architectural view" loading="lazy" />
-          </div>
-          <!-- Slide 7 -->
-          <div class="gallery-slide" data-caption="Three-Quarter Perspective & Roofline">
-            <img src="images/pets-aruv-bourbon-angle.jpg" alt="ARUV BOURBON — 3/4 perspective joinery and roofline" loading="lazy" />
-          </div>
-          <!-- Slide 8 -->
-          <div class="gallery-slide" data-caption="Dimension Blueprint (S / M / L)">
-            <img src="images/pets-aruv-bourbon-sizes.png" alt="ARUV BOURBON — S, M, L dimensions and sizing guide" loading="lazy" />
-          </div>
-          <!-- Slide 9 -->
-          <div class="gallery-slide" data-caption="Textile & Cushion Palettes">
-            <img src="images/pets-aruv-bourbon-cushions.png" alt="ARUV BOURBON — Cushion color combinations" loading="lazy" />
-          </div>
-          <!-- Slide 10 -->
-          <div class="gallery-slide" data-caption="Screwless Slot-Lock Joint Detail">
-            <img src="images/pets-aruv-bourbon-joints.jpg" alt="ARUV BOURBON — Screwless interlocking slot-lock joints" loading="lazy" />
-          </div>
+  <!-- ── KAFT SHOWCASE SECTION (FULL VIEWPORT HORIZONTAL SHOWCASE) ── -->
+  <section class="showcase-hero">
+    
+    <!-- Horizontal Scrollable Viewport -->
+    <div class="showcase-viewport" id="showcaseViewport">
+      
+      <!-- Slide 1: Front Architectural View -->
+      <div class="showcase-slide" data-slide="1" data-caption="01. MİMARİ CEPHE GÖRÜNÜMÜ">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-front.jpg" alt="ARUV BOURBON Ön Cephe" loading="eager" />
         </div>
-
-        <!-- Prev / Next Navigation Arrows -->
-        <button class="gallery-nav-btn prev" id="galleryPrev" aria-label="Previous photo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button class="gallery-nav-btn next" id="galleryNext" aria-label="Next photo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>01 / Mimari Form & Ön Cephe</span>
+        </div>
       </div>
 
-      <!-- Thumbnail Strip below slider -->
-      <div class="gallery-thumbnails" id="galleryThumbnails">
-        <!-- Rendered by JS -->
+      <!-- Slide 2: Angled 3D Perspective -->
+      <div class="showcase-slide" data-slide="2" data-caption="02. AÇILI BAKIŞ & 3D HACİM">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-angle.jpg" alt="ARUV BOURBON Açılı Bakış" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>02 / Açılı Perspektif & Derinlik</span>
+        </div>
+      </div>
+
+      <!-- Slide 3: Screwless Joint Craftsmanship -->
+      <div class="showcase-slide" data-slide="3" data-caption="03. VİDASIZ GEÇMELİ KİLİT ZANAATI">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-joints.jpg" alt="Vidasız Geçmeli Kilit Detayı" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>03 / Geçmeli Kilit Zanaatı</span>
+        </div>
+      </div>
+
+      <!-- Slide 4: Modern Interior Lifestyle -->
+      <div class="showcase-slide" data-slide="4" data-caption="04. YAŞAM ALANI UYUMU (LIFESTYLE)">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-1.jpg" alt="ARUV BOURBON Yaşam Alanı" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>04 / Ev & Yaşam Alanı Ambiyansı</span>
+        </div>
+      </div>
+
+      <!-- Slide 5: Natural Birch Grain Detail -->
+      <div class="showcase-slide" data-slide="5" data-caption="05. DOĞAL AĞAÇ DOKUSU & GÖLGE KATMANLARI">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-2.jpg" alt="Doğal Ağaç Dokusu" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>05 / Doğal Huş Ağacı Dokusu</span>
+        </div>
+      </div>
+
+      <!-- Slide 6: Premium Cushion Craft -->
+      <div class="showcase-slide" data-slide="6" data-caption="06. ORTOPEDİK MİNDER & KUMAŞ DOKUSU">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-cushions.png" alt="Ortopedik Minder ve Kumaş" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>06 / Çıkarılabilir Yıkanabilir Minder</span>
+        </div>
+      </div>
+
+      <!-- Slide 7: Technical Size Drawing -->
+      <div class="showcase-slide" data-slide="7" data-caption="07. TEKNİK ÖLÇÜLER & S / M / L FORMLARI">
+        <div class="slide-media-wrap">
+          <img src="images/pets-aruv-bourbon-sizes.png" alt="Teknik Ölçü Çizimi" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>07 / Mimari Teknik Ölçü Çizimi</span>
+        </div>
       </div>
 
     </div>
 
-    <!-- RIGHT: STICKY PRODUCT INFO PANEL (KAFT STYLE) -->
-    <aside class="product-info-sticky">
-      <span class="collection-tag">Pets Collection</span>
-      <h1 class="product-title">Aruv<br>Bourbon</h1>
-      <p class="product-tagline">
-        An architectural pet kennel where sculptural birch joinery meets the calm of slow living.
-        Screwless slot-lock assembly, zero-VOC Rubio Monocoat® finish, and washable textiles.
-      </p>
-
-      <div class="panel-divider"></div>
-
-      <!-- SIZES -->
-      <div class="section-label">
-        Available Dimensions
-        <span>3 SIZES</span>
+    <!-- ── KAFT-STYLE FLOATING RIGHT PANEL ── -->
+    <aside class="kaft-floating-panel">
+      <div class="panel-eyebrow">
+        <span class="panel-tag">PETS COLLECTION • 2026 EDITION</span>
+        <span class="panel-sku">SKU: WA-PET-01</span>
       </div>
-      <div class="sizes-grid">
-        <div class="size-card">
-          <span class="size-label">Small</span>
-          <div class="size-dims">580 × 430<br>× 400 mm</div>
-          <div class="size-desc">22.8 × 16.9 × 15.7 in</div>
+
+      <h2 class="panel-title">ARUV BOURBON</h2>
+      <p class="panel-subtitle">Mimari Vidasız Geçmeli Kedi & Köpek Evi</p>
+
+      <div class="panel-quote">
+        “Her parça tek bir vida dahi gerektirmeksizin birbirine kilitlenir; ahşabın yaşayan dokusu dostunuza sıcak, güvenli bir sığınak sunar.”
+      </div>
+
+      <!-- Finish Selection -->
+      <div class="option-group">
+        <div class="option-header">
+          <span>Yüzey & Renk:</span>
+          <span class="option-val" id="selectedFinish">Bourbon Meşe</span>
         </div>
-        <div class="size-card">
-          <span class="size-label">Medium</span>
-          <div class="size-dims">750 × 600<br>× 510 mm</div>
-          <div class="size-desc">29.5 × 23.6 × 20.1 in</div>
+        <div class="finish-swatches">
+          <div class="finish-swatch active" onclick="selectFinish(this, 'Bourbon Meşe')">
+            <span class="swatch-circle" style="background: #8b5a2b;"></span>
+            Bourbon
+          </div>
+          <div class="finish-swatch" onclick="selectFinish(this, 'Doğal Huş')">
+            <span class="swatch-circle" style="background: #e6cba8;"></span>
+            Doğal
+          </div>
+          <div class="finish-swatch" onclick="selectFinish(this, 'Koyu Fındık')">
+            <span class="swatch-circle" style="background: #3c2415;"></span>
+            Koyu
+          </div>
         </div>
-        <div class="size-card">
-          <span class="size-label">Large</span>
-          <div class="size-dims">960 × 815<br>× 670 mm</div>
-          <div class="size-desc">37.8 × 32.1 × 26.4 in</div>
+      </div>
+
+      <!-- Size Selection -->
+      <div class="option-group">
+        <div class="option-header">
+          <span>Beden & Ölçü:</span>
+          <span class="option-val" id="selectedSize">M (Orta Irk)</span>
+        </div>
+        <div class="sizes-flex">
+          <div class="size-btn" onclick="selectSize(this, 'S (Küçük Irk & Kedi)', '4.250 TL', '50 x 42 x 45 cm')">
+            <span class="size-name">S</span>
+            <span class="size-detail">Kedi & Toy<br>50×42 cm</span>
+          </div>
+          <div class="size-btn active" onclick="selectSize(this, 'M (Orta Irk)', '4.850 TL', '64 x 54 x 58 cm')">
+            <span class="size-name">M</span>
+            <span class="size-detail">Fransız Bulldog<br>64×54 cm</span>
+          </div>
+          <div class="size-btn" onclick="selectSize(this, 'L (Büyük Irk)', '5.650 TL', '80 x 68 x 72 cm')">
+            <span class="size-name">L</span>
+            <span class="size-detail">Golden / Boxer<br>80×68 cm</span>
+          </div>
         </div>
       </div>
 
-      <!-- MATERIAL PILLS -->
-      <div class="material-pills">
-        <span class="material-pill"><span class="dot"></span> 9mm Baltic Birch Plywood</span>
-        <span class="material-pill"><span class="dot"></span> Screwless Slot-Lock Joinery</span>
-        <span class="material-pill"><span class="dot"></span> Certified Zero-VOC Finish</span>
-        <span class="material-pill"><span class="dot"></span> Machine-Washable Cushion</span>
-        <span class="material-pill"><span class="dot"></span> Flat-Pack Delivery</span>
+      <!-- Quick Feature Badges -->
+      <div class="specs-tag-row">
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          %100 Doğal Huş
+        </span>
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Zero-VOC Sertifikalı
+        </span>
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          3 Dk. Vidasız Kurulum
+        </span>
       </div>
 
-      <!-- CTA BLOCK -->
-      <div class="cta-block">
-        <a href="index.html#contact" class="btn-primary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-          Wholesale Inquiry
-        </a>
-        <a href="#care" class="btn-secondary">
-          Materials & Care Instructions
-        </a>
+      <!-- Purchase / Inquire Block -->
+      <div class="purchase-box">
+        <div class="price-row">
+          <div>
+            <div class="price-val" id="priceDisplay">4.850 TL</div>
+            <div class="price-sub" id="dimsDisplay">Ölçü: 64 × 54 × 58 cm</div>
+          </div>
+          <span style="font-size: 0.72rem; color: #2e7d32; font-weight: 600;">✓ Stokta Hazır</span>
+        </div>
+
+        <button class="btn-action-main" onclick="handleAddToCart()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          Sepete Ekle
+        </button>
+
+        <button class="btn-action-secondary" onclick="openInquireModal()">
+          Toptan & Özel Ölçü Teklifi Al
+        </button>
+
+        <div class="trust-bullets">
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Tüm Türkiye'ye <strong>Ücretsiz Kargo</strong> (Demonteli düz paket)</span>
+          </div>
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>30 Gün Koşulsuz İade & Değişim Güvencesi</span>
+          </div>
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Yıkanabilir keten dokulu ortopedik minder dahil</span>
+          </div>
+        </div>
       </div>
-
-      <!-- QUICK BULLET SPECIFICATIONS -->
-      <ul class="quick-specs">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Installs without screws, bolts or glue — CNC precision slot-lock joints
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Rubio Monocoat® certified: toy safe, health safe, zero VOC & formaldehyde
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Removable fabric canopy and machine-washable cushion (Indigo & White)
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Flat-pack ships worldwide; individual replacement parts available
-        </li>
-      </ul>
-
     </aside>
 
-  </main>
+    <!-- ── BOTTOM HUD CONTROLS ── -->
+    <div class="showcase-hud">
+      <div class="hud-arrows">
+        <button class="hud-arrow-btn" onclick="scrollPrev()" title="Önceki Görsel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="hud-arrow-btn" onclick="scrollNext()" title="Sonraki Görsel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
 
-  <!-- ── DETAILED CRAFT STORY SECTION ── -->
-  <section class="product-story-section">
-    <div class="story-inner">
-      <div class="story-text">
-        <h2>Crafted for Quiet Interiors</h2>
-        <p>
-          The Aruv Bourbon kennel is assembled without a single screw — each panel clicks into place through precision-cut slot-lock joints milled from first-quality 9 mm Baltic Birch Plywood. The result is a structure of unexpected rigidity and warmth that feels at home beside Scandinavian furniture as much as rustic farmhouse interiors.
-        </p>
-        <p>
-          Every surface is treated with <a href="https://www.rubiomonocoat.com/en/certificates?country=aaa" target="_blank" rel="noopener" style="color:var(--wood-terracotta);text-decoration:none;border-bottom:1px solid rgba(184,115,51,0.35);">Rubio Monocoat® Plant Oil</a> — a certified zero-VOC, zero-formaldehyde finish that is completely safe for pets and children. The coating enhances the natural birch grain while protecting it from daily wear.
+      <div class="hud-counter" id="slideCounter">01 / 07</div>
+
+      <div class="hud-progress-wrap">
+        <div class="hud-progress-bar" id="hudProgress"></div>
+      </div>
+
+      <div class="hud-hint">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8l4 4-4 4"></path></svg>
+        <span>Tekerlek veya Sürükle</span>
+      </div>
+    </div>
+
+    <!-- Scroll down prompt to story -->
+    <a href="#story" class="scroll-down-prompt">
+      <span>Hikaye & Detaylar</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </a>
+
+  </section>
+
+  <!-- ── SECTION: DESIGN PHILOSOPHY & CRAFTSMANSHIP ── -->
+  <section class="story-section" id="story">
+    <div class="section-container">
+      
+      <div class="story-grid">
+        <div class="story-text-col">
+          <span class="story-eyebrow">ZANAAT FELSEFESİ</span>
+          <h2 class="story-heading">Vidasız, Eklemesiz.<br><em>Saf Ahşap Mühendisliği.</em></h2>
+          <p class="story-p">
+            Geleneksel evcil hayvan yuvalarında karşılaşılan paslanan metal vidalar, gevşeyen somunlar ve kimyasal yapıştırıcılar yerine ARUV BOURBON, kadim Japon ahşap geçme tekniklerinden ilham alan <strong>"Slot-Lock"</strong> geometrisiyle geliştirildi.
+          </p>
+          <p class="story-p">
+            Her parça yüksek hassasiyetli CNC lazer kesimle hazırlanır ve birbirine mikron seviyesinde kenetlenir. Kurulumu tek bir alet dahi kullanmadan yalnızca 3 dakika sürer; ahşap paneller birbirini kilitlerken sağlam ve sarsılmaz bir mimari kütle oluşturur.
+          </p>
+        </div>
+        <div class="story-visual-col">
+          <img src="images/pets-aruv-bourbon-joints.jpg" alt="Slot-Lock Detayı" />
+        </div>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">✦</div>
+          <h3 class="pillar-title">Doğal Huş Kontraplak</h3>
+          <p class="pillar-desc">
+            Sürdürülebilir ormanlardan temin edilen 1. sınıf huş kontraplak. Yüksek mukavemeti sayesinde esnemez, çizilmelere karşı dayanıklıdır ve evinize doğal bir koku yayar.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">◈</div>
+          <h3 class="pillar-title">Zero-VOC Güvenliği</h3>
+          <p class="pillar-desc">
+            Evcil dostlarımızın hassas koku duyuları düşünülerek formüle edilmiş, solvent ve kimyasal içermeyen bitkisel esaslı koruyucu yağ kaplaması. EN 71-3 çocuk oyuncağı sertifikalıdır.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">◉</div>
+          <h3 class="pillar-title">Akustik Sığınak Formu</h3>
+          <p class="pillar-desc">
+            Üçgen piramidal çatı açısı, dışarıdan gelen ani sesleri kırarak içeride dingin ve korunaklı bir akustik koza yaratır. Gök gürültüsü ve fırtınalı havalarda güven verir.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION: SIZES & TECHNICAL SPECS ── -->
+  <section class="specs-section">
+    <div class="section-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="story-eyebrow">TEKNİK BOYUT REHBERİ</span>
+        <h2 class="story-heading">Hangi Beden Dostunuz İçin Uygun?</h2>
+        <p class="story-p" style="margin-top: 1rem;">
+          Dostunuzun rahatça dönebilmesi ve yatabilmesi için doğru ebadı seçebilirsiniz.
         </p>
       </div>
 
-      <div class="story-text">
-        <h2>Mindful Materials & Comfort</h2>
-        <p>
-          Cushion and canopy fabrics in Indigo Blue and White are machine-washable and removable. Each kennel ships flat-pack with a detailed installation guide; no tools are required. Individual parts can be ordered separately if needed.
-        </p>
-        <p>
-          Because we celebrate the organic origin of wood, each kennel features its own distinct grain flow and golden undertone. It is not mass manufactured furniture; it is an architectural sanctuary designed to last generations.
-        </p>
+      <div class="table-responsive">
+        <table class="lux-table">
+          <thead>
+            <tr>
+              <th>Beden</th>
+              <th>Dış Ölçüler (G × D × Y)</th>
+              <th>Kapı Genişliği</th>
+              <th>Önerilen Irklar</th>
+              <th>Ağırlık</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Small (S)</strong></td>
+              <td>50 × 42 × 45 cm</td>
+              <td>22 × 26 cm</td>
+              <td>Tüm Kediler, Pomeranian, Chihuahua, Maltese</td>
+              <td>5.2 kg</td>
+            </tr>
+            <tr>
+              <td><strong>Medium (M)</strong></td>
+              <td>64 × 54 × 58 cm</td>
+              <td>28 × 34 cm</td>
+              <td>Fransız Bulldog, Pug, Cavalier, Corgi, Beagle</td>
+              <td>8.4 kg</td>
+            </tr>
+            <tr>
+              <td><strong>Large (L)</strong></td>
+              <td>80 × 68 × 72 cm</td>
+              <td>35 × 42 cm</td>
+              <td>Golden Retriever, Labrador, Boxer, Border Collie</td>
+              <td>12.8 kg</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- ── CARE & MATERIAL SECTION ── -->
-  <section class="care-section" id="care">
-    <div class="care-inner">
-
-      <div class="care-block">
-        <h3>Material</h3>
-        <p>
-          First-quality 9 mm Baltic Birch Plywood, selected for its uniform core, consistent density, and natural warmth. Each sheet is CNC-milled for precise joinery tolerance — panels align with hand-pressure only, no mallet required.
-        </p>
-        <p style="margin-top:14px;">
-          The birch grain is a living pattern. Every kennel carries a subtly different surface character — no two pieces are identical.
-        </p>
+  <!-- ── SECTION: KAFT-STYLE ACCORDION FAQ ── -->
+  <section class="faq-section">
+    <div class="section-container">
+      <div style="text-align: center;">
+        <span class="story-eyebrow">SIKÇA SORULAN SORULAR</span>
+        <h2 class="story-heading">Merak Edilenler</h2>
       </div>
 
-      <div class="care-block">
-        <h3>Coating & Safety</h3>
-        <p>
-          All wood surfaces are finished with <a href="https://www.rubiomonocoat.com/en/certificates?country=aaa" target="_blank" rel="noopener">Rubio Monocoat® Pure Plant Oil</a> — an industry-certified, single-coat wood finish that is:
-        </p>
-        <ul style="margin-top:12px;">
-          <li>Zero VOC (volatile organic compounds)</li>
-          <li>Zero formaldehyde</li>
-          <li>Health & toy safety certified</li>
-          <li>Food contact safe</li>
-          <li>Biodegradable</li>
-        </ul>
-      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Kurulum için tornavida veya vida gerekiyor mu?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Hayır, kesinlikle vida veya alet gerekmez. Özel "Slot-Lock" geçme yuvaları sayesinde parçalar el ile birbirine takılır ve kendi ağırlığıyla kilitlenir. Kutusundan çıkarıp kurmanız ortalama 3 dakika sürer.
+          </div>
+        </div>
 
-      <div class="care-block">
-        <h3>Care Instructions</h3>
-        <ul>
-          <li>Wipe wood surfaces with a slightly damp cloth</li>
-          <li>Avoid prolonged exposure to direct sunlight</li>
-          <li>Recommended for indoor use only</li>
-          <li>Remove cushion and machine-wash at 30°C</li>
-          <li>Do not bleach or tumble dry cushion fabric</li>
-          <li>Reassemble panels by hand — no tools needed</li>
-          <li>Contact us for wholesale support at any stage</li>
-        </ul>
-      </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>İçindeki minder yıkanabilir mi?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Evet, minder kılıfı gizli fermuarlıdır. Kılıfı kolayca çıkarıp çamaşır makinesinde 30 derecede hassas programda yıkayabilirsiniz. Kumaşı leke tutmaz ve tüy yapışmasını önleyen özel keten dokuludur.
+          </div>
+        </div>
 
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Ahşap verniği evcil hayvanım için zararlı mı?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Asla. Kullandığımız tüm yüzey yağları %100 bitkisel keten tohumu ve karnauba balmumu bazlıdır. Zero-VOC (sıfır uçucu bileşen) sertifikasına sahiptir. Dostunuz ahşabı yalasa dahi tamamen zararsızdır.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Toptan sipariş veya özel logo gravürü yaptırabilir miyiz?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Evet, stüdyomuz mimari projeler, butik oteller ve toptan alıcılar için özel ebat, renk ve lazer gravür markalama imkanı sunmaktadır. "Teklif / İletişim" butonu üzerinden talebinizi iletebilirsiniz.
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ── FOOTER ── -->
-  <footer class="product-footer">
-    © 2025 WoodenArtShop &nbsp;·&nbsp; Handcrafted Studio &nbsp;·&nbsp; All Rights Reserved
+  <footer>
+    <div class="footer-brand">WoodenArtShop</div>
+    <p class="footer-copy">Artisanal Woodcraft Studio • © 2026 Tüm Hakları Saklıdır.</p>
   </footer>
 
+  <!-- ── INQUIRE / WHOLESALE MODAL ── -->
+  <div class="inquire-modal" id="inquireModal" onclick="if(event.target===this)closeInquireModal()">
+    <div class="inquire-modal-box">
+      <button class="inquire-modal-close" onclick="closeInquireModal()">✕</button>
+      <span class="story-eyebrow">ÖZEL SİPARİŞ & TOPTAN</span>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size: 1.8rem; margin: 0.4rem 0 1rem;">ARUV BOURBON Teklif Formu</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Mimari projeleriniz, evcil hayvan butikleriniz veya kişiselleştirilmiş ölçüler için stüdyomuza hemen mesaj bırakın.
+      </p>
+
+      <form onsubmit="handleModalSubmit(event)" style="display:flex; flex-direction:column; gap: 0.9rem;">
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Adınız Soyadınız / Firma</label>
+          <input type="text" required placeholder="Örn: Ahmet Yılmaz" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+        </div>
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">E-Posta Adresiniz</label>
+          <input type="email" required placeholder="ornek@alanadi.com" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+        </div>
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Talebiniz</label>
+          <textarea rows="3" placeholder="Talep edilen adet, özel ölçü veya sorularınız..." style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;"></textarea>
+        </div>
+        <button type="submit" class="btn-action-main" style="margin-top:0.5rem;">Talebi Gönder</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── JAVASCRIPT: KAFT HORIZONTAL SCROLL & INTERACTIVE LOGIC ── -->
   <script>
-    // ── SLIDER DATA & LOGIC ──
-    const slidesData = [
-      { src: 'images/pets-aruv-bourbon-1.jpg',      caption: 'White Canopy Lifestyle' },
-      { src: 'images/pets-aruv-bourbon-2.jpg',      caption: 'Indigo Navy Canopy Setup' },
-      { src: 'images/pets-aruv-bourbon-3.jpg',      caption: 'Open Birch Frame & Indigo Cushion' },
-      { src: 'images/pets-aruv-bourbon-4.jpg',      caption: 'Open Birch Frame & Off-White Cushion' },
-      { src: 'images/pets-aruv-bourbon-5.jpg',      caption: 'Architectural Low-Angle Floor View' },
-      { src: 'images/pets-aruv-bourbon-front.jpg',  caption: 'Front Elevation Geometry' },
-      { src: 'images/pets-aruv-bourbon-angle.jpg',  caption: 'Three-Quarter Perspective & Roofline' },
-      { src: 'images/pets-aruv-bourbon-sizes.png',  caption: 'Dimension Blueprint (S / M / L)' },
-      { src: 'images/pets-aruv-bourbon-cushions.png', caption: 'Textile & Cushion Palettes' },
-      { src: 'images/pets-aruv-bourbon-joints.jpg', caption: 'Screwless Slot-Lock Joint Detail' }
-    ];
+    const viewport = document.getElementById('showcaseViewport');
+    const slides = document.querySelectorAll('.showcase-slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const hudProgress = document.getElementById('hudProgress');
+    const totalSlides = slides.length;
 
-    let currentIndex = 0;
-    const totalSlides = slidesData.length;
+    // ── 1. MOUSE WHEEL TO HORIZONTAL SCROLL (KAFT SIGNATURE) ──
+    viewport.addEventListener('wheel', (e) => {
+      // If user is at the very end of horizontal gallery and scrolls down,
+      // allow default scroll to naturally flow into the story section!
+      const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+      const isAtEnd = viewport.scrollLeft >= maxScrollLeft - 10;
+      const isAtStart = viewport.scrollLeft <= 10;
 
-    const stageEl = document.getElementById('galleryStage');
-    const trackEl = document.getElementById('galleryTrack');
-    const prevBtn = document.getElementById('galleryPrev');
-    const nextBtn = document.getElementById('galleryNext');
-    const counterEl = document.getElementById('galleryCounter');
-    const captionEl = document.getElementById('galleryCaption');
-    const progressEl = document.getElementById('galleryProgress');
-    const thumbsContainer = document.getElementById('galleryThumbnails');
-
-    // Build thumbnails
-    slidesData.forEach((s, idx) => {
-      const btn = document.createElement('button');
-      btn.className = 'thumb-btn' + (idx === 0 ? ' active' : '');
-      btn.setAttribute('aria-label', `Go to photo ${idx + 1}`);
-      btn.innerHTML = `<img src="${s.src}" alt="Thumb ${idx + 1}" loading="lazy"/>`;
-      btn.addEventListener('click', () => goToSlide(idx));
-      thumbsContainer.appendChild(btn);
-    });
-
-    const thumbBtns = thumbsContainer.querySelectorAll('.thumb-btn');
-
-    function goToSlide(index) {
-      if (index < 0) index = 0;
-      if (index >= totalSlides) index = totalSlides - 1;
-      currentIndex = index;
-
-      // Smooth horizontal transform (right-to-left slide)
-      trackEl.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-      // Update counter & caption
-      const numStr = String(currentIndex + 1).padStart(2, '0');
-      const totalStr = String(totalSlides).padStart(2, '0');
-      counterEl.textContent = `${numStr} / ${totalStr}`;
-      captionEl.textContent = slidesData[currentIndex].caption;
-
-      // Update progress bar
-      progressEl.style.width = `${((currentIndex + 1) / totalSlides) * 100}%`;
-
-      // Update active thumbnail
-      thumbBtns.forEach((tb, i) => {
-        tb.classList.toggle('active', i === currentIndex);
-      });
-
-      // Scroll thumbnail into view if needed
-      const activeThumb = thumbBtns[currentIndex];
-      if (activeThumb) {
-        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if ((e.deltaY > 0 && !isAtEnd) || (e.deltaY < 0 && !isAtStart)) {
+        e.preventDefault();
+        viewport.scrollLeft += e.deltaY * 1.5;
       }
-    }
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        goToSlide(currentIndex - 1);
-      } else {
-        goToSlide(totalSlides - 1); // wrap around
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < totalSlides - 1) {
-        goToSlide(currentIndex + 1);
-      } else {
-        goToSlide(0); // wrap around
-      }
-    });
-
-    // ── MOUSEWHEEL HORIZONTAL SLIDE TRANSITION (KAFT STYLE) ──
-    let isWheelThrottled = false;
-    stageEl.addEventListener('wheel', (e) => {
-      // Determine vertical wheel delta
-      const delta = e.deltaY;
-
-      // If at start and scrolling up, or at end and scrolling down, allow natural page scroll
-      if (delta > 0 && currentIndex === totalSlides - 1) return;
-      if (delta < 0 && currentIndex === 0) return;
-
-      // Prevent vertical page jump while scrolling inside gallery
-      e.preventDefault();
-
-      if (isWheelThrottled) return;
-      isWheelThrottled = true;
-
-      if (delta > 0) {
-        // Scroll down -> next slide (slides right to left)
-        goToSlide(currentIndex + 1);
-      } else if (delta < 0) {
-        // Scroll up -> previous slide
-        goToSlide(currentIndex - 1);
-      }
-
-      setTimeout(() => {
-        isWheelThrottled = false;
-      }, 420);
     }, { passive: false });
 
-    // ── TOUCH & MOUSE DRAG / SWIPE SUPPORT ──
-    let startX = 0;
-    let isDragging = false;
+    // ── 2. DRAG TO SCROLL (TOUCH & DESKTOP MOUSE GRAB) ──
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    // Mouse drag
-    stageEl.addEventListener('mousedown', (e) => {
-      startX = e.clientX;
-      isDragging = true;
+    viewport.addEventListener('mousedown', (e) => {
+      isDown = true;
+      viewport.classList.add('is-dragging');
+      startX = e.pageX - viewport.offsetLeft;
+      scrollLeft = viewport.scrollLeft;
     });
 
-    window.addEventListener('mouseup', (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      const diffX = e.clientX - startX;
-      if (Math.abs(diffX) > 45) {
-        if (diffX < 0) {
-          goToSlide(currentIndex + 1); // swipe left -> next slide
-        } else {
-          goToSlide(currentIndex - 1); // swipe right -> prev slide
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      viewport.classList.remove('is-dragging');
+    });
+
+    viewport.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - viewport.offsetLeft;
+      const walk = (x - startX) * 1.8;
+      viewport.scrollLeft = scrollLeft - walk;
+    });
+
+    // ── 3. DYNAMIC HUD PROGRESS & SLIDE COUNTER TRACKING ──
+    function updateHUD() {
+      const scrollPos = viewport.scrollLeft;
+      const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+      const progressPercent = maxScroll > 0 ? (scrollPos / maxScroll) * 100 : 0;
+      
+      hudProgress.style.width = Math.max(14, Math.min(100, progressPercent)) + '%';
+
+      // Detect active slide
+      let currentActive = 1;
+      const viewportMid = scrollPos + (viewport.clientWidth / 2);
+
+      slides.forEach((slide, idx) => {
+        const slideStart = slide.offsetLeft;
+        const slideEnd = slideStart + slide.offsetWidth;
+        if (viewportMid >= slideStart && viewportMid <= slideEnd) {
+          currentActive = idx + 1;
         }
-      }
+      });
+
+      slideCounter.textContent = `0${currentActive} / 0${totalSlides}`;
+    }
+
+    viewport.addEventListener('scroll', updateHUD, { passive: true });
+    window.addEventListener('resize', updateHUD);
+    updateHUD();
+
+    // ── 4. ARROW BUTTONS NAVIGATION ──
+    function scrollNext() {
+      const currentScroll = viewport.scrollLeft;
+      const slideWidth = slides[0].offsetWidth;
+      viewport.scrollTo({
+        left: currentScroll + slideWidth,
+        behavior: 'smooth'
+      });
+    }
+
+    function scrollPrev() {
+      const currentScroll = viewport.scrollLeft;
+      const slideWidth = slides[0].offsetWidth;
+      viewport.scrollTo({
+        left: currentScroll - slideWidth,
+        behavior: 'smooth'
+      });
+    }
+
+    // Keyboard navigation (Arrow keys)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') scrollNext();
+      if (e.key === 'ArrowLeft') scrollPrev();
+      if (e.key === 'Escape') closeInquireModal();
     });
 
-    // Touch swipe
-    stageEl.addEventListener('touchstart', (e) => {
-      startX = e.changedTouches[0].clientX;
-    }, { passive: true });
+    // ── 5. INTERACTIVE PRODUCT SELECTIONS ──
+    function selectFinish(el, finishName) {
+      document.querySelectorAll('.finish-swatch').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('selectedFinish').textContent = finishName;
+    }
 
-    stageEl.addEventListener('touchend', (e) => {
-      const diffX = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diffX) > 40) {
-        if (diffX < 0) {
-          goToSlide(currentIndex + 1); // swipe left
-        } else {
-          goToSlide(currentIndex - 1); // swipe right
-        }
-      }
-    }, { passive: true });
+    function selectSize(el, sizeName, price, dims) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('selectedSize').textContent = sizeName;
+      document.getElementById('priceDisplay').textContent = price;
+      document.getElementById('dimsDisplay').textContent = 'Ölçü: ' + dims;
+    }
 
-    // ── KEYBOARD ARROWS ──
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
-      if (e.key === 'ArrowLeft')  goToSlide(currentIndex - 1);
-    });
+    function handleAddToCart() {
+      const finish = document.getElementById('selectedFinish').textContent;
+      const size = document.getElementById('selectedSize').textContent;
+      const price = document.getElementById('priceDisplay').textContent;
+      alert(`Sepete Eklendi:\nARUV BOURBON\n• Kaplama: ${finish}\n• Beden: ${size}\n• Tutar: ${price}`);
+    }
 
-    // Initial state
-    goToSlide(0);
+    // ── 6. FAQ ACCORDION ──
+    function toggleFaq(headerEl) {
+      const item = headerEl.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // ── 7. INQUIRE MODAL ──
+    function openInquireModal() {
+      document.getElementById('inquireModal').classList.add('active');
+    }
+    function closeInquireModal() {
+      document.getElementById('inquireModal').classList.remove('active');
+    }
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      alert('Talebiniz stüdyomuza iletildi. En kısa sürede sizinle iletişime geçeceğiz.');
+      closeInquireModal();
+    }
   </script>
 
 </body>
