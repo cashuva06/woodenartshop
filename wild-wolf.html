@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WILD WOLF — Multilayer 3D Architectural Wall Art | WoodenArtShop</title>
+  <meta name="description" content="WILD WOLF — Contemporary multi-layered 3D wooden wall relief crafted from precision laser-cut architectural MDF. Tool-free, drill-free wall installation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-stone: #faf7f2;
+      --bg-stone-subtle: #f2eae1;
+      --bg-card: #ffffff;
+      --charcoal: #231c17;
+      --charcoal-deep: #191410;
+      --charcoal-soft: #3d332a;
+      --text-muted: #6b5c51;
+      --text-light: #96867a;
+      --wood-terracotta: #b87333;
+      --wood-sand: #ebdcca;
+      --border-subtle: rgba(45, 30, 20, 0.08);
+      --border-focus: rgba(184, 115, 51, 0.4);
+      --shadow-clean: 0 4px 20px rgba(35, 25, 18, 0.05);
+      --shadow-elevated: 0 20px 48px rgba(35, 25, 18, 0.12);
+      --transition-smooth: all 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+    }
+
+    body {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-stone);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Paper/Wood Texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── FIXED HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      background: rgba(45, 30, 20, 0.04);
+      transition: var(--transition-smooth);
+    }
+    .back-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      transform: translateX(-3px);
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border-subtle);
+    }
+
+    .collection-crumb {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .collection-crumb span {
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--charcoal);
+    }
+    .header-brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .quick-inquire-btn {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 30px;
+      transition: var(--transition-smooth);
+      background: transparent;
+      cursor: pointer;
+    }
+    .quick-inquire-btn:hover {
+      border-color: var(--charcoal);
+      background: var(--charcoal-deep);
+      color: #fff;
+    }
+
+    /* ── KAFT SHOWCASE WRAPPER (VIEWPORT SIZED) ── */
+    .showcase-hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg-stone);
+      padding-top: 72px; /* Header offset */
+    }
+
+    /* ── CONTINUOUS AUTO-SCROLL VIEWPORT ── */
+    .showcase-viewport {
+      width: 100%;
+      height: calc(100vh - 72px);
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+      scroll-behavior: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .showcase-viewport::-webkit-scrollbar {
+      display: none;
+    }
+    .showcase-viewport.is-dragging {
+      cursor: grabbing;
+    }
+
+    /* ── SLIDE COMPONENT ── */
+    .showcase-slide {
+      flex: 0 0 auto;
+      height: 100%;
+      width: auto;
+      min-width: 58vw;
+      max-width: 82vw;
+      position: relative;
+      padding: 2.2rem 1.6rem 6.5rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.4s ease;
+    }
+
+    .slide-media-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - 72px - 9rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(35, 25, 18, 0.04);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+
+    .slide-media-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1);
+      pointer-events: none;
+    }
+
+    .showcase-slide:hover .slide-media-wrap img {
+      transform: scale(1.02);
+    }
+
+    /* Slide Caption Tag */
+    .slide-badge {
+      position: absolute;
+      bottom: 7.2rem;
+      left: 2.5rem;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal-soft);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--wood-terracotta);
+      display: inline-block;
+    }
+
+    /* ── KAFT-STYLE FLOATING STICKY EDITORIAL PANEL (RIGHT SIDE) ── */
+    .kaft-floating-panel {
+      position: absolute;
+      top: 96px;
+      right: 3rem;
+      width: 410px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(45, 30, 20, 0.12);
+      border-radius: 16px;
+      box-shadow: 0 16px 48px rgba(35, 25, 18, 0.14);
+      padding: 2.2rem 2.2rem 2rem 2.2rem;
+      z-index: 200;
+      pointer-events: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      transition: var(--transition-smooth);
+    }
+    .kaft-floating-panel::-webkit-scrollbar {
+      width: 4px;
+    }
+    .kaft-floating-panel::-webkit-scrollbar-thumb {
+      background: rgba(45, 30, 20, 0.15);
+      border-radius: 4px;
+    }
+
+    .panel-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.85rem;
+    }
+    .panel-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .panel-sku {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      font-family: monospace;
+    }
+
+    .panel-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.35rem;
+      line-height: 1.05;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      letter-spacing: 0.02em;
+    }
+
+    .panel-subtitle {
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: -0.7rem;
+      font-weight: 400;
+    }
+
+    .panel-quote {
+      font-style: italic;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--charcoal-soft);
+      border-left: 2px solid var(--wood-terracotta);
+      padding-left: 1rem;
+      margin: 0.2rem 0;
+      background: rgba(184, 115, 51, 0.03);
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Option Group: Dimensions / Size Only */
+    .option-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .option-val {
+      color: var(--wood-terracotta);
+      font-weight: 500;
+    }
+
+    .sizes-flex {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .size-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .size-btn:hover {
+      border-color: var(--border-focus);
+      background: #fffdf9;
+    }
+    .size-btn.active {
+      border-color: var(--charcoal-deep);
+      background: var(--charcoal-deep);
+      color: #ffffff;
+    }
+    .size-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      display: block;
+    }
+    .size-detail {
+      font-size: 0.74rem;
+      opacity: 0.85;
+      display: block;
+      letter-spacing: 0.04em;
+    }
+
+    /* Specs Pills Row */
+    .specs-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.6rem;
+    }
+    .spec-tag {
+      background: rgba(45, 30, 20, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--charcoal-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .spec-tag svg { width: 12px; height: 12px; fill: var(--wood-terracotta); }
+
+    /* Studio Presentation & Inquiry Block */
+    .purchase-box {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.4rem;
+    }
+    .presentation-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .current-dims-badge {
+      font-size: 0.74rem;
+      color: var(--charcoal-deep);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      color: #2e7d32;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2e7d32;
+      display: inline-block;
+    }
+
+    .btn-action-main {
+      width: 100%;
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 1.05rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      box-shadow: 0 4px 16px rgba(25, 20, 16, 0.2);
+    }
+    .btn-action-main:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(25, 20, 16, 0.28);
+    }
+
+    .btn-action-secondary {
+      width: 100%;
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.85rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      text-decoration: none;
+    }
+    .btn-action-secondary:hover {
+      background: rgba(45, 30, 20, 0.04);
+      border-color: var(--charcoal);
+    }
+
+    .trust-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 1.3rem;
+      padding-top: 1.1rem;
+      border-top: 1px dashed var(--border-subtle);
+    }
+    .trust-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .trust-bullet .check {
+      color: var(--wood-terracotta);
+      font-size: 0.85rem;
+      line-height: 1.2;
+    }
+
+    /* ── BOTTOM HUD CONTROLS ── */
+    .showcase-hud {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow-clean);
+    }
+
+    .hud-arrows {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hud-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .hud-arrow-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+    }
+
+    .hud-counter {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+      min-width: 54px;
+      text-align: center;
+    }
+
+    .hud-progress-wrap {
+      width: 140px;
+      height: 4px;
+      background: rgba(45, 30, 20, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hud-progress-bar {
+      height: 100%;
+      width: 14%;
+      background: var(--wood-terracotta);
+      border-radius: 4px;
+      transition: width 0.2s ease-out;
+    }
+
+    .hud-hint {
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Scroll Down Indicator to Story */
+    .scroll-down-prompt {
+      position: absolute;
+      bottom: 2rem;
+      right: calc(410px + 5.5rem);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 90;
+      transition: var(--transition-smooth);
+      background: rgba(250, 247, 242, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
+      text-decoration: none;
+    }
+    .scroll-down-prompt:hover {
+      color: var(--wood-terracotta);
+      border-color: var(--wood-terracotta);
+      transform: translateY(2px);
+    }
+
+    /* ── DETAILED STORY & SPECS SECTIONS ── */
+    .story-section {
+      background: var(--bg-stone-subtle);
+      padding: 7rem 3.5rem;
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    .story-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .story-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .story-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+    }
+    .story-p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .story-visual-col {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-elevated);
+      background: var(--bg-card);
+      aspect-ratio: 1 / 1;
+    }
+    .story-visual-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Feature Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin-top: 2rem;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2.4rem 2rem;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(184, 115, 51, 0.35);
+    }
+    .pillar-icon {
+      font-size: 1.6rem;
+      color: var(--wood-terracotta);
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.6rem;
+    }
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── TECHNICAL SPECS TABLE SECTION ── */
+    .specs-section {
+      background: var(--bg-stone);
+      padding: 6.5rem 3.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 3.5rem;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-clean);
+    }
+    .lux-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.86rem;
+    }
+    .lux-table th, .lux-table td {
+      padding: 1.3rem 1.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lux-table th {
+      background: rgba(45, 30, 20, 0.02);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal-soft);
+    }
+    .lux-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── FAQ SECTION ── */
+    .faq-section {
+      background: var(--bg-stone-subtle);
+      padding: 6rem 3.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .faq-list {
+      max-width: 820px;
+      margin: 3.5rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .faq-question {
+      padding: 1.4rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+    }
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--wood-terracotta);
+      transition: transform 0.3s ease;
+    }
+    .faq-answer {
+      padding: 0 1.8rem 1.4rem 1.8rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      display: none;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal-deep);
+      color: #faf7f2;
+      padding: 4.5rem 3rem 3rem 3rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+    }
+    .footer-copy {
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      color: rgba(250, 247, 242, 0.45);
+      text-transform: uppercase;
+    }
+
+    /* ── INQUIRY MODAL (B2B WHOLESALE & CUSTOM) ── */
+    .inquire-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 20, 16, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+    .inquire-modal.active {
+      display: flex;
+    }
+    .inquire-modal-box {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 2.6rem;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      border: 1px solid var(--border-subtle);
+    }
+    .inquire-modal-close {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+
+    /* ── RESPONSIVE ADAPTATIONS ── */
+    @media (max-width: 1150px) {
+      .kaft-floating-panel {
+        width: 360px;
+        right: 1.8rem;
+        padding: 1.8rem;
+      }
+      .scroll-down-prompt {
+        right: calc(360px + 3.5rem);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .showcase-hero {
+        height: auto;
+        overflow: visible;
+        padding-top: 72px;
+      }
+      .showcase-viewport {
+        height: 60vh;
+      }
+      .showcase-slide {
+        min-width: 85vw;
+        padding: 1.5rem;
+      }
+      .kaft-floating-panel {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: calc(100% - 3rem);
+        margin: 1.5rem auto 3rem auto;
+        max-height: none;
+        box-shadow: var(--shadow-clean);
+      }
+      .scroll-down-prompt {
+        display: none;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      header {
+        padding: 0 1.5rem;
+      }
+      .showcase-hud {
+        left: 1.5rem;
+        bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── FIXED HEADER ── -->
+  <header>
+    <div class="header-left">
+      <a href="index.html#products" class="back-btn">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Collections
+      </a>
+      <div class="header-divider"></div>
+      <div class="collection-crumb">HOME DECOR • <span>WILD WOLF</span></div>
+    </div>
+
+    <a href="index.html" class="header-center">
+      <span class="header-brand-title">Wooden Art Shop</span>
+    </a>
+
+    <div class="header-right">
+      <button class="quick-inquire-btn" onclick="openInquireModal()">
+        Quick Inquire
+      </button>
+    </div>
+  </header>
+
+  <!-- ── KAFT SHOWCASE SECTION (FULL VIEWPORT HORIZONTAL SHOWCASE) ── -->
+  <section class="showcase-hero">
+    
+    <!-- Continuously Auto-Scrolling Horizontal Viewport (Ordered 1 to 7) -->
+    <div class="showcase-viewport" id="showcaseViewport">
+      
+      <!-- Slide 1: Frontal Studio Elevation -->
+      <div class="showcase-slide" data-slide="1">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-01.jpg" alt="Wild Wolf Multi-Layer 3D Wooden Wall Art Front Elevation" loading="eager" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>01 / Frontal Elevation & Layered Geometry</span>
+        </div>
+      </div>
+
+      <!-- Slide 2: Low-Angle Ambient Wall Perspective -->
+      <div class="showcase-slide" data-slide="2">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-02.jpg" alt="Wild Wolf Low-Angle Perspective on Wall" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>02 / Low-Angle Architectural Elevation & Ambient Shadow</span>
+        </div>
+      </div>
+
+      <!-- Slide 3: Left 3D Perspective -->
+      <div class="showcase-slide" data-slide="3">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-03.jpg" alt="Wild Wolf Left Profile Showing Multi-Layer MDF Thickness" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>03 / Left 3D Perspective & Layered Relief Depth</span>
+        </div>
+      </div>
+
+      <!-- Slide 4: Right 3D Perspective -->
+      <div class="showcase-slide" data-slide="4">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-04.jpg" alt="Wild Wolf Right Profile Highlighting Shadow Interplay" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>04 / Right 3D Perspective & Faceted Contours</span>
+        </div>
+      </div>
+
+      <!-- Slide 5: Macro Detail - Eye & Forehead Facets -->
+      <div class="showcase-slide" data-slide="5">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-05.jpg" alt="Wild Wolf Macro Detail of Eye and Forehead Wood Fiberboard" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>05 / Tactile Macro Detail • Precision Laser Cut Facets</span>
+        </div>
+      </div>
+
+      <!-- Slide 6: Macro Detail - Muzzle & Joinery Bevels -->
+      <div class="showcase-slide" data-slide="6">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-06.jpg" alt="Wild Wolf Macro Detail of Muzzle and Layered Joinery" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>06 / Tactile Macro Detail • Muzzle & Tiered Bevels</span>
+        </div>
+      </div>
+
+      <!-- Slide 7: Technical Specifications & Drill-Free Mounting Blueprint -->
+      <div class="showcase-slide" data-slide="7">
+        <div class="slide-media-wrap">
+          <img src="images/homedecor-wild-wolf-07.png" alt="Wild Wolf Technical Specifications and Dimensions Drawing" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>07 / Technical Blueprint • Dimensions & Drill-Free Mounting</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── EDITORIAL RIGHT PANEL (STICKY / FLOATING) ── -->
+    <aside class="kaft-floating-panel">
+      <div class="panel-eyebrow">
+        <span class="panel-tag">HOME DECOR • STUDIO EDITION</span>
+        <span class="panel-sku">SKU: WA-DEC-01</span>
+      </div>
+
+      <h2 class="panel-title">WILD WOLF</h2>
+      <p class="panel-subtitle">Multilayer 3D Architectural Wall Relief</p>
+
+      <div class="panel-quote">
+        “A primal totem of northern woodlands captured through geometric facets, multi-tiered MDF relief, and shifting ambient light.”
+      </div>
+
+      <!-- Format / Dimension Specification -->
+      <div class="option-group">
+        <div class="option-header">
+          <span>Format & Dimensions:</span>
+          <span class="option-val" id="selectedFormat">Studio Standard</span>
+        </div>
+        <div class="sizes-flex">
+          <div class="size-btn active">
+            <span class="size-name">Standard Edition</span>
+            <span class="size-detail">320 × 238 mm (12.6″ × 9.4″)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Feature Badges -->
+      <div class="specs-tag-row">
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          Tiered Architectural MDF
+        </span>
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Zero Wall Drilling
+        </span>
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Ready to Mount
+        </span>
+      </div>
+
+      <!-- Studio Presentation & Inquiry Block -->
+      <div class="purchase-box">
+        <div class="presentation-status-row">
+          <div class="current-dims-badge" id="dimsDisplay">
+            Dimensions: 320 × 238 mm (12.6″ × 9.4″)
+          </div>
+          <span class="status-badge">
+            <span class="status-dot"></span>
+            Studio Handcrafted
+          </span>
+        </div>
+
+        <button class="btn-action-main" onclick="openInquireModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Inquire / Request Studio Quote
+        </button>
+
+        <a href="#specs" class="btn-action-secondary">
+          View Technical Specifications
+        </a>
+
+        <div class="trust-bullets">
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Zero Wall Drilling • Industrial surface-safe mounting system included</span>
+          </div>
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Multi-layered precision MDF with deep charcoal relief contrast</span>
+          </div>
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Worldwide boutique & wholesale dispatch • Insured protective packaging</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── BOTTOM HUD CONTROLS ── -->
+    <div class="showcase-hud">
+      <div class="hud-arrows">
+        <button class="hud-arrow-btn" onclick="userStep(-1)" title="Previous View">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="hud-arrow-btn" onclick="userStep(1)" title="Next View">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="hud-counter" id="slideCounter">01 / 07</div>
+
+      <div class="hud-progress-wrap">
+        <div class="hud-progress-bar" id="hudProgress"></div>
+      </div>
+
+      <div class="hud-hint">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Auto-Gliding • Drag or Wheel to Explore</span>
+      </div>
+    </div>
+
+    <!-- Scroll down prompt to story -->
+    <a href="#story" class="scroll-down-prompt">
+      <span>Design Story & Specs</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </a>
+
+  </section>
+
+  <!-- ── SECTION: DESIGN PHILOSOPHY & CRAFTSMANSHIP ── -->
+  <section class="story-section" id="story">
+    <div class="section-container">
+      
+      <div class="story-grid">
+        <div class="story-text-col">
+          <span class="story-eyebrow">DESIGN PHILOSOPHY</span>
+          <h2 class="story-heading">The Sovereign Spirit.<br><em>Faceted Timber & Layered Shadows.</em></h2>
+          <p class="story-p">
+            Channeling the untamed vigilance of the northern wilderness, <strong>WILD WOLF</strong> explores the intersection of sacred nature and contemporary architectural geometry. Rather than a flat silhouette, the piece is constructed through stacked, laser-calibrated tiers of high-density architectural MDF, transforming a two-dimensional motif into a tactile three-dimensional sculptural relief.
+          </p>
+          <p class="story-p">
+            As ambient daylight moves across your living space, the angular facets cast evolving shadows across the underlying dark contrast plane. Engineered with interior preservation in mind, the artwork requires zero drills or wall perforation—mounting flush and securely using our damage-free industrial mounting system.
+          </p>
+        </div>
+        <div class="story-visual-col">
+          <img src="images/homedecor-wild-wolf-03.jpg" alt="Wild Wolf 3D Layered Relief Structure" />
+        </div>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">✦</div>
+          <h3 class="pillar-title">Tiered MDF Architecture</h3>
+          <p class="pillar-desc">
+            Stacked precision-cut architectural MDF fiberboard tiers create authentic physical depth and architectural shadow lines that transform with room lighting.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">◈</div>
+          <h3 class="pillar-title">Zero Wall Perforation</h3>
+          <p class="pillar-desc">
+            Protects your interior walls with zero drilling, nails, or hammer work. Pre-configured for effortless, immediate mounting with heavy-duty surface-safe adhesive tape.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">◉</div>
+          <h3 class="pillar-title">Faceted Polygon Geometry</h3>
+          <p class="pillar-desc">
+            Laser-machined geometric facets deliver clean, razor-sharp contours, pairing natural wood-fiber textures with an underlying matte contrast layer.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION: SIZES & TECHNICAL SPECS ── -->
+  <section class="specs-section" id="specs">
+    <div class="section-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="story-eyebrow">TECHNICAL SPECIFICATIONS</span>
+        <h2 class="story-heading">Dimensions & Wall Mounting</h2>
+        <p class="story-p" style="margin-top: 1rem;">
+          Calibrated proportions engineered for effortless flush installation in contemporary residential and boutique commercial interiors.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="lux-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Metric Value</th>
+              <th>Imperial Equivalent</th>
+              <th>Details & Craft Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Width</strong></td>
+              <td>320 mm (32 cm)</td>
+              <td>12.6 inches</td>
+              <td>Total horizontal span across ear tips</td>
+            </tr>
+            <tr>
+              <td><strong>Height</strong></td>
+              <td>238 mm (23.8 cm)</td>
+              <td>9.4 inches</td>
+              <td>Vertical dimension from chin apex to ear peak</td>
+            </tr>
+            <tr>
+              <td><strong>Material Core</strong></td>
+              <td>Architectural High-Density MDF</td>
+              <td>Engineered Wood Fiberboard</td>
+              <td>Precision laser-cut multi-tier construction</td>
+            </tr>
+            <tr>
+              <td><strong>Installation</strong></td>
+              <td>Zero Wall Drilling / No Hammer</td>
+              <td>Tool-Free Installation</td>
+              <td>Heavy-duty double-sided mounting adhesive included</td>
+            </tr>
+            <tr>
+              <td><strong>Finish</strong></td>
+              <td>Natural Fiber Texture & Contrast Base</td>
+              <td>Dual-Tone Relief</td>
+              <td>Natural warm wood tone with deep charcoal backdrop</td>
+            </tr>
+            <tr>
+              <td><strong>Unit Weight</strong></td>
+              <td>Approx. 0.45 kg</td>
+              <td>Approx. 1.0 lb</td>
+              <td>Lightweight structure engineered for tape suspension</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION: ACCORDION FAQ ── -->
+  <section class="faq-section">
+    <div class="section-container">
+      <div style="text-align: center;">
+        <span class="story-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="story-heading">Everything You Need to Know</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How is the artwork mounted without wall drilling or screws?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            The artwork is engineered specifically for damage-free installation. It includes heavy-duty, surface-safe double-sided industrial mounting tape on the back. No drills, hammers, or wall holes are required—simply peel the protective film and press firmly against your clean interior wall for 30 seconds.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What materials are used and what is the layered construction?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            WILD WOLF is crafted from high-density architectural MDF (Medium-Density Wood Fiberboard). Multiple precision laser-cut tiers are layered to create a tactile 3D relief, backed by a contrasting dark base layer that produces vivid depth and dynamic shadow lines under interior lighting.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How should the artwork be cleaned and maintained?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Because it is designed for indoor living spaces, routine care simply requires a light dusting with a dry microfiber cloth or a soft bristle brush between the geometric contours. Avoid wet chemicals or soaking in water.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I request custom scale dimensions or wholesale boutique quantities?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes. WoodenArtShop collaborates directly with interior architects, gift galleries, and concept stockists worldwide. We provide volume wholesale pricing and custom dimension scaling upon request. Click "Request Studio Quote" to submit your specifications.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">WoodenArtShop</div>
+    <p class="footer-copy">Artisanal Woodcraft & Architectural Studio • © 2026 All Rights Reserved.</p>
+  </footer>
+
+  <!-- ── INQUIRE / WHOLESALE MODAL ── -->
+  <div class="inquire-modal" id="inquireModal" onclick="if(event.target===this)closeInquireModal()">
+    <div class="inquire-modal-box">
+      <button class="inquire-modal-close" onclick="closeInquireModal()">✕</button>
+      <span class="story-eyebrow">STUDIO INQUIRIES & COMMISSIONS</span>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size: 1.8rem; margin: 0.4rem 0 1rem;">WILD WOLF Inquiries</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Get in touch with our studio for boutique stockist orders, wholesale quantities, or custom architectural dimensions.
+      </p>
+
+      <form onsubmit="handleModalSubmit(event)" style="display:flex; flex-direction:column; gap: 0.9rem;">
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Your Name / Studio</label>
+          <input type="text" id="modalName" required placeholder="e.g. John Doe / Studio Interior" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+        </div>
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Email Address</label>
+          <input type="email" id="modalEmail" required placeholder="yourname@domain.com" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+        </div>
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Your Inquiry / Quantity / Notes</label>
+          <textarea id="modalMsg" rows="3" placeholder="Please specify your desired quantity, stockist inquiry, or project timeline..." style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;"></textarea>
+        </div>
+        <button type="submit" id="modalSubmitBtn" class="btn-action-main" style="margin-top:0.5rem;">Send Inquiry to Studio</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── JAVASCRIPT: CONTINUOUS SMOOTH AUTO-GLIDE & INTERACTION LOGIC ── -->
+  <script>
+    const viewport = document.getElementById('showcaseViewport');
+    const originalSlides = Array.from(viewport.querySelectorAll('.showcase-slide'));
+    const totalOriginal = originalSlides.length;
+    const slideCounter = document.getElementById('slideCounter');
+    const hudProgress = document.getElementById('hudProgress');
+
+    // ── 1. DUPLICATE SLIDES FOR SEAMLESS INFINITE LOOPING ──
+    originalSlides.forEach(slide => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('data-clone', 'true');
+      viewport.appendChild(clone);
+    });
+
+    let singleSetWidth = 0;
+    function computeSetWidth() {
+      let width = 0;
+      for (let i = 0; i < totalOriginal; i++) {
+        width += originalSlides[i].offsetWidth;
+      }
+      singleSetWidth = width;
+    }
+    window.addEventListener('load', computeSetWidth);
+    window.addEventListener('resize', computeSetWidth);
+    computeSetWidth();
+
+    // ── 2. CONTINUOUS SLOW DRIFT AUTO-SCROLL (NEVER STOPS, GLIDES RIGHT-TO-LEFT) ──
+    const autoScrollSpeed = 0.75;
+    let isUserInteracting = false;
+    let interactionTimeout = null;
+
+    function autoScrollLoop() {
+      if (!isUserInteracting) {
+        viewport.scrollLeft += autoScrollSpeed;
+
+        if (singleSetWidth > 0 && viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+        }
+      }
+      updateHUD();
+      requestAnimationFrame(autoScrollLoop);
+    }
+    requestAnimationFrame(autoScrollLoop);
+
+    function pauseAutoDriftTemporarily(ms = 3500) {
+      isUserInteracting = true;
+      clearTimeout(interactionTimeout);
+      interactionTimeout = setTimeout(() => {
+        isUserInteracting = false;
+      }, ms);
+    }
+
+    // ── 3. MOUSE WHEEL TO HORIZONTAL GLIDE ──
+    viewport.addEventListener('wheel', (e) => {
+      pauseAutoDriftTemporarily(3000);
+      e.preventDefault();
+      viewport.scrollLeft += e.deltaY * 1.4;
+
+      if (singleSetWidth > 0) {
+        if (viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft < 0) {
+          viewport.scrollLeft += singleSetWidth;
+        }
+      }
+    }, { passive: false });
+
+    // ── 4. DRAG TO SCROLL (DESKTOP & TOUCH) ──
+    let isDown = false;
+    let startX;
+    let startScrollLeft;
+
+    viewport.addEventListener('mousedown', (e) => {
+      isDown = true;
+      pauseAutoDriftTemporarily(10000);
+      viewport.classList.add('is-dragging');
+      startX = e.pageX - viewport.offsetLeft;
+      startScrollLeft = viewport.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      viewport.classList.remove('is-dragging');
+      pauseAutoDriftTemporarily(3000);
+    });
+
+    viewport.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - viewport.offsetLeft;
+      const walk = (x - startX) * 1.6;
+      viewport.scrollLeft = startScrollLeft - walk;
+
+      if (singleSetWidth > 0) {
+        if (viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+          startScrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft < 0) {
+          viewport.scrollLeft += singleSetWidth;
+          startScrollLeft += singleSetWidth;
+        }
+      }
+    });
+
+    // Touch support
+    viewport.addEventListener('touchstart', () => pauseAutoDriftTemporarily(6000), { passive: true });
+    viewport.addEventListener('touchend', () => pauseAutoDriftTemporarily(3000), { passive: true });
+
+    // ── 5. HUD PROGRESS & SLIDE COUNTER ──
+    function updateHUD() {
+      if (!singleSetWidth) computeSetWidth();
+      const currentPos = singleSetWidth > 0 ? (viewport.scrollLeft % singleSetWidth) : 0;
+      const progressPercent = singleSetWidth > 0 ? (currentPos / singleSetWidth) * 100 : 0;
+
+      hudProgress.style.width = Math.max(14, Math.min(100, progressPercent)) + '%';
+
+      const viewportMid = currentPos + (viewport.clientWidth * 0.35);
+      let currentActive = 1;
+      let accum = 0;
+
+      for (let i = 0; i < totalOriginal; i++) {
+        const slideW = originalSlides[i].offsetWidth;
+        if (viewportMid >= accum && viewportMid < accum + slideW) {
+          currentActive = i + 1;
+          break;
+        }
+        accum += slideW;
+      }
+      const numStr = String(currentActive).padStart(2, '0');
+      const totStr = String(totalOriginal).padStart(2, '0');
+      slideCounter.textContent = `${numStr} / ${totStr}`;
+    }
+
+    // ── 6. NAVIGATION ARROWS ──
+    function userStep(direction) {
+      pauseAutoDriftTemporarily(4000);
+      const slideW = originalSlides[0].offsetWidth;
+      viewport.scrollBy({
+        left: direction * slideW,
+        behavior: 'smooth'
+      });
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') userStep(1);
+      if (e.key === 'ArrowLeft') userStep(-1);
+      if (e.key === 'Escape') closeInquireModal();
+    });
+
+    // ── 7. ACCORDION FAQ ──
+    function toggleFaq(headerEl) {
+      const item = headerEl.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // ── 8. INQUIRE MODAL & AJAX DISPATCH TO INFO@WOODENARTSHOP.COM ──
+    function openInquireModal() {
+      document.getElementById('inquireModal').classList.add('active');
+    }
+    function closeInquireModal() {
+      document.getElementById('inquireModal').classList.remove('active');
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('modalSubmitBtn');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const payload = {
+        name: document.getElementById('modalName').value,
+        email: document.getElementById('modalEmail').value,
+        product: 'WILD WOLF (WAS-DEC-01)',
+        dimensions: '320 × 238 mm (12.6″ × 9.4″)',
+        message: document.getElementById('modalMsg').value,
+        _subject: 'New Studio Inquiry: WILD WOLF Wall Art'
+      };
+
+      fetch('https://formsubmit.co/ajax/info@woodenartshop.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Thank you! Your inquiry for WILD WOLF has been sent directly to info@woodenartshop.com.');
+        closeInquireModal();
+      })
+      .catch(error => {
+        alert('Thank you! Your inquiry has been received by our studio.');
+        closeInquireModal();
+      })
+      .finally(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+</body>
+</html>
