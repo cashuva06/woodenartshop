@@ -1624,7 +1624,7 @@
   <!-- NAVIGATION -->
   <header id="header">
     <div class="nav-container">
-      <a href="#home" class="brand" aria-label="WoodenArtShop Home">
+      <a href="/" class="brand" aria-label="WoodenArtShop Home" onclick="reloadSiteHome(event)">
         <img src="images/logo.png" alt="Wooden Art Shop Logo" class="brand-logo-img" />
       </a>
 
@@ -2066,7 +2066,9 @@
     <div class="footer-wrap">
       <div class="footer-main">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="Wooden Art Shop Logo" class="footer-logo-img" />
+          <a href="/" onclick="reloadSiteHome(event)" style="display:inline-block; text-decoration:none;" aria-label="WoodenArtShop Home">
+            <img src="images/logo.png" alt="Wooden Art Shop Logo" class="footer-logo-img" />
+          </a>
           <p>
             An independent artisanal studio dedicated to unique multilayer woodwork, tactile wall art, and wholesale architectural decor.
           </p>
@@ -2130,6 +2132,29 @@
         }
       });
     });
+
+    // Reload & Reset to Top when clicking WAS Logo
+    function reloadSiteHome(e) {
+      if (e && (e.ctrlKey || e.metaKey || e.shiftKey || (e.button && e.button !== 0))) return;
+      if (e) e.preventDefault();
+
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+
+      const isFileProtocol = window.location.protocol === 'file:';
+      const cleanRoot = isFileProtocol ? window.location.pathname : (window.location.origin + '/');
+
+      if (!isFileProtocol && !window.location.hash && !window.location.search && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
+        window.location.reload();
+      } else {
+        window.location.href = cleanRoot;
+        if (!isFileProtocol && window.location.pathname === '/' && !window.location.hash) {
+          window.location.reload();
+        }
+      }
+    }
 
     // Smooth Anchor Scrolling with Header Clearance
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
