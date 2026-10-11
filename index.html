@@ -1,0 +1,2945 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVG3HDYE94"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVG3HDYE94');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WoodenArtShop — Artisanal Multilayer Woodcraft &amp; Wholesale Studio</title>
+  <meta name="description" content="Story-driven multilayer 3D wood art, bespoke wall decor, and architectural wooden accents. Handcrafted in studio for private collectors and wholesale partners worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Warm Artisanal Wood & Natural Linen Palette (Restored from previous warm tone) */
+      --bg-stone: #faf7f2;          /* Sıcak Krem & Doğal Keten - Eski sıcak rengimiz (kesinlikle gri değil) */
+      --bg-stone-subtle: #f2eae1;   /* Sıcak ahşap kumu & bej */
+      --bg-card: #ffffff;           /* Kartlar için berrak beyaz */
+      --charcoal: #231c17;          /* Sıcak koyu ceviz / antrasit metin rengi */
+      --charcoal-deep: #191410;     /* Derin sıcak ahşap zemin (footer & koyu kartlar) */
+      --charcoal-soft: #3d332a;
+      --text-muted: #6b5c51;        /* Sıcak toprak tonlu yumuşak metin */
+      --text-light: #96867a;
+      --wood-terracotta: #b87333;   /* Sıcak kehribar / meşe amber vurgusu */
+      --wood-sand: #ebdcca;         /* Ahşap talaşı & sıcak kum dokusu */
+      --border-subtle: rgba(45, 30, 20, 0.08);
+      --border-focus: rgba(184, 115, 51, 0.35);
+      --shadow-clean: 0 4px 20px rgba(35, 25, 18, 0.04);
+      --shadow-elevated: 0 16px 36px rgba(35, 25, 18, 0.08);
+      --transition-smooth: all 0.35s cubic-bezier(0.2, 0.8, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+    }
+
+    body {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-stone);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.65;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Paper/Grain Texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* HEADER & NAV */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      padding: 1.2rem 3.5rem;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    header.scrolled {
+      padding: 0.9rem 3.5rem;
+      box-shadow: 0 2px 16px rgba(35, 28, 23, 0.04);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .brand-logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.3s;
+    }
+    .brand-logo-img:hover {
+      opacity: 0.82;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 3.2rem;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      position: relative;
+      padding: 0.35rem 0;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--charcoal);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--charcoal-deep);
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+
+    /* HOME / EDITORIAL SLIDER SECTION */
+    .home-banner-section {
+      padding: 5.8rem 0 0;
+    }
+    .banner-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .slider-box {
+      position: relative;
+      width: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      background: var(--bg-stone);
+      aspect-ratio: 21 / 9;
+    }
+
+    .slider-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.85s ease-in-out, transform 0.85s ease-in-out;
+      transform: scale(1.02);
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+    }
+
+    /* Slider Controls — transparent arrows */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      color: #faf7f2;
+      filter: drop-shadow(0 1px 3px rgba(35, 28, 23, 0.55));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      z-index: 10;
+    }
+    .slider-arrow svg { width: 26px; height: 26px; }
+    .slider-arrow:hover {
+      background: rgba(250, 247, 242, 0.12);
+      color: #ffffff;
+    }
+    .slider-arrow.prev { left: 1.5rem; }
+    .slider-arrow.next { right: 1.5rem; }
+
+    .slider-bottom-bar {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      z-index: 10;
+      background: rgba(35, 28, 23, 0.65);
+      backdrop-filter: blur(10px);
+      padding: 0.45rem 1.1rem;
+      border-radius: 30px;
+    }
+    .slide-counter {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+    }
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .slider-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .slider-dot.active {
+      width: 22px;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    /* 5-Second Timer Progress */
+    .slider-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(0, 0, 0, 0.12);
+      z-index: 10;
+    }
+    .slider-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--wood-terracotta);
+    }
+
+    /* STORY TICKER (SEAMLESS THEME STRIP) */
+    .concept-ticker {
+      background: var(--bg-stone);
+      color: var(--charcoal);
+      padding: 1.15rem 0;
+      overflow: hidden;
+      display: flex;
+      margin: 0;
+      border: none;
+    }
+    .ticker-inner {
+      display: flex;
+      gap: 4rem;
+      white-space: nowrap;
+      animation: tickerRun 32s linear infinite;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .ticker-inner span.bullet {
+      color: #5c2408;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+    @keyframes tickerRun {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* SECTION BASICS */
+    section {
+      padding: 7rem 3.5rem;
+      position: relative;
+    }
+    .section-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 4rem;
+    }
+    .section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .section-heading em {
+      font-style: italic;
+      color: var(--wood-terracotta);
+      font-weight: 400;
+    }
+    .section-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    /* PRODUCT COLLECTION (STORY-DRIVEN CATALOG) */
+    .products-section {
+      background: var(--bg-stone-subtle);
+      scroll-margin-top: 85px;
+    }
+
+    /* CATEGORY CARDS GRID (KAFT-INSPIRED 3x2) */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin-top: 1rem;
+    }
+
+    .category-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow-clean);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(184, 115, 51, 0.35);
+    }
+
+    .category-img-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--bg-stone-subtle);
+    }
+
+    .category-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .category-card:hover .category-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .category-meta-bar {
+      padding: 1.25rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      background: #ffffff;
+      transition: var(--transition-smooth);
+    }
+
+    .category-card:hover .category-meta-bar {
+      background: #fffdf9;
+    }
+
+    .category-meta-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .category-num {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+
+    .category-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.28rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+      letter-spacing: 0.03em;
+    }
+
+    .category-arrow-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--bg-stone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .category-card:hover .category-arrow-btn {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    /* CATEGORY DETAIL VIEW (KAFT-STYLE REVEAL) */
+    .category-detail-view {
+      animation: catFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    @keyframes catFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cat-detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cat-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .cat-back-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border-color: var(--charcoal-deep);
+      transform: translateX(-3px);
+    }
+
+    .cat-breadcrumb {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .cat-breadcrumb strong {
+      color: var(--wood-terracotta);
+    }
+
+    .cat-story-banner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .cat-story-meta {
+      max-width: 760px;
+    }
+    .cat-count-badge {
+      background: rgba(184, 115, 51, 0.1);
+      border: 1px solid rgba(184, 115, 51, 0.25);
+      color: var(--wood-terracotta);
+      padding: 0.45rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* PRODUCT CARDS IN CATEGORY GRID */
+    /* CATEGORY PRODUCTS GRID (KAFT-INSPIRED 4-COLUMN GALLERY) */
+    .cat-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      width: 100%;
+      background: transparent;
+    }
+
+    .cat-product-card {
+      background: transparent;
+      border-radius: 0;
+      overflow: hidden;
+      border: none;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      box-shadow: none;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      padding: 0 0 2rem 0;
+    }
+    .cat-product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    .cpc-img-box {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--bg-stone-subtle);
+      width: 100%;
+    }
+    .cpc-main-img, .cpc-hover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .cpc-hover-img {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+    .cat-product-card:hover .cpc-hover-img {
+      opacity: 1;
+    }
+    .cat-product-card:hover .cpc-main-img {
+      transform: scale(1.04);
+    }
+    .cat-product-card:hover .cpc-hover-img {
+      transform: scale(1.04);
+    }
+
+    .cpc-body {
+      padding: 1rem 0.5rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: transparent;
+    }
+    .cpc-title {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal-deep);
+      line-height: 1.3;
+      margin: 0;
+      transition: color 0.3s ease;
+    }
+    .cat-product-card:hover .cpc-title {
+      color: var(--wood-terracotta);
+    }
+
+    /* CURATION PLACEHOLDER FOR OTHER CATEGORIES */
+    .cat-empty-state {
+      background: var(--bg-card);
+      border-radius: 14px;
+      border: 1px dashed var(--border-subtle);
+      padding: 4.5rem 2rem;
+      text-align: center;
+      max-width: 680px;
+      margin: 1rem auto;
+      grid-column: 1 / -1;
+    }
+    .cat-empty-state h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--charcoal-deep);
+    }
+    .cat-empty-state p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .cat-empty-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .cat-empty-btn:hover {
+      background: var(--wood-terracotta);
+    }
+
+    /* EXPANDED LUXURY MODAL STYLING */
+    .modal-box.expanded-modal {
+      max-width: 1040px;
+      grid-template-columns: 1.15fr 1fr;
+      max-height: 90vh;
+    }
+    .modal-gallery-column {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-stone-subtle);
+      padding: 2rem;
+      overflow-y: auto;
+      gap: 1.2rem;
+    }
+    .modal-main-display {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #faf8f5;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .modal-main-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #faf8f5;
+      transition: opacity 0.3s ease;
+    }
+    .modal-main-display img.is-changing {
+      opacity: 0.2;
+    }
+
+    /* Modal Slider Arrows (KAFT aesthetic) */
+    .modal-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(35, 28, 23, 0.12);
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: var(--transition-smooth);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .modal-slider-arrow:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border-color: var(--charcoal-deep);
+    }
+    .modal-slider-arrow.prev { left: 0.8rem; }
+    .modal-slider-arrow.next { right: 0.8rem; }
+
+    /* Modal Gallery Counter (KAFT style) */
+    .modal-gallery-counter {
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      background: rgba(35, 28, 23, 0.72);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      z-index: 5;
+    }
+
+    /* Auto Slider Progress Bar */
+    .modal-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(35, 28, 23, 0.08);
+      z-index: 5;
+    }
+    .modal-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--wood-terracotta);
+    }
+    .modal-thumbs-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+    .modal-thumb {
+      aspect-ratio: 1 / 1;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      background: #ffffff;
+      transition: var(--transition-smooth);
+    }
+    .modal-thumb.active {
+      border-color: var(--wood-terracotta);
+    }
+    .modal-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .modal-scroll-info {
+      padding: 2.5rem;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+    .modal-subheading {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .size-table-wrap {
+      overflow-x: auto;
+      margin: 0.8rem 0 1.4rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .size-table th, .size-table td {
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .size-table th {
+      background: var(--bg-stone);
+      font-weight: 600;
+      color: var(--charcoal-deep);
+      text-transform: uppercase;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+    }
+    .size-table tr:last-child td {
+      border-bottom: none;
+    }
+    .modal-notes-list {
+      list-style: none;
+      margin-bottom: 1.8rem;
+    }
+    .modal-notes-list li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      line-height: 1.6;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .modal-notes-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--wood-terracotta);
+      font-size: 0.75rem;
+    }
+    .modal-notes-list strong {
+      color: var(--charcoal-deep);
+    }
+    .cert-link {
+      color: var(--wood-terracotta);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* KAFT-INSPIRED PRODUCT CARD */
+    .product-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(35, 28, 23, 0.18);
+    }
+
+    .product-img-box {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--bg-stone-subtle);
+    }
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .product-card:hover .product-img-box img {
+      transform: scale(1.05);
+    }
+
+    .product-code-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .product-layer-tag {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(35, 28, 23, 0.85);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .product-body {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .product-category {
+      font-size: 0.64rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .product-status {
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .product-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      line-height: 1.25;
+      margin-bottom: 0.7rem;
+    }
+
+    /* The Design Story / Philosophy Snippet */
+    .product-story {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .product-specs-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .spec-pill {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--bg-stone);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      color: var(--charcoal-soft);
+      font-weight: 500;
+    }
+
+    .product-detail-btn {
+      width: 100%;
+      background: var(--bg-stone);
+      border: 1px solid var(--border-subtle);
+      color: var(--charcoal);
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: var(--transition-smooth);
+    }
+    .product-detail-btn:hover {
+      background: var(--charcoal-deep);
+      color: #fff;
+      border-color: var(--charcoal-deep);
+    }
+
+    /* B2B / WHOLESALE & VOLUME FOCUS SECTION */
+    .wholesale-section {
+      background: #ffffff;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .wholesale-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 1rem;
+    }
+    .ws-card {
+      padding: 2.4rem 2rem;
+      background: var(--bg-stone);
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+    .ws-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-clean);
+      border-color: var(--border-focus);
+    }
+    .ws-icon-circle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(173, 93, 46, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--wood-terracotta);
+      margin-bottom: 1.4rem;
+    }
+    .ws-card h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.6rem;
+    }
+    .ws-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ABOUT / ATELIER HERITAGE */
+    .about-section {
+      background: var(--bg-stone);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-img-box {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-clean);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+    }
+    .about-img-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .about-stamp {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--charcoal-deep);
+      color: var(--bg-stone);
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 4px solid var(--bg-stone);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .about-stamp-yr {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--wood-terracotta);
+      line-height: 1;
+    }
+    .about-stamp-txt {
+      font-size: 0.52rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+      margin-top: 2.5rem;
+    }
+    .pillar-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.3rem;
+      background: #ffffff;
+      padding: 1.4rem 1.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+    .pillar-card:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-clean);
+      border-color: var(--border-focus);
+    }
+    .pillar-icon {
+      width: 40px; height: 40px;
+      background: rgba(173, 93, 46, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wood-terracotta);
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .pillar-content h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+    .pillar-content p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CONTACT & WHOLESALE INQUIRIES */
+    .contact-section {
+      background: #e8e7e1;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: flex-start;
+    }
+
+    .contact-info-card {
+      background: var(--charcoal-deep);
+      color: var(--bg-stone);
+      padding: 3rem;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ci-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .ci-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.4rem;
+    }
+    .ci-desc {
+      font-size: 0.88rem;
+      color: rgba(250, 247, 242, 0.75);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .ci-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+    .ci-item-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-stone);
+      font-size: 0.95rem;
+    }
+    .ci-item-text span {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      display: block;
+    }
+    .ci-item-text a, .ci-item-text strong {
+      font-size: 0.92rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    /* Inquiry Form Box */
+    .contact-form-box {
+      background: #ffffff;
+      padding: 3.2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-clean);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.45rem;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.95rem 1.15rem;
+      background: var(--bg-stone);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      background: #fff;
+      border-color: var(--charcoal);
+      box-shadow: 0 0 0 3px rgba(35, 28, 23, 0.08);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-submit-btn {
+      width: 100%;
+      background: var(--charcoal-deep);
+      color: #fff;
+      border: none;
+      padding: 1.1rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .form-submit-btn:hover {
+      background: var(--wood-terracotta);
+      transform: translateY(-2px);
+    }
+    .form-alert {
+      display: none;
+      margin-top: 1.2rem;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .form-alert.success {
+      display: block;
+      background: #edf7ed;
+      color: #1e4620;
+      border: 1px solid #c8e6c9;
+    }
+
+    /* EDITORIAL PRODUCT MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 27, 24, 0.72);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 820px;
+      width: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    .modal-backdrop.open .modal-box {
+      transform: scale(1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.06);
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--charcoal);
+      z-index: 10;
+      transition: var(--transition-smooth);
+    }
+    .modal-close:hover {
+      background: var(--charcoal-deep);
+      color: #fff;
+    }
+    .modal-img-wrap {
+      background: #dfdbd2;
+      position: relative;
+    }
+    .modal-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .modal-info {
+      padding: 2.8rem 2.4rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-cat {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .modal-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.85rem;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .modal-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+      font-weight: 300;
+    }
+    .modal-specs {
+      list-style: none;
+      font-size: 0.78rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .modal-specs li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      color: var(--text-muted);
+    }
+    .modal-specs li strong {
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+    .modal-btn {
+      background: var(--charcoal-deep);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.95rem;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .modal-btn:hover {
+      background: var(--wood-terracotta);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal-deep);
+      color: var(--bg-stone);
+      padding: 4.5rem 3.5rem 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-brand p {
+      font-size: 0.84rem;
+      color: rgba(237, 236, 230, 0.65);
+      line-height: 1.7;
+      max-width: 340px;
+      font-weight: 300;
+      margin-top: 0.8rem;
+    }
+    .footer-logo-img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      display: block;
+    }
+    .footer-col h5 {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--wood-sand);
+      margin-bottom: 1.4rem;
+      font-weight: 600;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.8rem;
+    }
+    .footer-col a {
+      color: rgba(237, 236, 230, 0.65);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2rem;
+      font-size: 0.72rem;
+      color: rgba(237, 236, 230, 0.45);
+      letter-spacing: 0.1em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      header { padding: 1.1rem 2rem; }
+      header.scrolled { padding: 0.8rem 2rem; }
+      section { padding: 5rem 2rem; }
+      .home-banner-section { padding-top: 5.2rem; }
+      .slider-box { aspect-ratio: 16 / 9; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+      .cat-products-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .wholesale-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-menu {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 80%;
+        max-width: 340px;
+        height: 100vh;
+        background: var(--bg-stone);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2.5rem;
+        gap: 2rem;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        transition: right 0.4s ease;
+      }
+      .nav-menu.open {
+        right: 0;
+      }
+      .slider-box { aspect-ratio: 16 / 9; border-radius: 0; }
+      .slider-arrow { width: 40px; height: 40px; }
+      .slider-arrow svg { width: 22px; height: 22px; }
+      .slider-arrow.prev { left: 0.4rem; }
+      .slider-arrow.next { right: 0.4rem; }
+      .category-grid { grid-template-columns: 1fr; }
+      .cat-products-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal-box { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
+      .modal-img-wrap { height: 260px; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .cpc-title { font-size: 0.82rem; letter-spacing: 0.05em; }
+      .cpc-body { padding: 0.75rem 0.25rem 0.25rem; }
+      .cat-story-banner { margin-bottom: 1.8rem; }
+      .section-head { margin-bottom: 2rem; }
+      .cat-breadcrumb { font-size: 0.65rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header id="header">
+    <div class="nav-container">
+      <a href="/" class="brand" aria-label="WoodenArtShop Home" onclick="reloadSiteHome(event)">
+        <img src="images/logo.png" alt="Wooden Art Shop Logo" class="brand-logo-img" />
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Product</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HOME / 5-SECOND SLIDING BANNER (KAFT-INSPIRED EDITORIAL FRAME) -->
+  <section class="home-banner-section" id="home">
+    <div class="banner-wrapper">
+      <div class="slider-box" id="sliderBox">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Slide 1 -->
+          <div class="slide active">
+            <img src="images/banner-1.jpg" alt="Layered Wooden Decor &amp; Wall Art Pieces" />
+          </div>
+          <!-- Slide 2 -->
+          <div class="slide">
+            <img src="images/banner-2.png" alt="Home is Where the Heart is Multilayer Wooden Sign" />
+          </div>
+          <!-- Slide 3 -->
+          <div class="slide">
+            <img src="images/banner-3.png" alt="Artisanal Hanging Wooden Art &amp; Ornaments" />
+          </div>
+        </div>
+
+        <!-- Arrows -->
+        <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous Slide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="slider-arrow next" id="sliderNext" aria-label="Next Slide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <!-- Bottom Controls -->
+        <div class="slider-bottom-bar">
+          <div class="slider-dots" id="sliderDots">
+            <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
+          </div>
+        </div>
+
+        <!-- 5-Second Timer Progress Bar -->
+        <div class="slider-progress-bar">
+          <div class="slider-progress-fill" id="sliderProgress"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT TICKER -->
+  <div class="concept-ticker">
+    <div class="ticker-inner">
+      <span>Multilayer 3D Wood Art</span><span class="bullet">✦</span>
+      <span>Precision Cut &amp; Hand Finished</span><span class="bullet">✦</span>
+      <span>Wholesale &amp; Volume Supply Available</span><span class="bullet">✦</span>
+      <span>Worldwide Insured Dispatch</span><span class="bullet">✦</span>
+      <span>Natural Grain &amp; Layer Depth</span><span class="bullet">✦</span>
+      <span>Multilayer 3D Wood Art</span><span class="bullet">✦</span>
+      <span>Precision Cut &amp; Hand Finished</span><span class="bullet">✦</span>
+      <span>Wholesale &amp; Volume Supply Available</span><span class="bullet">✦</span>
+      <span>Worldwide Insured Dispatch</span><span class="bullet">✦</span>
+    </div>
+  </div>
+
+  <!-- PRODUCT SHOWCASE (CATEGORY COLLECTIONS) -->
+  <section class="products-section" id="products">
+    <div class="section-wrap">
+      <div class="section-head" id="productsMainHead">
+        <span class="section-eyebrow">Studio Collections</span>
+        <h2 class="section-heading">Curated Dimensions. <em>Six Distinct Worlds.</em></h2>
+        <p class="section-desc">
+          Explore our signature multilayer 3D woodcraft themes. Handcrafted in studio for private collectors, gallery stockists, and wholesale partners worldwide.
+        </p>
+      </div>
+
+      <!-- 6 Category Cards Grid (Row 1: PETS, HOME DECOR, SETS | Row 2: FLAGS, GOTHIC, HALLOWEEN) -->
+      <div class="category-grid" id="categoryGridSection">
+
+        <!-- Row 1, Card 1: PETS -->
+        <div class="category-card" data-category="pets" onclick="selectCategory('pets')">
+          <div class="category-img-wrap">
+            <img src="images/cat-pets.jpg" alt="PETS Multilayer Woodcraft Collection" loading="lazy" />
+          </div>
+          <div class="category-meta-bar">
+            <div class="category-meta-left">
+              <h3 class="category-name">PET COLLECTION</h3>
+            </div>
+            <div class="category-arrow-btn" aria-label="Explore PET COLLECTION">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 1, Card 2: HOME DECOR -->
+        <div class="category-card" data-category="homedecor" onclick="selectCategory('homedecor')">
+          <div class="category-img-wrap">
+            <img src="images/cat-homedecor.jpg" alt="HOME DECOR COLLECTION Multilayer Woodcraft" loading="lazy" />
+          </div>
+          <div class="category-meta-bar">
+            <div class="category-meta-left">
+              <h3 class="category-name">HOME DECOR COLLECTION</h3>
+            </div>
+            <div class="category-arrow-btn" aria-label="Explore HOME DECOR COLLECTION">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 1, Card 3: SETS -->
+        <div class="category-card" data-category="sets" onclick="selectCategory('sets')">
+          <div class="category-img-wrap">
+            <img src="images/cat-sets.jpg" alt="SET COLLECTION Multilayer Woodcraft" loading="lazy" />
+          </div>
+          <div class="category-meta-bar">
+            <div class="category-meta-left">
+              <h3 class="category-name">SET COLLECTION</h3>
+            </div>
+            <div class="category-arrow-btn" aria-label="Explore SET COLLECTION">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2, Card 4: FLAGS -->
+        <div class="category-card" data-category="flags" onclick="selectCategory('flags')">
+          <div class="category-img-wrap">
+            <img src="images/cat-flags.jpg" alt="FLAG COLLECTION Multilayer Woodcraft" loading="lazy" />
+          </div>
+          <div class="category-meta-bar">
+            <div class="category-meta-left">
+              <h3 class="category-name">FLAG COLLECTION</h3>
+            </div>
+            <div class="category-arrow-btn" aria-label="Explore FLAG COLLECTION">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2, Card 5: GOTHIC -->
+        <div class="category-card" data-category="gothic" onclick="selectCategory('gothic')">
+          <div class="category-img-wrap">
+            <img src="images/cat-gothic.jpg" alt="GOTHIC COLLECTION Multilayer Woodcraft" loading="lazy" />
+          </div>
+          <div class="category-meta-bar">
+            <div class="category-meta-left">
+              <h3 class="category-name">GOTHIC COLLECTION</h3>
+            </div>
+            <div class="category-arrow-btn" aria-label="Explore GOTHIC COLLECTION">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2, Card 6: HALLOWEEN -->
+        <div class="category-card" data-category="halloween" onclick="selectCategory('halloween')">
+          <div class="category-img-wrap">
+            <img src="images/cat-halloween.jpg" alt="HALLOWEEN COLLECTION Multilayer Woodcraft" loading="lazy" />
+          </div>
+          <div class="category-meta-bar">
+            <div class="category-meta-left">
+              <h3 class="category-name">HALLOWEEN COLLECTION</h3>
+            </div>
+            <div class="category-arrow-btn" aria-label="Explore HALLOWEEN COLLECTION">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /#categoryGridSection -->
+
+      <!-- Active Category Detail & Products View (KAFT-Inspired In-Place Drilldown) -->
+      <div id="categoryDetailView" class="category-detail-view" style="display: none;">
+        <div class="cat-detail-header">
+          <button class="cat-back-btn" onclick="backToCategories()">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All Collections
+          </button>
+          <div class="cat-breadcrumb">
+            <span>Studio Collections</span> / <strong id="catBreadcrumbTitle">PETS</strong>
+          </div>
+        </div>
+
+        <div class="cat-story-banner">
+          <div class="cat-story-meta">
+            <span class="section-eyebrow" id="catEyebrow">Collection 01</span>
+            <h2 class="section-heading" id="catHeading">PETS — <em>Architectural Havens &amp; Companions</em></h2>
+            <p class="section-desc" id="catDesc">
+              Modern living spaces meet pure canine and feline comfort. Designed with sustainable birch wood, tool-free slot joinery, and non-toxic certified finishes for pets who are truly part of the family.
+            </p>
+          </div>
+          <div class="cat-count-badge" id="catCountBadge">
+            3 Studio Designs Available
+          </div>
+        </div>
+
+        <!-- Category Products Grid -->
+        <div id="catProductsGrid" class="cat-products-grid">
+          <!-- Dynamic product cards -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOLESALE & COMMERCIAL SUPPLY SECTION (NEW B2B FOCUS) -->
+  <section class="wholesale-section" id="wholesale">
+    <div class="section-wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Partnership &amp; Trade</span>
+        <h2 class="section-heading">Built for boutique stockists &amp; <em>commercial volumes.</em></h2>
+        <p class="section-desc">
+          We work closely with home decor boutiques, concept stores, gift galleries, and interior designers seeking distinctive layered wooden objects.
+        </p>
+      </div>
+
+      <div class="wholesale-grid">
+        <div class="ws-card">
+          <div class="ws-icon-circle">⚙</div>
+          <h3>Reliable Volume Capacity</h3>
+          <p>
+            From small curated batches of 20 units to scalable orders of hundreds of pieces, our studio ensures consistent hand-finished quality across every single piece.
+          </p>
+        </div>
+
+        <div class="ws-card">
+          <div class="ws-icon-circle">✦</div>
+          <h3>Custom Sizing &amp; Finishes</h3>
+          <p>
+            Need tailored dimensions, customized colorways, or private labeling for your retail brand? We adjust our designs to fit your store’s collection requirements.
+          </p>
+        </div>
+
+        <div class="ws-card">
+          <div class="ws-icon-circle">✈</div>
+          <h3>Export-Grade International Shipping</h3>
+          <p>
+            Every order is cushioned in drop-tested protective packaging and shipped with tracked air/cargo freight directly to the US, Europe, UK, and worldwide destinations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="section-wrap">
+      <div class="about-grid">
+        <div class="about-visual-side">
+          <div class="about-img-box">
+            <img src="images/banner-1.jpg" alt="WoodenArtShop Handcrafted Studio Pieces" loading="lazy" />
+            <div class="about-stamp">
+              <span class="about-stamp-yr">100%</span>
+              <span class="about-stamp-txt">Handmade</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-side">
+          <span class="section-eyebrow">Studio Heritage</span>
+          <h2 class="section-heading">Crafted with patience, <em>never mass-molded.</em></h2>
+          <p class="section-desc">
+            At WoodenArtShop, we believe that objects placed in a home should carry human energy and depth. We combine modern laser slicing with hands-on woodworking traditions — sanding each contour, mixing natural pigments, and hand-bonding every tier.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-card">
+              <div class="pillar-icon">🪵</div>
+              <div class="pillar-content">
+                <h4>Layered Depth &amp; Dimension</h4>
+                <p>Every work is built from multiple genuine timber planes, producing real physical shadow depth that digital prints can never replicate.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">✂️</div>
+              <div class="pillar-content">
+                <h4>Artisanal Assembly &amp; Finish</h4>
+                <p>Every joint is assembled and inspected by hand in our dedicated atelier, finished with protective non-toxic sealants.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">📦</div>
+              <div class="pillar-content">
+                <h4>Safe Door-to-Door Export</h4>
+                <p>Packed with heavy-duty foam corner guards and insured international tracking so every piece arrives in showroom condition.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & WHOLESALE INQUIRY SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="section-wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Direct Atelier Inquiries</span>
+        <h2 class="section-heading">Inquire about products or <em>request a quote.</em></h2>
+        <p class="section-desc">
+          Interested in wholesale pricing, stocking our pieces in your store, or custom sizing? Send our studio a message and we will respond with details and specifications.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Studio Info Card -->
+        <div class="contact-info-card">
+          <span class="ci-eyebrow">Atelier Desk</span>
+          <h3 class="ci-title">Let’s connect directly.</h3>
+          <p class="ci-desc">
+            We work with retail stockists, galleries, and private collectors across the globe.
+          </p>
+
+          <div class="ci-item">
+            <div class="ci-item-icon">✉</div>
+            <div class="ci-item-text">
+              <span>Studio Email</span>
+              <a href="mailto:info@woodenartshop.com">info@woodenartshop.com</a>
+            </div>
+          </div>
+
+          <div class="ci-item">
+            <div class="ci-item-icon">✈</div>
+            <div class="ci-item-text">
+              <span>Worldwide Shipping</span>
+              <strong>United States, UK, EU, Canada &amp; Worldwide</strong>
+            </div>
+          </div>
+
+          <div class="ci-item">
+            <div class="ci-item-icon">⏱</div>
+            <div class="ci-item-text">
+              <span>Studio Dispatch Time</span>
+              <strong>All Inquiries Answered Within 24 Hours</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Box -->
+        <div class="contact-form-box">
+          <form id="inquiryForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="senderName">Your Name *</label>
+                <input type="text" id="senderName" class="form-input" placeholder="e.g. John Doe" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="senderEmail">Your Email *</label>
+                <input type="email" id="senderEmail" class="form-input" placeholder="john@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="senderCountry">Country / Region *</label>
+                <input type="text" id="senderCountry" class="form-input" placeholder="e.g. United States, Germany, UK" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="inquiryType">Inquiry Purpose</label>
+                <select id="inquiryType" class="form-select">
+                  <option value="wholesale">Wholesale / Bulk Order Inquiry</option>
+                  <option value="stockist">Retailer &amp; Store Stockist</option>
+                  <option value="product">Single Piece Specifications</option>
+                  <option value="custom">Custom Sizing / Commission</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="messageText">Details or Inquiry Message *</label>
+              <textarea id="messageText" class="form-textarea" placeholder="Please mention the designs you are interested in, estimated quantities, or questions..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              Submit Inquiry
+            </button>
+
+            <div id="formSuccessAlert" class="form-alert success">
+              ✦ Thank you! Your inquiry has been delivered directly to our workshop desk. We will get back to you with specs and pricing within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SPECIFICATION MODAL (KAFT-INSPIRED STORY & SPEC SHEET) -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-box expanded-modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+      
+      <!-- Gallery Column -->
+      <div class="modal-gallery-column">
+        <div class="modal-main-display" id="modalMainDisplayWrap">
+          <img src="images/pets-aruv-bourbon-2.jpg" id="modalMainDisplayImg" alt="ARUV BOURBON Detail View" />
+          <button class="modal-slider-arrow prev" onclick="prevModalImage(event)" aria-label="Previous photo">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="modal-slider-arrow next" onclick="nextModalImage(event)" aria-label="Next photo">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="modal-gallery-counter" id="modalGalleryCounter">01 / 10</span>
+          <div class="modal-progress-bar">
+            <div class="modal-progress-fill" id="modalProgressFill"></div>
+          </div>
+        </div>
+        <div class="modal-thumbs-grid" id="modalThumbsGrid">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- Info Column -->
+      <div class="modal-scroll-info" id="modalScrollInfo">
+        <span class="modal-cat" id="modalCat">Category</span>
+        <h3 class="modal-title" id="modalTitle">Product Title</h3>
+        <p class="modal-desc" id="modalDesc">Product description and story.</p>
+        <div id="modalExtraContent"></div>
+        <a href="#contact" class="modal-btn" onclick="inquireProduct()">Request Wholesale Quote</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="/" onclick="reloadSiteHome(event)" style="display:inline-block; text-decoration:none;" aria-label="WoodenArtShop Home">
+            <img src="images/logo.png" alt="Wooden Art Shop Logo" class="footer-logo-img" />
+          </a>
+          <p>
+            An independent artisanal studio dedicated to unique multilayer woodwork, tactile wall art, and wholesale architectural decor.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Product Showcase</a></li>
+            <li><a href="#wholesale">Wholesale &amp; Volume</a></li>
+            <li><a href="#about">Studio Story</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Partner Care</h5>
+          <ul>
+            <li><a href="#contact">Wholesale Inquiries</a></li>
+            <li><a href="#contact">Worldwide Export Freight</a></li>
+            <li><a href="#contact">Material &amp; Care Details</a></li>
+            <li><a href="mailto:info@woodenartshop.com">info@woodenartshop.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 WoodenArtShop. All rights reserved. Handcrafted with precision &amp; care.</div>
+        <div>International Shipping to USA, Europe, Canada &amp; Worldwide</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Header Scroll Effect & Active Nav Link Highlight
+    const header = document.getElementById('header');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 140;
+        if (window.scrollY >= top) {
+          current = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Reload & Reset to Top when clicking WAS Logo
+    function reloadSiteHome(e) {
+      if (e && (e.ctrlKey || e.metaKey || e.shiftKey || (e.button && e.button !== 0))) return;
+      if (e) e.preventDefault();
+
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+
+      const isFileProtocol = window.location.protocol === 'file:';
+      const cleanRoot = isFileProtocol ? window.location.pathname : (window.location.origin + '/');
+
+      if (!isFileProtocol && !window.location.hash && !window.location.search && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
+        window.location.reload();
+      } else {
+        window.location.href = cleanRoot;
+        if (!isFileProtocol && window.location.pathname === '/' && !window.location.hash) {
+          window.location.reload();
+        }
+      }
+    }
+
+    // Smooth Anchor Scrolling with Header Clearance
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerHeight = header ? header.offsetHeight : 80;
+            const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+            window.scrollTo({
+              top: targetPos,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // ==========================================
+    // KAFT-STYLE CATEGORY & PRODUCT DRILLDOWN
+    // ==========================================
+    const categoriesData = {
+      pets: {
+        eyebrow: "Collection",
+        title: "PET COLLECTION",
+        heading: "PET COLLECTION — <em>Architectural Havens &amp; Companions</em>",
+        desc: "Modern living spaces meet pure canine and feline comfort. Designed with sustainable birch wood, tool-free slot joinery, and non-toxic certified finishes for pets who are truly part of the family.",
+        count: "3 Studio Designs Available",
+        type: "pets"
+      },
+      homedecor: {
+        eyebrow: "Collection",
+        title: "HOME DECOR COLLECTION",
+        heading: "HOME DECOR COLLECTION — <em>Tactile Spaces &amp; Living Geometry</em>",
+        desc: "Multi-tiered dimensional wall panels, architectural reliefs, and statement centerpieces crafted to evoke tranquility and depth in living spaces.",
+        count: "27 Studio Designs Available",
+        type: "homedecor"
+      },
+      sets: {
+        eyebrow: "Collection",
+        title: "SET COLLECTION",
+        heading: "SET COLLECTION — <em>Harmonious Polyptychs &amp; Series</em>",
+        desc: "Multi-piece coordinated woodwork designed to span across walls in graceful, interconnected geometric harmony.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      flags: {
+        eyebrow: "Collection",
+        title: "FLAG COLLECTION",
+        heading: "FLAG COLLECTION — <em>Heritage, Emblems &amp; Dimensional Identity</em>",
+        desc: "Distinctive relief emblems and layered flag designs celebrating national identities through hand-stained artisanal timber.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      gothic: {
+        eyebrow: "Collection",
+        title: "GOTHIC COLLECTION",
+        heading: "GOTHIC COLLECTION — <em>Shadows, Arches &amp; Mystical Reliefs</em>",
+        desc: "Moody, cathedral-inspired wood carvings and intricate layered silhouettes with evocative physical depth.",
+        count: "Curation in Progress",
+        type: "curating"
+      },
+      halloween: {
+        eyebrow: "Collection",
+        title: "HALLOWEEN COLLECTION",
+        heading: "HALLOWEEN COLLECTION — <em>Nocturnal Whimsy &amp; Autumn Keep</em>",
+        desc: "Sculpted full moons, ravens, and festive dimensional timber art crafted for autumn lovers and collectors.",
+        count: "Curation in Progress",
+        type: "curating"
+      }
+    };
+
+    const aruvBourbonImages = [
+      { src: "images/pets-aruv-bourbon-2.jpg", title: "ARUV BOURBON — Navy Blue Canopy & Cushion Setup" },
+      { src: "images/pets-aruv-bourbon-1.jpg", title: "ARUV BOURBON — Pure White Canopy & Cushion Setup" },
+      { src: "images/pets-aruv-bourbon-3.jpg", title: "ARUV BOURBON — Open Birch Frame with Indigo Cushion" },
+      { src: "images/pets-aruv-bourbon-4.jpg", title: "ARUV BOURBON — Open Birch Frame with White Cushion" },
+      { src: "images/pets-aruv-bourbon-5.jpg", title: "ARUV BOURBON — Low Angle Architectural Frame" },
+      { src: "images/pets-aruv-bourbon-front.jpg", title: "ARUV BOURBON — Front Elevation" },
+      { src: "images/pets-aruv-bourbon-angle.jpg", title: "ARUV BOURBON — 3/4 Perspective Joinery" },
+      { src: "images/pets-aruv-bourbon-sizes.png", title: "ARUV BOURBON — S / M / L Dimension Chart" },
+      { src: "images/pets-aruv-bourbon-cushions.png", title: "ARUV BOURBON — Cushion Color Options" },
+      { src: "images/pets-aruv-bourbon-joints.jpg", title: "ARUV BOURBON — Screwless Slot Joinery Details" }
+    ];
+
+    function selectCategory(categoryKey) {
+      const data = categoriesData[categoryKey];
+      if (!data) return;
+
+      // Update titles and copy
+      document.getElementById('catBreadcrumbTitle').textContent = data.title;
+      document.getElementById('catEyebrow').textContent = data.eyebrow;
+      document.getElementById('catHeading').innerHTML = data.heading;
+      document.getElementById('catDesc').textContent = data.desc;
+      document.getElementById('catCountBadge').textContent = data.count;
+
+      const grid = document.getElementById('catProductsGrid');
+      grid.innerHTML = '';
+
+      if (categoryKey === 'pets') {
+        grid.innerHTML = `
+          <!-- Product 1: ARUV BOURBON -->
+          <div class="cat-product-card" onclick="window.location.href='aruv-bourbon.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/pets-aruv-bourbon-2.jpg" class="cpc-main-img" alt="ARUV BOURBON Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-bourbon-1.jpg" class="cpc-hover-img" alt="ARUV BOURBON alternate view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ARUV BOURBON</h3>
+            </div>
+          </div>
+
+          <!-- Product 2: ARUV NATURAL -->
+          <div class="cat-product-card" onclick="window.location.href='aruv-natural.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/pets-aruv-natural-front.jpg" class="cpc-main-img" alt="ARUV NATURAL Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-natural-angle.jpg" class="cpc-hover-img" alt="ARUV NATURAL alternate view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ARUV NATURAL</h3>
+            </div>
+          </div>
+
+          <!-- Product 3: ARUV SLATE GREY -->
+          <div class="cat-product-card" onclick="window.location.href='aruv-slate-grey.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/pets-aruv-slate-grey-front.jpg" class="cpc-main-img" alt="ARUV SLATE GREY Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-slate-grey-angle.jpg" class="cpc-hover-img" alt="ARUV SLATE GREY alternate view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ARUV SLATE GREY</h3>
+            </div>
+          </div>
+        `;
+      } else if (categoryKey === 'homedecor') {
+        grid.innerHTML = `
+          <!-- Product 1: WILD WOLF -->
+          <div class="cat-product-card" onclick="window.location.href='wild-wolf.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-wild-wolf-01.jpg" class="cpc-main-img" alt="WILD WOLF Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-wild-wolf-03.jpg" class="cpc-hover-img" alt="WILD WOLF alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">WILD WOLF</h3>
+            </div>
+          </div>
+
+          <!-- Product 2: MAJESTIC EAGLE -->
+          <div class="cat-product-card" onclick="window.location.href='majestic-eagle.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-majestic-eagle-01.jpg" class="cpc-main-img" alt="MAJESTIC EAGLE Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-majestic-eagle-03.jpg" class="cpc-hover-img" alt="MAJESTIC EAGLE alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">MAJESTIC EAGLE</h3>
+            </div>
+          </div>
+
+          <!-- Product 3: COBRA GEOMETRY -->
+          <div class="cat-product-card" onclick="window.location.href='cobra-geometry.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-cobra-geometry-01.jpg" class="cpc-main-img" alt="COBRA GEOMETRY Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-cobra-geometry-03.jpg" class="cpc-hover-img" alt="COBRA GEOMETRY alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">COBRA GEOMETRY</h3>
+            </div>
+          </div>
+
+          <!-- Product 4: MYSTIC OWL -->
+          <div class="cat-product-card" onclick="window.location.href='mystic-owl.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-mystic-owl-01.jpg" class="cpc-main-img" alt="MYSTIC OWL Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-mystic-owl-03.jpg" class="cpc-hover-img" alt="MYSTIC OWL alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">MYSTIC OWL</h3>
+            </div>
+          </div>
+
+          <!-- Product 5: GEO BEAR -->
+          <div class="cat-product-card" onclick="window.location.href='geo-bear.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-geo-bear-01.jpg" class="cpc-main-img" alt="GEO BEAR Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-geo-bear-03.jpg" class="cpc-hover-img" alt="GEO BEAR alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">GEO BEAR</h3>
+            </div>
+          </div>
+
+          <!-- Product 6: ORIGAMI UNICORN -->
+          <div class="cat-product-card" onclick="window.location.href='origami-unicorn.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-origami-unicorn-01.jpg" class="cpc-main-img" alt="ORIGAMI UNICORN Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-origami-unicorn-03.jpg" class="cpc-hover-img" alt="ORIGAMI UNICORN alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ORIGAMI UNICORN</h3>
+            </div>
+          </div>
+
+          <!-- Product 7: NOBLE STAG -->
+          <div class="cat-product-card" onclick="window.location.href='noble-stag.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-noble-stag-01.jpg" class="cpc-main-img" alt="NOBLE STAG Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-noble-stag-03.jpg" class="cpc-hover-img" alt="NOBLE STAG alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">NOBLE STAG</h3>
+            </div>
+          </div>
+
+          <!-- Product 8: LION EMBLEM -->
+          <div class="cat-product-card" onclick="window.location.href='lion-emblem.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-lion-emblem-01.jpg" class="cpc-main-img" alt="LION EMBLEM Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-lion-emblem-03.jpg" class="cpc-hover-img" alt="LION EMBLEM alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">LION EMBLEM</h3>
+            </div>
+          </div>
+
+          <!-- Product 9: ORIGAMI OWL -->
+          <div class="cat-product-card" onclick="window.location.href='origami-owl.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-origami-owl-01.jpg" class="cpc-main-img" alt="ORIGAMI OWL Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-origami-owl-03.jpg" class="cpc-hover-img" alt="ORIGAMI OWL alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ORIGAMI OWL</h3>
+            </div>
+          </div>
+
+<!-- Product 10: DREAM BIG LITTLE ONE -->
+          <div class="cat-product-card" onclick="window.location.href='dream-big-little.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-dream-big-little-01.jpg" class="cpc-main-img" alt="DREAM BIG LITTLE ONE Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-dream-big-little-03.jpg" class="cpc-hover-img" alt="DREAM BIG LITTLE ONE alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">DREAM BIG LITTLE ONE</h3>
+            </div>
+          </div>
+          <!-- Product 11: BE KIND ALWAYS -->
+          <div class="cat-product-card" onclick="window.location.href='be-kind-always.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-be-kind-always-01.jpg" class="cpc-main-img" alt="BE KIND ALWAYS Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-be-kind-always-03.jpg" class="cpc-hover-img" alt="BE KIND ALWAYS alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">BE KIND ALWAYS</h3>
+            </div>
+          </div>
+          <!-- Product 12: YOU ARE ENOUGH -->
+          <div class="cat-product-card" onclick="window.location.href='you-are-enough.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-you-are-enough-01.jpg" class="cpc-main-img" alt="YOU ARE ENOUGH Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-you-are-enough-03.jpg" class="cpc-hover-img" alt="YOU ARE ENOUGH alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">YOU ARE ENOUGH</h3>
+            </div>
+          </div>
+          <!-- Product 13: ADVENTURE AWAITS -->
+          <div class="cat-product-card" onclick="window.location.href='adventure-awaits.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-adventure-awaits-01.jpg" class="cpc-main-img" alt="ADVENTURE AWAITS Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-adventure-awaits-03.jpg" class="cpc-hover-img" alt="ADVENTURE AWAITS alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ADVENTURE AWAITS</h3>
+            </div>
+          </div>
+          <!-- Product 14: HOME IS WHERE THE HEART IS -->
+          <div class="cat-product-card" onclick="window.location.href='home-is-where-the-heart-is.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-home-is-where-the-heart-is-01.jpg" class="cpc-main-img" alt="HOME IS WHERE THE HEART IS Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-home-is-where-the-heart-is-03.jpg" class="cpc-hover-img" alt="HOME IS WHERE THE HEART IS alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">HOME IS WHERE THE HEART IS</h3>
+            </div>
+          </div>
+          <!-- Product 15: GOOD VIBES ONLY -->
+          <div class="cat-product-card" onclick="window.location.href='good-vibes-only.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-good-vibes-only-01.jpg" class="cpc-main-img" alt="GOOD VIBES ONLY Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-good-vibes-only-03.jpg" class="cpc-hover-img" alt="GOOD VIBES ONLY alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">GOOD VIBES ONLY</h3>
+            </div>
+          </div>
+          <!-- Product 16: ILLUSION -->
+          <div class="cat-product-card" onclick="window.location.href='illusion.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-illusion-01.jpg" class="cpc-main-img" alt="ILLUSION Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-illusion-03.jpg" class="cpc-hover-img" alt="ILLUSION alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">ILLUSION</h3>
+            </div>
+          </div>
+          <!-- Product 17: MAGIC -->
+          <div class="cat-product-card" onclick="window.location.href='magic.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-magic-01.jpg" class="cpc-main-img" alt="MAGIC Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-magic-03.jpg" class="cpc-hover-img" alt="MAGIC alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">MAGIC</h3>
+            </div>
+          </div>
+          <!-- Product 18: DAD MY HERO -->
+          <div class="cat-product-card" onclick="window.location.href='dad-my-hero.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-dad-my-hero-01.jpg" class="cpc-main-img" alt="DAD MY HERO Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-dad-my-hero-03.jpg" class="cpc-hover-img" alt="DAD MY HERO alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">DAD MY HERO</h3>
+            </div>
+          </div>
+          <!-- Product 19: DAD ALWAYS THERE -->
+          <div class="cat-product-card" onclick="window.location.href='dad-always-there.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-dad-always-there-01.jpg" class="cpc-main-img" alt="DAD ALWAYS THERE Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-dad-always-there-03.jpg" class="cpc-hover-img" alt="DAD ALWAYS THERE alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">DAD ALWAYS THERE</h3>
+            </div>
+          </div>
+          <!-- Product 20: SUMMER SUNSHINE -->
+          <div class="cat-product-card" onclick="window.location.href='summer-sunshine.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-summer-sunshine-01.jpg" class="cpc-main-img" alt="SUMMER SUNSHINE Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-summer-sunshine-03.jpg" class="cpc-hover-img" alt="SUMMER SUNSHINE alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">SUMMER SUNSHINE</h3>
+            </div>
+          </div>
+          <!-- Product 21: TROPICAL SUNSET -->
+          <div class="cat-product-card" onclick="window.location.href='tropical-sunset.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-tropical-sunset-01.jpg" class="cpc-main-img" alt="TROPICAL SUNSET Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-tropical-sunset-03.jpg" class="cpc-hover-img" alt="TROPICAL SUNSET alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">TROPICAL SUNSET</h3>
+            </div>
+          </div>
+          <!-- Product 22: MOUNTAIN ESCAPE -->
+          <div class="cat-product-card" onclick="window.location.href='mountain-escape.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-mountain-escape-01.jpg" class="cpc-main-img" alt="MOUNTAIN ESCAPE Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-mountain-escape-03.jpg" class="cpc-hover-img" alt="MOUNTAIN ESCAPE alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">MOUNTAIN ESCAPE</h3>
+            </div>
+          </div>
+          <!-- Product 23: TRIBAL MASK -->
+          <div class="cat-product-card" onclick="window.location.href='tribal-mask.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-tribal-mask-01.jpg" class="cpc-main-img" alt="TRIBAL MASK Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-tribal-mask-03.jpg" class="cpc-hover-img" alt="TRIBAL MASK alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">TRIBAL MASK</h3>
+            </div>
+          </div>
+          <!-- Product 24: LOTUS BLOOM -->
+          <div class="cat-product-card" onclick="window.location.href='lotus-bloom.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-lotus-bloom-01.jpg" class="cpc-main-img" alt="LOTUS BLOOM Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-lotus-bloom-03.jpg" class="cpc-hover-img" alt="LOTUS BLOOM alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">LOTUS BLOOM</h3>
+            </div>
+          </div>
+          <!-- Product 25: WELCOME SIGN - VERSION 1 -->
+          <div class="cat-product-card" onclick="window.location.href='welcome-sign-version-1.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-welcome-sign-v1-01.jpg" class="cpc-main-img" alt="WELCOME SIGN VERSION 1 Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-welcome-sign-v1-03.jpg" class="cpc-hover-img" alt="WELCOME SIGN VERSION 1 alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">WELCOME SIGN - VERSION 1</h3>
+            </div>
+          </div>
+          <!-- Product 26: WELCOME SIGN - VERSION 2 -->
+          <div class="cat-product-card" onclick="window.location.href='welcome-sign-version-2.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-welcome-sign-v2-01.jpg" class="cpc-main-img" alt="WELCOME SIGN VERSION 2 Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-welcome-sign-v2-03.jpg" class="cpc-hover-img" alt="WELCOME SIGN VERSION 2 alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">WELCOME SIGN - VERSION 2</h3>
+            </div>
+          </div>
+          <!-- Product 27: KITCHEN SIGN -->
+          <div class="cat-product-card" onclick="window.location.href='kitchen-sign.html'" style="cursor:pointer;">
+            <div class="cpc-img-box">
+              <img src="images/homedecor-kitchen-sign-01.jpg" class="cpc-main-img" alt="KITCHEN SIGN Multilayer 3D Wooden Wall Art" loading="lazy"/>
+              <img src="images/homedecor-kitchen-sign-03.jpg" class="cpc-hover-img" alt="KITCHEN SIGN alternate 3D view" loading="lazy"/>
+            </div>
+            <div class="cpc-body">
+              <h3 class="cpc-title">KITCHEN SIGN</h3>
+            </div>
+          </div>
+        `;
+      } else {
+        grid.innerHTML = `
+          <div class="cat-empty-state">
+            <span class="section-eyebrow">${data.title} COLLECTION</span>
+            <h3>Studio Curation in Progress</h3>
+            <p>
+              We are currently hand-finishing new dimensional designs for the <strong>${data.title}</strong> collection. In the meantime, you can reach out directly to request our private wholesale catalog or discuss custom architectural commissions.
+            </p>
+            <a href="#contact" class="cat-empty-btn" onclick="inquireCategory('${data.title}')">
+              Inquire About ${data.title} Wholesale
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        `;
+      }
+
+      // Transition views
+      document.getElementById('productsMainHead').style.display = 'none';
+      document.getElementById('categoryGridSection').style.display = 'none';
+      const detailView = document.getElementById('categoryDetailView');
+      detailView.style.display = 'block';
+
+      // Scroll smoothly to section top
+      const target = document.getElementById('products');
+      if (target) {
+        const headerHeight = header ? header.offsetHeight : 80;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    }
+
+    function backToCategories() {
+      document.getElementById('categoryDetailView').style.display = 'none';
+      document.getElementById('productsMainHead').style.display = 'block';
+      document.getElementById('categoryGridSection').style.display = 'grid';
+
+      const target = document.getElementById('products');
+      if (target) {
+        const headerHeight = header ? header.offsetHeight : 80;
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    }
+
+    function inquireCategory(catName) {
+      const textarea = document.getElementById('messageText');
+      if (textarea) {
+        textarea.value = `Hello! I would like to inquire about upcoming designs and wholesale catalog availability for the: "${catName}" collection.`;
+      }
+      const select = document.getElementById('inquiryType');
+      if (select) select.value = 'wholesale';
+    }
+
+    function openAruvBourbonModal() {
+      // Setup main display
+      const mainImg = document.getElementById('modalMainDisplayImg');
+      if (mainImg) {
+        mainImg.src = aruvBourbonImages[0].src;
+        mainImg.alt = aruvBourbonImages[0].title;
+      }
+
+      // Setup thumbnails
+      const thumbsContainer = document.getElementById('modalThumbsGrid');
+      if (thumbsContainer) {
+        thumbsContainer.innerHTML = aruvBourbonImages.map((img, idx) => `
+          <div class="modal-thumb ${idx === 0 ? 'active' : ''}" onclick="switchModalThumb(${idx})">
+            <img src="${img.src}" alt="${img.title}" loading="lazy"/>
+          </div>
+        `).join('');
+      }
+
+      // Setup Info
+      document.getElementById('modalCat').textContent = 'PETS Collection • Model WAS-PET-01';
+      document.getElementById('modalTitle').textContent = 'ARUV BOURBON';
+      document.getElementById('modalDesc').textContent = 'A serene indoor architectural sanctuary designed to harmonize with modern interiors while providing an intuitive, secure haven for your companion. Precision-machined from 9 mm sustainable birch plywood, ARUV BOURBON features an innovative screwless slot-lock structure that assembles seamlessly by hand without tools or metallic fasteners.';
+
+      // Extra Content: Sizes Table, Materials, Care Notes
+      const extra = document.getElementById('modalExtraContent');
+      if (extra) {
+        extra.innerHTML = `
+          <h4 class="modal-subheading">Available Dimensions</h4>
+          <div class="size-table-wrap">
+            <table class="size-table">
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Width</th>
+                  <th>Height</th>
+                  <th>Depth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>SMALL</strong></td>
+                  <td>22.83" (580 mm)</td>
+                  <td>16.92" (430 mm)</td>
+                  <td>15.74" (400 mm)</td>
+                </tr>
+                <tr>
+                  <td><strong>MEDIUM</strong></td>
+                  <td>26.37" (750 mm)</td>
+                  <td>23.62" (600 mm)</td>
+                  <td>20.07" (510 mm)</td>
+                </tr>
+                <tr>
+                  <td><strong>LARGE</strong></td>
+                  <td>37.79" (960 mm)</td>
+                  <td>32.08" (815 mm)</td>
+                  <td>26.37" (670 mm)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="modal-subheading">Materials &amp; Health Certification</h4>
+          <ul class="modal-specs">
+            <li><span>Structure:</span> <strong>9 mm First-Quality Birch Plywood</strong></li>
+            <li><span>Protective Oil:</span> <strong>Rubio Monocoat® Zero-VOC Plant Oil (<a href="https://www.rubiomonocoat.com/en/certificates?country=aaa" target="_blank" rel="noopener" class="cert-link">Health &amp; Toy Safe Certified</a>)</strong></li>
+            <li><span>Cushion &amp; Canopy:</span> <strong>Washable Durable Fabrics (Indigo Blue &amp; White Options)</strong></li>
+            <li><span>Joinery:</span> <strong>Screwless Interlocking Slot System (Tool-Free)</strong></li>
+          </ul>
+
+          <h4 class="modal-subheading">Studio &amp; Assembly Notes</h4>
+          <ul class="modal-notes-list">
+            <li><strong>Tool-Free Installation:</strong> Installs cleanly without screws, bolts, or tools. Simple slot guide included.</li>
+            <li><strong>Parts Replacement:</strong> Spare or replacement parts can be ordered individually whenever needed.</li>
+            <li><strong>Organic Character:</strong> Since each piece is handcrafted from genuine birch, natural wood grains and coloring may vary subtly, giving every sanctuary unique character.</li>
+            <li><strong>Indoor Living:</strong> Specially engineered for indoor home and apartment environments.</li>
+            <li><strong>Care:</strong> Removable cushions and canopy cloth are suitable for washing.</li>
+          </ul>
+        `;
+      }
+
+      // Configure Inquiry Button
+      const modalBtn = document.querySelector('#productModal .modal-btn');
+      if (modalBtn) {
+        modalBtn.textContent = 'Request Wholesale & Production Quote';
+        modalBtn.onclick = function() {
+          closeModal();
+          const textarea = document.getElementById('messageText');
+          if (textarea) {
+            textarea.value = `Hello! I would like to inquire about wholesale/bulk pricing and production details for: "ARUV BOURBON" (PETS Collection).`;
+          }
+          const select = document.getElementById('inquiryType');
+          if (select) select.value = 'wholesale';
+        };
+      }
+
+      document.getElementById('productModal').classList.add('open');
+
+      // Initialize and start automatic sliding
+      setModalImage(0, false);
+      startModalAutoSlide();
+    }
+
+    // ==========================================
+    // MODAL AUTO-SLIDER (KAFT-STYLE PHOTO CAROUSEL)
+    // ==========================================
+    let currentModalImgIndex = 0;
+    const modalSlideIntervalTime = 3800; // 3.8s per slide
+    let modalProgressStartTime = null;
+    let modalProgressAnimFrame = null;
+    let isModalHovered = false;
+
+    function startModalAutoSlide() {
+      cancelAnimationFrame(modalProgressAnimFrame);
+      modalProgressStartTime = null;
+      const progressFill = document.getElementById('modalProgressFill');
+      if (progressFill) progressFill.style.width = '0%';
+      modalProgressAnimFrame = requestAnimationFrame(animateModalProgress);
+    }
+
+    function stopModalAutoSlide() {
+      cancelAnimationFrame(modalProgressAnimFrame);
+      const progressFill = document.getElementById('modalProgressFill');
+      if (progressFill) progressFill.style.width = '0%';
+    }
+
+    function animateModalProgress(timestamp) {
+      if (isModalHovered) {
+        modalProgressAnimFrame = requestAnimationFrame(animateModalProgress);
+        return;
+      }
+      if (!modalProgressStartTime) modalProgressStartTime = timestamp;
+      const elapsed = timestamp - modalProgressStartTime;
+      const progressPercent = Math.min((elapsed / modalSlideIntervalTime) * 100, 100);
+      const progressFill = document.getElementById('modalProgressFill');
+      if (progressFill) progressFill.style.width = `${progressPercent}%`;
+
+      if (elapsed < modalSlideIntervalTime) {
+        modalProgressAnimFrame = requestAnimationFrame(animateModalProgress);
+      } else {
+        nextModalImage();
+      }
+    }
+
+    function restartModalAutoSlide() {
+      stopModalAutoSlide();
+      startModalAutoSlide();
+    }
+
+    function setModalImage(index, animateFade = true) {
+      if (!aruvBourbonImages || aruvBourbonImages.length === 0) return;
+      currentModalImgIndex = (index + aruvBourbonImages.length) % aruvBourbonImages.length;
+      const item = aruvBourbonImages[currentModalImgIndex];
+      const mainImg = document.getElementById('modalMainDisplayImg');
+
+      if (mainImg) {
+        if (animateFade) {
+          mainImg.classList.add('is-changing');
+          setTimeout(() => {
+            mainImg.src = item.src;
+            mainImg.alt = item.title;
+            mainImg.classList.remove('is-changing');
+          }, 120);
+        } else {
+          mainImg.src = item.src;
+          mainImg.alt = item.title;
+        }
+      }
+
+      // Update counter badge
+      const counter = document.getElementById('modalGalleryCounter');
+      if (counter) {
+        const currentNum = String(currentModalImgIndex + 1).padStart(2, '0');
+        const totalNum = String(aruvBourbonImages.length).padStart(2, '0');
+        counter.textContent = `${currentNum} / ${totalNum}`;
+      }
+
+      // Update active thumbnail
+      const thumbs = document.querySelectorAll('.modal-thumb');
+      thumbs.forEach((thumb, i) => {
+        const isActive = i === currentModalImgIndex;
+        thumb.classList.toggle('active', isActive);
+      });
+    }
+
+    function nextModalImage(e) {
+      if (e) e.stopPropagation();
+      setModalImage(currentModalImgIndex + 1);
+      restartModalAutoSlide();
+    }
+
+    function prevModalImage(e) {
+      if (e) e.stopPropagation();
+      setModalImage(currentModalImgIndex - 1);
+      restartModalAutoSlide();
+    }
+
+    function switchModalThumb(index) {
+      setModalImage(index);
+      restartModalAutoSlide();
+    }
+
+    // Attach hover listener for pause
+    const wrap = document.getElementById('modalMainDisplayWrap');
+    if (wrap) {
+      wrap.addEventListener('mouseenter', () => { isModalHovered = true; });
+      wrap.addEventListener('mouseleave', () => { isModalHovered = false; });
+    }
+
+    // Mobile Hamburger Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navMenu.classList.remove('open'));
+    });
+
+    // ==========================================
+    // 5-SECOND SLIDING BANNER (CAROUSEL)
+    // ==========================================
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.getElementById('sliderPrev');
+    const nextBtn = document.getElementById('sliderNext');
+    const progressFill = document.getElementById('sliderProgress');
+    const slideCounter = document.getElementById('slideCounter');
+
+    let currentSlide = 0;
+    const slideIntervalTime = 5000; // EXACTLY 5 SECONDS
+    let progressStartTime = null;
+    let progressAnimFrame = null;
+
+    function showSlide(index) {
+      if (index >= slides.length) index = 0;
+      if (index < 0) index = slides.length - 1;
+      currentSlide = index;
+
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === currentSlide);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+
+      if (slideCounter) {
+        slideCounter.textContent = `0${currentSlide + 1} / 0${slides.length}`;
+      }
+
+      restartProgress();
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function animateProgress(timestamp) {
+      if (!progressStartTime) progressStartTime = timestamp;
+      const elapsed = timestamp - progressStartTime;
+      const progressPercent = Math.min((elapsed / slideIntervalTime) * 100, 100);
+      progressFill.style.width = `${progressPercent}%`;
+
+      if (elapsed < slideIntervalTime) {
+        progressAnimFrame = requestAnimationFrame(animateProgress);
+      } else {
+        nextSlide();
+      }
+    }
+
+    function restartProgress() {
+      cancelAnimationFrame(progressAnimFrame);
+      progressStartTime = null;
+      progressFill.style.width = '0%';
+      progressAnimFrame = requestAnimationFrame(animateProgress);
+    }
+
+    prevBtn.addEventListener('click', () => prevSlide());
+    nextBtn.addEventListener('click', () => nextSlide());
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.getAttribute('data-index'), 10);
+        showSlide(idx);
+      });
+    });
+
+    // Initialize 5-second automatic sliding
+    restartProgress();
+
+    // ==========================================
+    // PRODUCT CATEGORY FILTERS
+    // ==========================================
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.getAttribute('data-filter');
+
+        productCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // ==========================================
+    // PRODUCT DETAIL MODAL
+    // ==========================================
+    const productsData = {
+      heart: {
+        title: "Home is Where the Heart Is",
+        cat: "Home Plaques",
+        img: "images/banner-2.png",
+        desc: "A warm multilayer typography piece. High-relief flowing script rises over rich stained backboards, framed by layered hearts. Available for bulk boutique orders with custom dimensions and palette options."
+      },
+      liberty: {
+        title: "Statue of Liberty Freedom Panel",
+        cat: "Dimensional Wall Art",
+        img: "images/banner-1.jpg",
+        desc: "Bold multi-tier relief woodwork showcasing Lady Liberty over hand-finished wooden stripes. Designed for high tactile presence. Available for wholesale and architectural retail supply."
+      },
+      pendants: {
+        title: "Horizon & Coastal Nature Pendants",
+        cat: "Hanging Keepsakes",
+        img: "images/banner-3.png",
+        desc: "Intricately stacked geometric wood ornaments capturing sunsets, palms, and mountain peaks. Finished with natural jute rope. Highly popular gift gallery and boutique collection items."
+      }
+    };
+
+    const modal = document.getElementById('productModal');
+    function openModal(key) {
+      const data = productsData[key];
+      if (!data) return;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalCat').textContent = data.cat;
+      document.getElementById('modalDesc').textContent = data.desc;
+      document.getElementById('modalImg').src = data.img;
+      modal.classList.add('open');
+    }
+    function closeModal() {
+      stopModalAutoSlide();
+      modal.classList.remove('open');
+    }
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    function inquireProduct() {
+      closeModal();
+      const title = document.getElementById('modalTitle').textContent;
+      const textarea = document.getElementById('messageText');
+      textarea.value = `Hello! I would like to inquire about wholesale/bulk pricing and production details for: "${title}".`;
+      document.getElementById('inquiryType').value = 'wholesale';
+    }
+
+    // Contact Form Submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('formSuccessAlert');
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+      document.getElementById('inquiryForm').reset();
+    }
+  </script>
+</body>
+</html>
+
+<!-- deploy-trigger: 1791748464 -->
