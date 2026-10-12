@@ -521,6 +521,25 @@
       color: var(--wood-terracotta);
     }
 
+    /* FULL-WIDTH CINEMATIC CATEGORY HERO BANNER */
+    .cat-hero-banner {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      border-radius: 0;
+      background: var(--bg-stone-subtle);
+      box-shadow: 0 4px 24px rgba(35, 28, 23, 0.06);
+    }
+    .cat-hero-banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 520px;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1);
+    }
+
     .cat-story-banner {
       display: flex;
       align-items: flex-end;
@@ -1759,6 +1778,11 @@
           </div>
         </div>
 
+        <!-- Full-Width Dynamic Category Banner -->
+        <div id="catHeroBanner" class="cat-hero-banner" style="display: none;">
+          <img id="catHeroBannerImg" src="" class="cat-hero-banner-img" alt="Collection Banner" loading="eager" />
+        </div>
+
         <div class="cat-story-banner">
           <div class="cat-story-meta">
             <span class="section-eyebrow" id="catEyebrow">Collection 01</span>
@@ -2123,7 +2147,8 @@
         heading: "PET COLLECTION — <em>Architectural Havens &amp; Companions</em>",
         desc: "Modern living spaces meet pure canine and feline comfort. Designed with sustainable birch wood, tool-free slot joinery, and non-toxic certified finishes for pets who are truly part of the family.",
         count: "3 Studio Designs Available",
-        type: "pets"
+        type: "pets",
+        banner: "images/banner-pet-collection.jpg"
       },
       homedecor: {
         eyebrow: "Collection",
@@ -2190,6 +2215,19 @@
       document.getElementById('catHeading').innerHTML = data.heading;
       document.getElementById('catDesc').textContent = data.desc;
       document.getElementById('catCountBadge').textContent = data.count;
+
+      // Update Category Hero Banner
+      const heroBanner = document.getElementById('catHeroBanner');
+      const heroBannerImg = document.getElementById('catHeroBannerImg');
+      if (heroBanner && heroBannerImg) {
+        if (data.banner) {
+          heroBannerImg.src = data.banner;
+          heroBannerImg.alt = data.title + ' Banner';
+          heroBanner.style.display = 'block';
+        } else {
+          heroBanner.style.display = 'none';
+        }
+      }
 
       const grid = document.getElementById('catProductsGrid');
       grid.innerHTML = '';
