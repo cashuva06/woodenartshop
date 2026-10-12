@@ -480,8 +480,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 2.2rem;
-      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
       border-bottom: 1px solid var(--border-subtle);
       flex-wrap: wrap;
       gap: 1rem;
@@ -521,22 +521,28 @@
       color: var(--wood-terracotta);
     }
 
-    /* FULL-WIDTH CINEMATIC CATEGORY HERO BANNER */
+    /* FULL-WIDTH CINEMATIC CATEGORY HERO BANNER (FULL BLEED SCREEN EDGE TO EDGE) */
     .cat-hero-banner {
-      width: 100%;
+      width: 100vw;
       position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      padding: 0;
       overflow: hidden;
-      margin-bottom: 2.5rem;
       border-radius: 0;
       background: var(--bg-stone-subtle);
-      box-shadow: 0 4px 24px rgba(35, 28, 23, 0.06);
+      box-shadow: 0 4px 20px rgba(35, 28, 23, 0.05);
     }
     .cat-hero-banner-img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
-      max-height: 520px;
+      max-height: 580px;
       transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1);
     }
 
@@ -1783,19 +1789,6 @@
           <img id="catHeroBannerImg" src="" class="cat-hero-banner-img" alt="Collection Banner" loading="eager" />
         </div>
 
-        <div class="cat-story-banner">
-          <div class="cat-story-meta">
-            <span class="section-eyebrow" id="catEyebrow">Collection 01</span>
-            <h2 class="section-heading" id="catHeading">PETS — <em>Architectural Havens &amp; Companions</em></h2>
-            <p class="section-desc" id="catDesc">
-              Modern living spaces meet pure canine and feline comfort. Designed with sustainable birch wood, tool-free slot joinery, and non-toxic certified finishes for pets who are truly part of the family.
-            </p>
-          </div>
-          <div class="cat-count-badge" id="catCountBadge">
-            3 Studio Designs Available
-          </div>
-        </div>
-
         <!-- Category Products Grid -->
         <div id="catProductsGrid" class="cat-products-grid">
           <!-- Dynamic product cards -->
@@ -2209,12 +2202,8 @@
       const data = categoriesData[categoryKey];
       if (!data) return;
 
-      // Update titles and copy
+      // Update breadcrumb
       document.getElementById('catBreadcrumbTitle').textContent = data.title;
-      document.getElementById('catEyebrow').textContent = data.eyebrow;
-      document.getElementById('catHeading').innerHTML = data.heading;
-      document.getElementById('catDesc').textContent = data.desc;
-      document.getElementById('catCountBadge').textContent = data.count;
 
       // Update Category Hero Banner
       const heroBanner = document.getElementById('catHeroBanner');
