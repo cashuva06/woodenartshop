@@ -1645,7 +1645,7 @@
   </section>
 
   <!-- CONCEPT TICKER -->
-  <div class="concept-ticker">
+  <div class="concept-ticker" id="conceptTicker">
     <div class="ticker-inner">
       <span>Multilayer 3D Wood Art</span><span class="bullet">✦</span>
       <span>Precision Cut &amp; Hand Finished</span><span class="bullet">✦</span>
@@ -2825,21 +2825,27 @@
       }
 
       // Transition views
+      const homeSec = document.getElementById('home');
+      const ticker = document.getElementById('conceptTicker');
+      if (homeSec) homeSec.style.display = 'none';
+      if (ticker) ticker.style.display = 'none';
+
       document.getElementById('productsMainHead').style.display = 'none';
       document.getElementById('categoryGridSection').style.display = 'none';
       const detailView = document.getElementById('categoryDetailView');
       detailView.style.display = 'block';
 
-      // Scroll smoothly to section top
-      const target = document.getElementById('products');
-      if (target) {
-        const headerHeight = header ? header.offsetHeight : 80;
-        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
-        window.scrollTo({ top: targetPos, behavior: 'smooth' });
-      }
+      // Scroll smoothly to top
+      const headerHeight = header ? header.offsetHeight : 80;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function backToCategories() {
+      const homeSec = document.getElementById('home');
+      const ticker = document.getElementById('conceptTicker');
+      if (homeSec) homeSec.style.display = 'block';
+      if (ticker) ticker.style.display = 'block';
+
       document.getElementById('categoryDetailView').style.display = 'none';
       document.getElementById('productsMainHead').style.display = 'block';
       document.getElementById('categoryGridSection').style.display = 'grid';
