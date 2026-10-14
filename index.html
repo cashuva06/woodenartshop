@@ -1988,7 +1988,7 @@
       <!-- Gallery Column -->
       <div class="modal-gallery-column">
         <div class="modal-main-display" id="modalMainDisplayWrap">
-          <img src="images/pets-aruv-bourbon-2.jpg" id="modalMainDisplayImg" alt="ARUV BOURBON Detail View" />
+          <img src="images/pets-aruv-bourbon-01.jpg" id="modalMainDisplayImg" alt="ARUV BOURBON Detail View" />
           <button class="modal-slider-arrow prev" onclick="prevModalImage(event)" aria-label="Previous photo">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -2202,16 +2202,16 @@
     };
 
     const aruvBourbonImages = [
-      { src: "images/pets-aruv-bourbon-2.jpg", title: "ARUV BOURBON — Navy Blue Canopy & Cushion Setup" },
-      { src: "images/pets-aruv-bourbon-1.jpg", title: "ARUV BOURBON — Pure White Canopy & Cushion Setup" },
-      { src: "images/pets-aruv-bourbon-3.jpg", title: "ARUV BOURBON — Open Birch Frame with Indigo Cushion" },
-      { src: "images/pets-aruv-bourbon-4.jpg", title: "ARUV BOURBON — Open Birch Frame with White Cushion" },
-      { src: "images/pets-aruv-bourbon-5.jpg", title: "ARUV BOURBON — Low Angle Architectural Frame" },
-      { src: "images/pets-aruv-bourbon-front.jpg", title: "ARUV BOURBON — Front Elevation" },
-      { src: "images/pets-aruv-bourbon-angle.jpg", title: "ARUV BOURBON — 3/4 Perspective Joinery" },
-      { src: "images/pets-aruv-bourbon-sizes.png", title: "ARUV BOURBON — S / M / L Dimension Chart" },
-      { src: "images/pets-aruv-bourbon-cushions.png", title: "ARUV BOURBON — Cushion Color Options" },
-      { src: "images/pets-aruv-bourbon-joints.jpg", title: "ARUV BOURBON — Screwless Slot Joinery Details" }
+      { src: "images/pets-aruv-bourbon-01.jpg", title: "ARUV BOURBON — Architectural Elevation & Front View" },
+      { src: "images/pets-aruv-bourbon-02.jpg", title: "ARUV BOURBON — 3D Perspective & Volume" },
+      { src: "images/pets-aruv-bourbon-03.jpg", title: "ARUV BOURBON — Interior Space & Living Ambience" },
+      { src: "images/pets-aruv-bourbon-04.jpg", title: "ARUV BOURBON — Living Room Placement & Ambience" },
+      { src: "images/pets-aruv-bourbon-05.jpg", title: "ARUV BOURBON — Solid Baltic Birch Grain Details" },
+      { src: "images/pets-aruv-bourbon-06.jpg", title: "ARUV BOURBON — Architectural Joinery & Shadow Relief" },
+      { src: "images/pets-aruv-bourbon-07.jpg", title: "ARUV BOURBON — Residence Structural Framing" },
+      { src: "images/pets-aruv-bourbon-08.png", title: "ARUV BOURBON — Removable Upholstered Linen Cushion Colorways" },
+      { src: "images/pets-aruv-bourbon-09.png", title: "ARUV BOURBON — S / M / L Architectural Dimension Chart" },
+      { src: "images/pets-aruv-bourbon-10.png", title: "ARUV BOURBON — Precision Screwless Slot-Lock Joinery Details" }
     ];
 
     function selectCategory(categoryKey, pushHistory = true, smoothScroll = true) {
@@ -2246,12 +2246,12 @@
       grid.innerHTML = '';
 
       if (categoryKey === 'pets') {
-        grid.innerHTML = `
+        grid.innerHTML = \
           <!-- Product 1: ARUV BOURBON -->
           <div class="cat-product-card" onclick="window.location.href='aruv-bourbon.html'" style="cursor:pointer;">
             <div class="cpc-img-box">
-              <img src="images/pets-aruv-bourbon-2.jpg" class="cpc-main-img" alt="ARUV BOURBON Architectural Wooden Pet House" loading="lazy"/>
-              <img src="images/pets-aruv-bourbon-1.jpg" class="cpc-hover-img" alt="ARUV BOURBON alternate view" loading="lazy"/>
+              <img src="images/pets-aruv-bourbon-01.jpg" class="cpc-main-img" alt="ARUV BOURBON Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-bourbon-02.jpg" class="cpc-hover-img" alt="ARUV BOURBON alternate view" loading="lazy"/>
             </div>
             <div class="cpc-body">
               <h3 class="cpc-title">ARUV BOURBON</h3>
@@ -2261,8 +2261,8 @@
           <!-- Product 2: ARUV NATURAL -->
           <div class="cat-product-card" onclick="window.location.href='aruv-natural.html'" style="cursor:pointer;">
             <div class="cpc-img-box">
-              <img src="images/pets-aruv-natural-front.jpg" class="cpc-main-img" alt="ARUV NATURAL Architectural Wooden Pet House" loading="lazy"/>
-              <img src="images/pets-aruv-natural-angle.jpg" class="cpc-hover-img" alt="ARUV NATURAL alternate view" loading="lazy"/>
+              <img src="images/pets-aruv-natural-01.jpg" class="cpc-main-img" alt="ARUV NATURAL Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-natural-02.jpg" class="cpc-hover-img" alt="ARUV NATURAL alternate view" loading="lazy"/>
             </div>
             <div class="cpc-body">
               <h3 class="cpc-title">ARUV NATURAL</h3>
@@ -2272,14 +2272,14 @@
           <!-- Product 3: ARUV SLATE GREY -->
           <div class="cat-product-card" onclick="window.location.href='aruv-slate-grey.html'" style="cursor:pointer;">
             <div class="cpc-img-box">
-              <img src="images/pets-aruv-slate-grey-front.jpg" class="cpc-main-img" alt="ARUV SLATE GREY Architectural Wooden Pet House" loading="lazy"/>
-              <img src="images/pets-aruv-slate-grey-angle.jpg" class="cpc-hover-img" alt="ARUV SLATE GREY alternate view" loading="lazy"/>
+              <img src="images/pets-aruv-slate-grey-01.jpg" class="cpc-main-img" alt="ARUV SLATE GREY Architectural Wooden Pet House" loading="lazy"/>
+              <img src="images/pets-aruv-slate-grey-02.jpg" class="cpc-hover-img" alt="ARUV SLATE GREY alternate view" loading="lazy"/>
             </div>
             <div class="cpc-body">
               <h3 class="cpc-title">ARUV SLATE GREY</h3>
             </div>
           </div>
-        `;
+        \;
       } else if (categoryKey === 'homedecor') {
         grid.innerHTML = `
           <!-- Product 1: WILD WOLF -->
