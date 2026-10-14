@@ -2116,6 +2116,14 @@
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href && href.startsWith('#') && href.length > 1) {
+          const detailView = document.getElementById('categoryDetailView');
+          const isCategoryActive = detailView && detailView.style.display !== 'none';
+
+          if (href === '#products' || href === '#home') {
+            if (isCategoryActive) {
+              backToCategories(true, true);
+            }
+          }
           const target = document.querySelector(href);
           if (target) {
             e.preventDefault();
@@ -2125,6 +2133,9 @@
               top: targetPos,
               behavior: 'smooth'
             });
+            if (history.pushState) {
+              history.pushState(null, '', href);
+            }
           }
         }
       });
@@ -2203,9 +2214,17 @@
       { src: "images/pets-aruv-bourbon-joints.jpg", title: "ARUV BOURBON — Screwless Slot Joinery Details" }
     ];
 
-    function selectCategory(categoryKey) {
+    function selectCategory(categoryKey, pushHistory = true, smoothScroll = true) {
       const data = categoriesData[categoryKey];
       if (!data) return;
+
+      if (pushHistory) {
+        const currentHash = (window.location.hash || '').toLowerCase();
+        if (!currentHash || currentHash === '#' || currentHash === '#home') {
+          history.replaceState({ category: null }, '', '#products');
+        }
+        history.pushState({ category: categoryKey }, '', '#' + categoryKey);
+      }
 
       // Update breadcrumb
       document.getElementById('catBreadcrumbTitle').textContent = data.title;
@@ -3022,27 +3041,75 @@
       const detailView = document.getElementById('categoryDetailView');
       detailView.style.display = 'block';
 
-      // Scroll smoothly to top
-      const headerHeight = header ? header.offsetHeight : 80;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Scroll to top
+      if (smoothScroll) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
 
-    function backToCategories() {
+    function backToCategories(pushHistory = true, smoothScroll = true) {
+      if (pushHistory) {
+        history.pushState({ category: null }, '', '#products');
+      }
       const homeSec = document.getElementById('home');
       const ticker = document.getElementById('conceptTicker');
       if (homeSec) homeSec.style.display = 'block';
       if (ticker) ticker.style.display = 'block';
 
-      document.getElementById('categoryDetailView').style.display = 'none';
-      document.getElementById('productsMainHead').style.display = 'block';
-      document.getElementById('categoryGridSection').style.display = 'grid';
+      const detailView = document.getElementById('categoryDetailView');
+      if (detailView) detailView.style.display = 'none';
+      const prodHead = document.getElementById('productsMainHead');
+      if (prodHead) prodHead.style.display = 'block';
+      const catGrid = document.getElementById('categoryGridSection');
+      if (catGrid) catGrid.style.display = 'grid';
 
       const target = document.getElementById('products');
       if (target) {
         const headerHeight = header ? header.offsetHeight : 80;
         const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
-        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        if (smoothScroll) {
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        } else {
+          window.scrollTo(0, targetPos);
+        }
       }
+    }
+
+    // Direct URL and Browser Back / Forward History Routing
+    function handleRoute() {
+      const hash = (window.location.hash || '').toLowerCase();
+      const searchParams = new URLSearchParams(window.location.search);
+      const queryCat = searchParams.get('category') || searchParams.get('collection');
+
+      let targetCat = null;
+      if (queryCat && categoriesData[queryCat.toLowerCase()]) {
+        targetCat = queryCat.toLowerCase();
+      } else if (hash) {
+        const cleanHash = hash.replace(/^#/, '').replace(/^collection-/, '').replace(/^category=/, '');
+        if (categoriesData[cleanHash]) {
+          targetCat = cleanHash;
+        }
+      }
+
+      if (targetCat) {
+        selectCategory(targetCat, false, false);
+      } else {
+        const detailView = document.getElementById('categoryDetailView');
+        if (detailView && detailView.style.display !== 'none') {
+          backToCategories(false, false);
+        }
+      }
+    }
+
+    window.addEventListener('popstate', handleRoute);
+    window.addEventListener('hashchange', handleRoute);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleRoute);
+    } else {
+      handleRoute();
     }
 
     function inquireCategory(catName) {

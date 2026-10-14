@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -1265,9 +1265,9 @@
   <!-- ── FIXED HEADER ── -->
   <header>
     <div class="header-left">
-      <a href="index.html#products" class="back-btn">
+            <a href="index.html#gothic" class="back-btn" onclick="return handleProductBack('gothic');">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Back to Collections
+        Back to Gothic Collection
       </a>
       <div class="header-divider"></div>
       <div class="collection-crumb">GOTHIC • <span>SKULL HEART EMBRACE</span></div>
@@ -1503,7 +1503,7 @@
           <span class="story-eyebrow">DESIGN PHILOSOPHY</span>
           <h2 class="story-heading">Shadows, Arches &amp; Mystical Relief.<br><em>SKULL HEART EMBRACE Dimensional Woodcraft.</em></h2>
           <p class="story-p">
-            A poetic testament to enduring devotion beyond life, <strong>SKULL HEART EMBRACE</strong> intertwines skeletal ribs into the iconic silhouette of a heart cradling twin skulls. Multi-tier MDF construction lends physical weight and tactile depth to this romantic gothic icon.
+            A poetic testament to enduring devotion beyond life, <strong>SKULL HEART EMBRACE</strong> intertwines skeletal ribs into the iconic silhouette of a heart cradling twin skulls. Multi-tier MDF construction lends sculptural presence and tactile depth to this romantic gothic icon.
           </p>
           <p class="story-p">
             Its 420 mm height offers commanding presence over vanity tables, bedrooms, or art walls, installing cleanly in seconds with damage-free adhesive backing.
@@ -1890,5 +1890,15 @@
     }
   </script>
 
+  <script>
+    function handleProductBack(categoryKey) {
+      if (document.referrer && document.referrer.indexOf(window.location.host) !== -1 && window.history.length > 1) {
+        window.history.back();
+        return false;
+      }
+      window.location.href = 'index.html#' + categoryKey;
+      return false;
+    }
+  </script>
 </body>
 </html>
