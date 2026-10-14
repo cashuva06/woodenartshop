@@ -1,0 +1,1849 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVG3HDYE94"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVG3HDYE94');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAKA NATURAL - Artisanal Pet Residence | WoodenArtShop</title>
+  <meta name="description" content="MAKA NATURAL — Architectural wooden pet kennel featuring screwless slot-lock joinery and 100% natural Baltic birch craftsmanship." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-stone: #faf7f2;
+      --bg-stone-subtle: #f2eae1;
+      --bg-card: #ffffff;
+      --charcoal: #231c17;
+      --charcoal-deep: #191410;
+      --charcoal-soft: #3d332a;
+      --text-muted: #6b5c51;
+      --text-light: #96867a;
+      --wood-terracotta: #b87333;
+      --wood-sand: #ebdcca;
+      --border-subtle: rgba(45, 30, 20, 0.08);
+      --border-focus: rgba(184, 115, 51, 0.4);
+      --shadow-clean: 0 4px 20px rgba(35, 25, 18, 0.05);
+      --shadow-elevated: 0 20px 48px rgba(35, 25, 18, 0.12);
+      --transition-smooth: all 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+    }
+
+    body {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-stone);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.6;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Paper/Wood Texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* -- FIXED HEADER -- */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.48rem 0.95rem;
+      border-radius: 30px;
+      background: rgba(45, 30, 20, 0.04);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: var(--transition-smooth);
+    }
+    .back-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      transform: translateX(-3px);
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .collection-crumb, .category-crumb {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .collection-crumb span, .category-crumb strong, .category-crumb span {
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--charcoal);
+      white-space: nowrap;
+      pointer-events: auto;
+    }
+    .header-brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex: 0 0 auto;
+    }
+
+    .quick-inquire-btn {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.52rem 1.15rem;
+      border: 1px solid var(--charcoal);
+      border-radius: 30px;
+      background: transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-smooth);
+    }
+    .quick-inquire-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border-color: var(--charcoal-deep);
+    }
+
+    /* -- FULL SCREEN / FULL BLEED SHOWCASE -- */
+    .showcase-hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background-color: var(--bg-stone);
+      padding-top: 72px;
+      box-sizing: border-box;
+    }
+
+    /* Continuous Seamless Horizontal Scroll Viewport */
+    .showcase-viewport {
+      width: 100%;
+      height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+      user-select: none;
+      position: relative;
+      scroll-behavior: auto;
+      will-change: scroll-position;
+      padding-left: 2rem;
+      padding-right: calc(410px + 3rem);
+    }
+    .showcase-viewport::-webkit-scrollbar {
+      display: none;
+    }
+    .showcase-viewport.is-dragging {
+      cursor: grabbing;
+    }
+
+    /* Showcase Slide Container */
+    .showcase-slide {
+      flex: 0 0 auto;
+      width: auto;
+      height: 100%;
+      position: relative;
+      padding: 1rem 0.35rem 5.5rem 0.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      transition: transform 0.4s ease;
+      box-sizing: border-box;
+    }
+
+    .slide-media-wrap {
+      position: relative;
+      width: min(calc(100vh - 72px - 9.5rem), 440px);
+      height: min(calc(100vh - 72px - 9.5rem), 440px);
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(35, 25, 18, 0.06);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+
+    .slide-media-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.25, 1);
+      pointer-events: none;
+    }
+
+    .showcase-slide:hover .slide-media-wrap img {
+      transform: scale(1.03);
+    }
+
+    /* Slide Blueprint cleanly contained */
+    .showcase-slide[data-slide="7"] .slide-media-wrap img[src$=".png"],
+    .showcase-slide[data-slide="8"] .slide-media-wrap img[src$=".png"],
+    .showcase-slide .slide-media-wrap img[src$=".png"] {
+      object-fit: contain;
+      padding: 0.5rem;
+    }
+
+    /* Slide Caption Tag - strictly positioned beneath the media square */
+    .slide-badge {
+      position: relative;
+      margin-top: 0.65rem;
+      align-self: flex-start;
+      margin-left: 0.4rem;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      padding: 0.28rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal-soft);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+      max-width: calc(100% - 0.8rem);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 5;
+      box-sizing: border-box;
+    }
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--wood-terracotta);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    /* ── FLOATING EDITORIAL CARD (RIGHT SIDE) ── */
+    .kaft-floating-panel {
+      position: fixed;
+      right: 3.5rem;
+      top: 100px;
+      width: 410px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(45, 30, 20, 0.12);
+      border-radius: 20px;
+      box-shadow: var(--shadow-elevated);
+      padding: 2.2rem 2.2rem 2rem;
+      z-index: 200;
+      transition: var(--transition-smooth);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(184, 115, 51, 0.3) transparent;
+    }
+    .kaft-floating-panel::-webkit-scrollbar {
+      width: 4px;
+    }
+    .kaft-floating-panel::-webkit-scrollbar-thumb {
+      background: rgba(184, 115, 51, 0.3);
+      border-radius: 4px;
+    }
+
+    .panel-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+    .panel-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .panel-sku {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+    }
+
+    .panel-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.3rem;
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .panel-subtitle {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 1.1rem;
+    }
+
+    .panel-quote {
+      font-size: 0.88rem;
+      color: var(--charcoal-soft);
+      line-height: 1.6;
+      padding: 0.85rem 1.1rem;
+      background: rgba(235, 220, 202, 0.35);
+      border-left: 2px solid var(--wood-terracotta);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.6rem;
+      font-style: italic;
+    }
+
+    /* Size Selector Block */
+    .option-group {
+      margin-bottom: 1.4rem;
+    }
+    .option-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.65rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+    }
+    .option-val {
+      color: var(--wood-terracotta);
+    }
+
+    .sizes-flex {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .size-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.85rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .size-btn:hover {
+      border-color: var(--border-focus);
+      background: #fffdf9;
+    }
+    .size-btn.active {
+      border-color: var(--charcoal-deep);
+      background: var(--charcoal-deep);
+      color: #ffffff;
+    }
+    .size-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .size-detail {
+      font-size: 0.65rem;
+      opacity: 0.85;
+      display: block;
+      line-height: 1.35;
+    }
+
+    /* Specs Pills Row */
+    .specs-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.6rem;
+    }
+    .spec-tag {
+      background: rgba(45, 30, 20, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--charcoal-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .spec-tag svg { width: 12px; height: 12px; fill: var(--wood-terracotta); }
+
+    /* Studio Presentation & Inquiry Block */
+    .purchase-box {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.4rem;
+    }
+    .presentation-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .current-dims-badge {
+      font-size: 0.74rem;
+      color: var(--charcoal-deep);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      color: #2e7d32;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2e7d32;
+      display: inline-block;
+    }
+
+    .btn-action-main {
+      width: 100%;
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 1.05rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 16px rgba(25, 20, 16, 0.2);
+    }
+    .btn-action-main:hover {
+      background: var(--wood-terracotta);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 115, 51, 0.35);
+    }
+
+    .btn-action-secondary {
+      width: 100%;
+      margin-top: 0.65rem;
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.75rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: var(--transition-smooth);
+    }
+    .btn-action-secondary:hover {
+      background: rgba(45, 30, 20, 0.05);
+      border-color: var(--charcoal);
+    }
+
+    .trust-bullets {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .trust-bullet {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .trust-bullet span.check {
+      color: var(--wood-terracotta);
+      font-weight: 700;
+    }
+
+    /* -- BOTTOM HUD CONTROLS -- */
+    .showcase-hud {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.55rem 1.3rem;
+      border-radius: 40px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .hud-arrows {
+      display: flex;
+      gap: 0.4rem;
+    }
+    .hud-arrow-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+    .hud-arrow-btn:hover {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      transform: scale(1.08);
+    }
+
+    .hud-counter {
+      font-family: monospace;
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      color: var(--charcoal);
+      font-weight: 500;
+      min-width: 55px;
+    }
+
+    .hud-progress-wrap {
+      width: 100px;
+      height: 3px;
+      background: rgba(45, 30, 20, 0.12);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hud-progress-bar {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 25%;
+      background: var(--wood-terracotta);
+      transition: width 0.15s ease-out;
+    }
+
+    .hud-hint {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Scroll Down Indicator to Story */
+    .scroll-down-prompt {
+      position: absolute;
+      bottom: 1.8rem;
+      right: calc(410px + 4.5rem);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 90;
+      transition: var(--transition-smooth);
+      background: rgba(250, 247, 242, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
+      text-decoration: none;
+    }
+    .scroll-down-prompt:hover {
+      color: var(--wood-terracotta);
+      border-color: var(--wood-terracotta);
+      transform: translateY(2px);
+    }
+    /* ── DETAILED STORY & SPECS SECTIONS (BELOW THE SHOWCASE) ── */
+    .story-section {
+      background: var(--bg-stone-subtle);
+      padding: 7rem 3.5rem;
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    .story-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .story-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--wood-terracotta);
+      font-weight: 600;
+    }
+    .story-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--charcoal-deep);
+      line-height: 1.15;
+    }
+    .story-p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .story-visual-col {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-elevated);
+      background: var(--bg-card);
+      aspect-ratio: 4 / 3;
+    }
+    .story-visual-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Feature Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin-top: 2rem;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2.4rem 2rem;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-elevated);
+      border-color: rgba(184, 115, 51, 0.35);
+    }
+    .pillar-icon {
+      font-size: 1.6rem;
+      color: var(--wood-terracotta);
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.6rem;
+    }
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Size Chart & Specs Section */
+    .specs-section {
+      background: var(--bg-stone);
+      padding: 7rem 3.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      background: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-clean);
+      margin-top: 2.5rem;
+    }
+    .lux-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    .lux-table th, .lux-table td {
+      padding: 1.2rem 1.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lux-table th {
+      background: var(--bg-stone-subtle);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal-deep);
+    }
+    .lux-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* FAQ Accordion */
+    .faq-section {
+      background: var(--bg-stone-subtle);
+      padding: 6rem 3.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .faq-list {
+      max-width: 820px;
+      margin: 2.5rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .faq-item.open {
+      border-color: var(--wood-terracotta);
+    }
+    .faq-question {
+      padding: 1.3rem 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .faq-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+      color: var(--wood-terracotta);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 1.8rem 1.4rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--charcoal-deep);
+      color: #faf7f2;
+      padding: 4rem 3.5rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+    }
+
+    /* Inquire Modal */
+    .inquire-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 20, 16, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 1.5rem;
+    }
+    .inquire-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .inquire-modal-box {
+      background: var(--bg-card);
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: var(--shadow-elevated);
+    }
+    .inquire-modal-close {
+      position: absolute;
+      top: 1.4rem; right: 1.4rem;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+
+            /* -- RESPONSIVE ADAPTATIONS ACROSS ALL DEVICES -- */
+
+    /* Header Collision Prevention on screens <= 1350px (Laptops & Scaled Displays) */
+    @media (max-width: 1350px) {
+      .header-divider,
+      .collection-crumb,
+      .category-crumb {
+        display: none !important;
+      }
+      header {
+        padding: 0 1.5rem;
+      }
+    }
+
+    /* -- LAPTOP & SCALED DISPLAYS (1101px - 1400px) -- */
+    @media (min-width: 1101px) and (max-width: 1400px) {
+      .showcase-viewport {
+        padding-left: 1.5rem;
+        padding-right: calc(360px + 2rem);
+      }
+      .kaft-floating-panel {
+        width: 360px;
+        right: 1.8rem;
+        top: 86px;
+        padding: 1.8rem 1.6rem;
+        gap: 1.15rem;
+        max-height: calc(100vh - 105px);
+      }
+      .showcase-hud {
+        left: 1.5rem;
+        bottom: 1.4rem;
+        gap: 1.2rem;
+        padding: 0.45rem 1.1rem;
+      }
+      .scroll-down-prompt {
+        display: none !important;
+      }
+    }
+
+    /* -- TABLETS & SMALL LAPTOPS (<= 1100px) -- */
+    @media (max-width: 1100px) {
+      header {
+        padding: 0 1.2rem;
+      }
+      .header-center {
+        position: static !important;
+        transform: none !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-width: 0 !important;
+      }
+      .header-left, .header-right {
+        flex: 0 0 auto !important;
+      }
+      .header-brand-title {
+        font-size: 1.25rem;
+      }
+      .showcase-hero {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        padding-top: 72px !important;
+        width: 100% !important;
+        position: relative !important;
+      }
+      .showcase-viewport {
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        padding: 1.5rem 1.2rem 0.5rem 1.2rem !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .showcase-slide {
+        flex: 0 0 auto !important;
+        width: 75vw !important;
+        max-width: 440px !important;
+        height: auto !important;
+        padding: 0.5rem 0.6rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        scroll-snap-align: center;
+      }
+      .slide-media-wrap {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        max-width: none !important;
+        max-height: none !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 26px rgba(35, 25, 18, 0.08);
+      }
+      .slide-badge {
+        position: relative !important;
+        margin-top: 0.7rem !important;
+        align-self: center !important;
+        margin-left: 0 !important;
+        font-size: 0.64rem !important;
+        padding: 0.3rem 0.7rem !important;
+        border-radius: 20px;
+        background: rgba(250, 247, 242, 0.95);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        white-space: nowrap;
+        max-width: 95%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .showcase-hud {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 1.2rem auto 0 auto !important;
+        padding: 0.45rem 1.1rem !important;
+        background: rgba(255, 253, 249, 0.95) !important;
+        border-radius: 30px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        z-index: 15 !important;
+      }
+      .hud-hint {
+        display: none !important;
+      }
+      .scroll-down-prompt {
+        display: none !important;
+      }
+      .kaft-floating-panel {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: calc(100% - 3rem) !important;
+        max-width: 600px !important;
+        margin: 2rem auto 4rem auto !important;
+        padding: 2.2rem 2rem !important;
+        border-radius: 16px !important;
+        background: #ffffff !important;
+        box-shadow: 0 10px 36px rgba(35, 25, 18, 0.08) !important;
+        border: 1px solid rgba(45, 30, 20, 0.1) !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        z-index: 10 !important;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .story-section {
+        padding: 4.5rem 2rem;
+      }
+    }
+
+    /* -- MOBILE PHONES (<= 768px) -- */
+    @media (max-width: 768px) {
+      header {
+        height: 60px !important;
+        padding: 0 0.85rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+      .header-left {
+        flex: 0 0 auto !important;
+      }
+      .back-btn {
+        padding: 0.38rem 0.65rem !important;
+        font-size: 0.68rem !important;
+        letter-spacing: 0.08em !important;
+        gap: 0.35rem !important;
+      }
+      .header-center {
+        position: static !important;
+        transform: none !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-width: 0 !important;
+        margin: 0 0.4rem !important;
+      }
+      .header-brand-title {
+        font-size: 1.15rem !important;
+        letter-spacing: 0.08em !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .header-right {
+        flex: 0 0 auto !important;
+      }
+      .quick-inquire-btn {
+        font-size: 0.65rem !important;
+        padding: 0.4rem 0.75rem !important;
+        letter-spacing: 0.08em !important;
+        white-space: nowrap !important;
+      }
+      .showcase-hero {
+        padding-top: 60px !important;
+      }
+      .showcase-viewport {
+        padding: 1rem 0.6rem 0.4rem 0.6rem !important;
+      }
+      .showcase-slide {
+        width: 86vw !important;
+        max-width: 360px !important;
+        padding: 0 0.4rem !important;
+      }
+      .slide-media-wrap {
+        border-radius: 12px !important;
+        box-shadow: 0 6px 20px rgba(35, 25, 18, 0.08) !important;
+      }
+      .slide-badge {
+        font-size: 0.58rem !important;
+        padding: 0.25rem 0.6rem !important;
+        margin-top: 0.6rem !important;
+      }
+      .showcase-hud {
+        margin-top: 1rem !important;
+        padding: 0.38rem 0.9rem !important;
+        gap: 0.8rem !important;
+      }
+      .hud-progress-wrap {
+        width: 60px !important;
+      }
+      .hud-counter {
+        font-size: 0.78rem !important;
+        min-width: 48px !important;
+      }
+      .hud-arrow-btn {
+        width: 30px !important;
+        height: 30px !important;
+      }
+      .kaft-floating-panel {
+        width: calc(100% - 1.5rem) !important;
+        margin: 1.5rem auto 3rem auto !important;
+        padding: 1.8rem 1.25rem !important;
+        border-radius: 14px !important;
+        box-shadow: 0 6px 24px rgba(35, 25, 18, 0.07) !important;
+      }
+      .panel-title {
+        font-size: 1.95rem !important;
+      }
+      .spec-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.2rem !important;
+      }
+      .spec-value {
+        text-align: left !important;
+      }
+      .story-section {
+        padding: 3.5rem 1.25rem !important;
+      }
+      .story-heading {
+        font-size: 2.1rem !important;
+      }
+      .story-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.2rem !important;
+        margin-bottom: 3.5rem !important;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+      }
+      .faq-section {
+        padding: 3.5rem 1.25rem !important;
+      }
+      .lux-table th, .lux-table td {
+        padding: 0.85rem 0.9rem !important;
+        font-size: 0.78rem !important;
+      }
+    }
+
+    /* -- EXTRA SMALL SCREENS (<= 480px) -- */
+    @media (max-width: 480px) {
+      header {
+        padding: 0 0.65rem !important;
+      }
+      .back-btn {
+        font-size: 0 !important;
+        padding: 0.38rem 0.6rem !important;
+        gap: 0.3rem !important;
+      }
+      .back-btn::after {
+        content: "Back";
+        font-size: 0.66rem !important;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .header-brand-title {
+        font-size: 1.05rem !important;
+        letter-spacing: 0.05em !important;
+      }
+      .quick-inquire-btn {
+        padding: 0.38rem 0.6rem !important;
+        font-size: 0.62rem !important;
+      }
+      .showcase-slide {
+        width: 88vw !important;
+      }
+      .panel-title {
+        font-size: 1.8rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── FIXED HEADER ── -->
+  <header>
+    <div class="header-left">
+            <a href="index.html#pets" class="back-btn" onclick="return handleProductBack('pets');">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Pet Collection
+      </a>
+      <span class="category-crumb">Studio <strong>/ Pets Collection</strong></span>
+    </div>
+
+    <a href="index.html" class="header-center">
+      <h1 class="header-brand-title">WoodenArtShop</h1>
+    </a>
+
+    <div class="header-right">
+      <a href="#story" class="quick-inquire-btn">Design Story</a>
+      <button class="quick-inquire-btn" onclick="openInquireModal()">Studio Inquiries</button>
+    </div>
+  </header>
+
+  <!-- ── KAFT SHOWCASE SECTION (FULL VIEWPORT HORIZONTAL SHOWCASE) ── -->
+  <section class="showcase-hero">
+    
+    <!-- Continuously Auto-Scrolling Horizontal Viewport -->
+    <div class="showcase-viewport" id="showcaseViewport">
+      <!-- Slide 1 -->
+      <div class="showcase-slide" data-slide="1">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-01.jpg" alt="MAKA NATURAL 01 / Architectural Elevation & Front View" loading="eager" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>01 / Architectural Elevation & Front View</span>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="showcase-slide" data-slide="2">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-02.jpg" alt="MAKA NATURAL 02 / 3D Perspective & Structural Geometry" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>02 / 3D Perspective & Structural Geometry</span>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="showcase-slide" data-slide="3">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-03.jpg" alt="MAKA NATURAL 03 / Living Space Ambient - Architectural Warmth" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>03 / Living Space Ambient - Architectural Warmth</span>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="showcase-slide" data-slide="4">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-04.jpg" alt="MAKA NATURAL 04 / Interior Living Space Ambience & Comfort" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>04 / Interior Living Space Ambience & Comfort</span>
+        </div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="showcase-slide" data-slide="5">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-05.jpg" alt="MAKA NATURAL 05 / Solid Baltic Birch Wood Grain & Shadow Layers" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>05 / Solid Baltic Birch Wood Grain & Shadow Layers</span>
+        </div>
+      </div>
+      <!-- Slide 6 -->
+      <div class="showcase-slide" data-slide="6">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-06.png" alt="MAKA NATURAL 06 / Removable Orthopedic Linen Cushions & Colorways" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>06 / Removable Orthopedic Linen Cushions & Colorways</span>
+        </div>
+      </div>
+      <!-- Slide 7 -->
+      <div class="showcase-slide" data-slide="7">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-07.png" alt="MAKA NATURAL 07 / S / M / L Architectural Dimension Chart" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>07 / S / M / L Architectural Dimension Chart</span>
+        </div>
+      </div>
+      <!-- Slide 8 -->
+      <div class="showcase-slide" data-slide="8">
+        <div class="slide-media-wrap">
+          <img src="images/pets-maka-natural-08.png" alt="MAKA NATURAL 08 / Precision Screwless Slot-Lock Joinery Blueprint" loading="lazy" />
+        </div>
+        <div class="slide-badge">
+          <span class="badge-dot"></span>
+          <span>08 / Precision Screwless Slot-Lock Joinery Blueprint</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── EDITORIAL RIGHT PANEL (STICKY / FLOATING) ── -->
+    <aside class="kaft-floating-panel">
+      <div class="panel-eyebrow">
+        <span class="panel-tag">PETS COLLECTION • STUDIO EDITION</span>
+        <span class="panel-sku">SKU: WA-PET-08</span>
+      </div>
+
+      <h2 class="panel-title">MAKA NATURAL</h2>
+      <p class="panel-subtitle">Architectural Wooden Pet Residence - Cathedral Arch</p>
+
+      <div class="panel-quote">"Sweeping wooden arches sculpt an ethereal, vaulted canopy, transforming pet furniture into an architectural centerpiece."</div>
+
+      <!-- Size Selection (Clean: Only Size & Dimensions) -->
+      <div class="option-group">
+        <div class="option-header">
+          <span>Available Sizes:</span>
+          <span class="option-val" id="selectedSize">M (Medium)</span>
+        </div>
+        <div class="sizes-flex">
+          <div class="size-btn" onclick="selectSize(this, 'S (Small)', '580 x 430 x 400 mm (22.8″ x 16.9″ x 15.7″)')">
+            <span class="size-name">S</span>
+            <span class="size-detail">50 × 42 × 45 cm<br>19.7″ × 16.5″</span>
+          </div>
+          <div class="size-btn active" onclick="selectSize(this, 'M (Medium)', '750 x 600 x 510 mm (29.5″ x 23.6″ x 20.1″)')">
+            <span class="size-name">M</span>
+            <span class="size-detail">64 × 54 × 58 cm<br>25.2″ × 21.3″</span>
+          </div>
+          <div class="size-btn" onclick="selectSize(this, 'L (Large)', '960 x 815 x 670 mm (37.8″ x 32.1″ x 26.4″)')">
+            <span class="size-name">L</span>
+            <span class="size-detail">80 × 68 × 72 cm<br>31.5″ × 26.8″</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Feature Badges -->
+      <div class="specs-tag-row">
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          100% Baltic Birch
+        </span>
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Zero-VOC Certified
+        </span>
+        <span class="spec-tag">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          3-Min Tool-Free Setup
+        </span>
+      </div>
+
+      <!-- Studio Presentation & Inquiry Block (No Price / No Add to Cart) -->
+      <div class="purchase-box">
+        <div class="presentation-status-row">
+          <div class="current-dims-badge" id="dimsDisplay">
+            Dimensions: 64 × 54 × 58 cm
+          </div>
+          <span class="status-badge">
+            <span class="status-dot"></span>
+            Studio Handcrafted
+          </span>
+        </div>
+
+        <button class="btn-action-main" onclick="openInquireModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Inquire / Request Studio Quote
+        </button>
+
+        <a href="#specs" class="btn-action-secondary">
+          View Technical Specifications
+        </a>
+
+        <div class="trust-bullets">
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Worldwide Studio Delivery • Flat-packed with interlocking joinery</span>
+          </div>
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Eco-friendly organic vegetable oil & wax protective finish</span>
+          </div>
+          <div class="trust-bullet">
+            <span class="check">✦</span>
+            <span>Washable organic linen-textured orthopedic cushion included</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── BOTTOM HUD CONTROLS ── -->
+    <div class="showcase-hud">
+      <div class="hud-arrows">
+        <button class="hud-arrow-btn" onclick="userStep(-1)" title="Previous View">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="hud-arrow-btn" onclick="userStep(1)" title="Next View">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="hud-counter" id="slideCounter">01 / 08</div>
+
+      <div class="hud-progress-wrap">
+        <div class="hud-progress-bar" id="hudProgress"></div>
+      </div>
+
+      <div class="hud-hint">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Auto-Gliding • Drag or Wheel to Explore</span>
+      </div>
+    </div>
+
+    <!-- Scroll down prompt to story -->
+    <a href="#story" class="scroll-down-prompt">
+      <span>Design Story & Specs</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </a>
+
+  </section>
+
+  <!-- ── SECTION: DESIGN PHILOSOPHY & CRAFTSMANSHIP ── -->
+  <section class="story-section" id="story">
+    <div class="section-container">
+      
+      <div class="story-grid">
+        <div class="story-text-col">
+          <span class="story-eyebrow">DESIGN PHILOSOPHY</span>
+          <h2 class="story-heading">No Screws, No Hardware.<br><em>Pure Architectural Woodwork.</em></h2>
+          <p class="story-p">
+            Moving away from flimsy metal fasteners, rusting screws, and synthetic adhesives, MAKA NATURAL was engineered around an ancient Japanese joinery philosophy adapted for modern living: precision <strong>Slot-Lock</strong> geometry.
+          </p>
+          <p class="story-p">
+            Each component is sculpted from premium Baltic birch using ultra-precise laser calibration. The pieces self-align and lock securely by hand in under 3 minutes with zero tools, forming an unshakeable, sculptural haven.
+          </p>
+        </div>
+        <div class="story-visual-col">
+          <img src="images/pets-maka-natural-08.png" alt="MAKA NATURAL Precision Joinery Blueprint" />
+        </div>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">✦</div>
+          <h3 class="pillar-title">Solid Baltic Birch</h3>
+          <p class="pillar-desc">
+            Sourced responsibly from certified renewable forests. Its multi-ply dense core prevents warping, resists claw marks, and imbues the interior with the subtle, comforting aroma of natural wood.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">◈</div>
+          <h3 class="pillar-title">Certified Zero-VOC</h3>
+          <p class="pillar-desc">
+            Formulated specifically for the sensitive respiratory systems and keen senses of animals. Finished exclusively with solvent-free plant oils and carnauba wax, fully compliant with EN 71-3 toy safety standards.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">◉</div>
+          <h3 class="pillar-title">Acoustic Cocoon</h3>
+          <p class="pillar-desc">
+            The pyramidal roof geometry naturally diffuses ambient household reverberation, creating a calm acoustic refuge that instills security during storms, gatherings, or restless evenings.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION: SIZES & TECHNICAL SPECS ── -->
+  <section class="specs-section" id="specs">
+    <div class="section-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="story-eyebrow">TECHNICAL SPECIFICATIONS</span>
+        <h2 class="story-heading">Dimensions & Proportions</h2>
+        <p class="story-p" style="margin-top: 1rem;">
+          Clean architectural proportions engineered for effortless domestic integration and ultimate pet comfort.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="lux-table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Exterior Dimensions (W × D × H)</th>
+              <th>Entrance Aperture</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Small (S)</strong></td>
+              <td>50 × 42 × 45 cm &nbsp;(19.7″ × 16.5″ × 17.7″)</td>
+              <td>22 × 26 cm &nbsp;(8.7″ × 10.2″)</td>
+            </tr>
+            <tr>
+              <td><strong>Medium (M)</strong></td>
+              <td>64 × 54 × 58 cm &nbsp;(25.2″ × 21.3″ × 22.8″)</td>
+              <td>28 × 34 cm &nbsp;(11.0″ × 13.4″)</td>
+            </tr>
+            <tr>
+              <td><strong>Large (L)</strong></td>
+              <td>80 × 68 × 72 cm &nbsp;(31.5″ × 26.8″ × 28.3″)</td>
+              <td>35 × 42 cm &nbsp;(13.8″ × 16.5″)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION: ACCORDION FAQ ── -->
+  <section class="faq-section">
+    <div class="section-container">
+      <div style="text-align: center;">
+        <span class="story-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="story-heading">Everything You Need to Know</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Does assembly require any screws or tools?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            None at all. The proprietary "Slot-Lock" system allows every wooden tier to slide and lock firmly into place by hand under its own structural tension. Setup takes approximately 3 minutes out of the flat-pack box.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I clean and maintain the wood and cushion?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            The included orthopedic cushion features a concealed zipper; its linen cover can be machine-washed on a gentle 30°C cycle. For the birch wood, simply wipe down with a soft, slightly damp cloth.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Are the wood oils and protective sealants safe for pets?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Completely safe. We treat the timber exclusively with food-safe linseed oil and carnauba wax compounds bearing Zero-VOC ratings and certified under EN 71-3 standards. Even if licked or gnawed, it is harmless.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I commission bespoke dimensions or private branding?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes. Our artisanal studio frequently collaborates with interior designers, boutique hospitality venues, and private collectors for custom sizing, laser engravings, and tailored wood tones. Reach out via the inquiry button to discuss your project.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">WoodenArtShop</div>
+    <p class="footer-copy">Artisanal Woodcraft & Architectural Studio • © 2026 All Rights Reserved.</p>
+  </footer>
+
+  <!-- ── INQUIRE / WHOLESALE MODAL ── -->
+  <div class="inquire-modal" id="inquireModal" onclick="if(event.target===this)closeInquireModal()">
+    <div class="inquire-modal-box">
+      <button class="inquire-modal-close" onclick="closeInquireModal()">✕</button>
+      <span class="story-eyebrow">STUDIO INQUIRIES & COMMISSIONS</span>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size: 1.8rem; margin: 0.4rem 0 1rem;">MAKA NATURAL Inquiries</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Get in touch with our studio for bespoke dimensions, private commissions, or architectural boutique supply.
+      </p>
+
+      <form onsubmit="handleModalSubmit(event)" style="display:flex; flex-direction:column; gap: 0.9rem;">
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Your Name / Studio</label>
+          <input type="text" required placeholder="e.g. John Doe / Studio Interior" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+        </div>
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Email Address</label>
+          <input type="email" required placeholder="yourname@domain.com" style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;" />
+        </div>
+        <div>
+          <label style="display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem;">Your Inquiry / Quantity / Size Request</label>
+          <textarea rows="3" placeholder="Please specify your desired sizes, custom dimensions, or delivery destination..." style="width:100%; padding:0.75rem; border:1px solid var(--border-subtle); border-radius:8px; font-family:inherit; font-size:0.85rem;"></textarea>
+        </div>
+        <button type="submit" class="btn-action-main" style="margin-top:0.5rem;">Send Inquiry to Studio</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── JAVASCRIPT: CONTINUOUS SMOOTH AUTO-GLIDE & INTERACTION LOGIC ── -->
+  <script>
+    const viewport = document.getElementById('showcaseViewport');
+    const originalSlides = Array.from(viewport.querySelectorAll('.showcase-slide'));
+    const totalOriginal = originalSlides.length;
+    const slideCounter = document.getElementById('slideCounter');
+    const hudProgress = document.getElementById('hudProgress');
+
+    // ── 1. DUPLICATE SLIDES FOR SEAMLESS INFINITE LOOPING ──
+    originalSlides.forEach(slide => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('data-clone', 'true');
+      viewport.appendChild(clone);
+    });
+
+    let singleSetWidth = 0;
+    function computeSetWidth() {
+      let width = 0;
+      for (let i = 0; i < totalOriginal; i++) {
+        width += originalSlides[i].offsetWidth;
+      }
+      singleSetWidth = width;
+    }
+    window.addEventListener('load', computeSetWidth);
+    window.addEventListener('resize', computeSetWidth);
+    computeSetWidth();
+
+    // ── 2. CONTINUOUS SLOW DRIFT AUTO-SCROLL (NEVER STOPS, GLIDES RIGHT-TO-LEFT) ──
+    const autoScrollSpeed = 0.75; // Smooth slow cinematic drift
+    let isUserInteracting = false;
+    let interactionTimeout = null;
+
+    function autoScrollLoop() {
+      if (!isUserInteracting) {
+        viewport.scrollLeft += autoScrollSpeed;
+
+        // When the first complete set has passed, loop back seamlessly
+        if (singleSetWidth > 0 && viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+        }
+      }
+      updateHUD();
+      requestAnimationFrame(autoScrollLoop);
+    }
+    requestAnimationFrame(autoScrollLoop);
+
+    function pauseAutoDriftTemporarily(ms = 3500) {
+      isUserInteracting = true;
+      clearTimeout(interactionTimeout);
+      interactionTimeout = setTimeout(() => {
+        isUserInteracting = false;
+      }, ms);
+    }
+
+    // ── 3. MOUSE WHEEL TO HORIZONTAL GLIDE ──
+    viewport.addEventListener('wheel', (e) => {
+      pauseAutoDriftTemporarily(3000);
+      e.preventDefault();
+      viewport.scrollLeft += e.deltaY * 1.4;
+
+      if (singleSetWidth > 0) {
+        if (viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft < 0) {
+          viewport.scrollLeft += singleSetWidth;
+        }
+      }
+    }, { passive: false });
+
+    // ── 4. DRAG TO SCROLL (DESKTOP & TOUCH) ──
+    let isDown = false;
+    let startX;
+    let startScrollLeft;
+
+    viewport.addEventListener('mousedown', (e) => {
+      isDown = true;
+      pauseAutoDriftTemporarily(10000);
+      viewport.classList.add('is-dragging');
+      startX = e.pageX - viewport.offsetLeft;
+      startScrollLeft = viewport.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      viewport.classList.remove('is-dragging');
+      pauseAutoDriftTemporarily(3000);
+    });
+
+    viewport.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - viewport.offsetLeft;
+      const walk = (x - startX) * 1.6;
+      viewport.scrollLeft = startScrollLeft - walk;
+
+      if (singleSetWidth > 0) {
+        if (viewport.scrollLeft >= singleSetWidth) {
+          viewport.scrollLeft -= singleSetWidth;
+          startScrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft < 0) {
+          viewport.scrollLeft += singleSetWidth;
+          startScrollLeft += singleSetWidth;
+        }
+      }
+    });
+
+    // Touch support
+    viewport.addEventListener('touchstart', () => pauseAutoDriftTemporarily(6000), { passive: true });
+    viewport.addEventListener('touchend', () => pauseAutoDriftTemporarily(3000), { passive: true });
+
+    // ── 5. HUD PROGRESS & SLIDE COUNTER ──
+    function updateHUD() {
+      if (!singleSetWidth) computeSetWidth();
+      const currentPos = singleSetWidth > 0 ? (viewport.scrollLeft % singleSetWidth) : 0;
+      const progressPercent = singleSetWidth > 0 ? (currentPos / singleSetWidth) * 100 : 0;
+
+      hudProgress.style.width = Math.max(14, Math.min(100, progressPercent)) + '%';
+
+      // Determine active slide index
+      const viewportMid = currentPos + (viewport.clientWidth * 0.35);
+      let currentActive = 1;
+      let accum = 0;
+
+      for (let i = 0; i < totalOriginal; i++) {
+        const slideW = originalSlides[i].offsetWidth;
+        if (viewportMid >= accum && viewportMid < accum + slideW) {
+          currentActive = i + 1;
+          break;
+        }
+        accum += slideW;
+      }
+      slideCounter.textContent = `0${currentActive} / 0${totalOriginal}`;
+    }
+
+    // ── 6. NAVIGATION ARROWS ──
+    function userStep(direction) {
+      pauseAutoDriftTemporarily(4000);
+      const slideW = originalSlides[0].offsetWidth;
+      viewport.scrollBy({
+        left: direction * slideW,
+        behavior: 'smooth'
+      });
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') userStep(1);
+      if (e.key === 'ArrowLeft') userStep(-1);
+      if (e.key === 'Escape') closeInquireModal();
+    });
+
+    // ── 7. SIZE SELECTION (DIMENSIONS ONLY, NO BREEDS) ──
+    function selectSize(el, sizeName, dims) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('selectedSize').textContent = sizeName;
+      document.getElementById('dimsDisplay').textContent = 'Dimensions: ' + dims;
+    }
+
+    // ── 8. ACCORDION FAQ ──
+    function toggleFaq(headerEl) {
+      const item = headerEl.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // ── 9. INQUIRE MODAL ──
+    function openInquireModal() {
+      document.getElementById('inquireModal').classList.add('active');
+    }
+    function closeInquireModal() {
+      document.getElementById('inquireModal').classList.remove('active');
+    }
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your inquiry has been received by our studio. We will get back to you shortly.');
+      closeInquireModal();
+    }
+  </script>
+
+  <script>
+    function handleProductBack(categoryKey) {
+      if (document.referrer && document.referrer.indexOf(window.location.host) !== -1 && window.history.length > 1) {
+        window.history.back();
+        return false;
+      }
+      window.location.href = 'index.html#' + categoryKey;
+      return false;
+    }
+  </script>
+</body>
+</html>
