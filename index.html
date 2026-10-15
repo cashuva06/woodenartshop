@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -2008,12 +2008,15 @@
               <textarea id="messageText" class="form-textarea" placeholder="Please mention the designs you are interested in, estimated quantities, or questions..." required></textarea>
             </div>
 
-            <button type="submit" class="form-submit-btn">
+            <button type="submit" class="form-submit-btn" id="inquirySubmitBtn">
               Submit Inquiry
             </button>
 
-            <div id="formSuccessAlert" class="form-alert success">
-              ✦ Thank you! Your inquiry has been delivered directly to our workshop desk. We will get back to you with specs and pricing within 24 hours.
+            <div id="formSuccessAlert" class="form-alert success" style="display:none;">
+              &#10022; Thank you! Your inquiry has been delivered directly to our workshop desk. We will get back to you with specs and pricing within 24 hours.
+            </div>
+            <div id="formErrorAlert" class="form-alert" style="display:none; color:#c0392b; background:rgba(192,57,43,0.08); padding:0.8rem 1rem; border-radius:6px; margin-top:1rem; font-size:0.85rem; border:1px solid rgba(192,57,43,0.2);">
+              Could not send inquiry automatically. Please email us directly at <a href="mailto:info@woodenartshop.com" style="color:inherit; text-decoration:underline; font-weight:600;">info@woodenartshop.com</a>
             </div>
           </form>
         </div>
@@ -3625,15 +3628,80 @@
       document.getElementById('inquiryType').value = 'wholesale';
     }
 
-    // Contact Form Submission
+    // Contact Form Submission (Delivered directly via FormSubmit AJAX to info@woodenartshop.com)
     function handleFormSubmit(e) {
       e.preventDefault();
-      const alertBox = document.getElementById('formSuccessAlert');
-      alertBox.style.display = 'block';
-      setTimeout(() => {
-        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
-      document.getElementById('inquiryForm').reset();
+      const btn = document.getElementById('inquirySubmitBtn');
+      const originalText = btn ? btn.textContent : 'Submit Inquiry';
+      if (btn) {
+        btn.textContent = 'Sending Inquiry...';
+        btn.disabled = true;
+      }
+
+      const alertSuccess = document.getElementById('formSuccessAlert');
+      const alertError = document.getElementById('formErrorAlert');
+      if (alertSuccess) alertSuccess.style.display = 'none';
+      if (alertError) alertError.style.display = 'none';
+
+      const sName = document.getElementById('senderName').value;
+      const sEmail = document.getElementById('senderEmail').value;
+      const sCountry = document.getElementById('senderCountry').value;
+      const sType = document.getElementById('inquiryType').value;
+      const sMsg = document.getElementById('messageText').value;
+
+      const payload = {
+        name: sName,
+        email: sEmail,
+        country: sCountry,
+        inquiry_type: sType,
+        message: sMsg,
+        _subject: 'New Studio / Wholesale Inquiry from ' + sName + ' (' + sCountry + ')',
+        _template: 'table'
+      };
+
+      fetch('https://formsubmit.co/ajax/info@woodenartshop.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function(response) {
+        if (!response.ok) throw new Error('Network error');
+        return response.json();
+      })
+      .then(function(data) {
+        if (btn) {
+          btn.textContent = 'Inquiry Delivered Successfully ✓';
+          btn.style.background = '#2e7d32';
+          btn.style.borderColor = '#2e7d32';
+        }
+        if (alertSuccess) {
+          alertSuccess.style.display = 'block';
+          alertSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        document.getElementById('inquiryForm').reset();
+        setTimeout(function() {
+          if (btn) {
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+          }
+        }, 5000);
+      })
+      .catch(function(err) {
+        console.error('Inquiry submission error:', err);
+        if (alertError) {
+          alertError.style.display = 'block';
+          alertError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (btn) {
+          btn.textContent = 'Retry Submission';
+          btn.disabled = false;
+        }
+      });
     }
   </script>
 </body>
