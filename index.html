@@ -12,9 +12,9 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WoodenArtShop — Artisanal Multilayer Woodcraft &amp; Wholesale Studio</title>
-  <meta name="description" content="Story-driven multilayer 3D wood art, bespoke wall decor, and architectural wooden accents. Handcrafted in studio for private collectors and wholesale partners worldwide." />
-  <meta name="keywords" content="wooden art shop, multilayer wood art, 3d wooden wall art, laser cut wood art, architectural wall relief, luxury wooden home decor, scandinavian woodcraft, geometric wood wall art, modern wooden pet houses, indoor dog house, luxury cat residence, 3d wooden flag, gothic wood art, halloween wood decor, artisan woodwork, bespoke woodcraft studio, wholesale wooden decor" />
+  <title>WoodenArtShop | Official Store - Handcrafted Multilayer 3D Wood Art</title>
+  <meta name="description" content="Official WoodenArtShop studio. Handcrafted multilayer 3D wood wall art, architectural home reliefs, and bespoke artisanal decor. Worldwide shipping &amp; wholesale." />
+  <meta name="keywords" content="woodenartshop, wooden art shop, woodenartshop.com, multilayer wood art, 3d wooden wall art, laser cut wood art, architectural wall relief, luxury wooden home decor, scandinavian woodcraft, geometric wood wall art, modern wooden pet houses, indoor dog house, luxury cat residence, 3d wooden flag, gothic wood art, halloween wood decor, artisan woodwork, bespoke woodcraft studio, wholesale wooden decor" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://woodenartshop.com/" />
   <!-- Favicon & App Icons -->
@@ -26,9 +26,9 @@
   <!-- Open Graph / Facebook / WhatsApp / Pinterest -->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Wooden Art Shop" />
-  <meta property="og:title" content="WoodenArtShop â€” Artisanal Multilayer Woodcraft &amp; Architectural Havens" />
-  <meta property="og:description" content="Discover story-driven multilayer 3D wood wall art, architectural home reliefs, and luxury flat-pack wooden pet houses. Handcrafted for private collectors and wholesale partners worldwide." />
+  <meta property="og:site_name" content="WoodenArtShop" />
+  <meta property="og:title" content="WoodenArtShop - Official Store &amp; Artisanal Multilayer Woodcraft" />
+  <meta property="og:description" content="Official WoodenArtShop studio. Discover story-driven multilayer 3D wood wall art, architectural home reliefs, and luxury flat-pack wooden pet houses. Handcrafted for private collectors and wholesale partners worldwide." />
   <meta property="og:url" content="https://woodenartshop.com/" />
   <meta property="og:image" content="https://woodenartshop.com/images/banner-home-decor.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -36,28 +36,46 @@
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WoodenArtShop â€” Artisanal Multilayer Woodcraft" />
+  <meta name="twitter:title" content="WoodenArtShop - Official Store &amp; Artisanal Woodcraft" />
   <meta name="twitter:description" content="Multilayer 3D wooden wall art, architectural home reliefs, and modern designer pet residences." />
   <meta name="twitter:image" content="https://woodenartshop.com/images/banner-home-decor.jpg" />
 
-  <!-- Schema.org Organization & Store Structured Data -->
+  <!-- Schema.org Organization, WebSite & Store Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HomeGoodsStore",
-    "name": "WoodenArtShop",
-    "url": "https://woodenartshop.com/",
-    "logo": "https://woodenartshop.com/images/logo.png",
-    "image": "https://woodenartshop.com/images/banner-home-decor.jpg",
-    "description": "Story-driven multilayer 3D wood art, bespoke wall decor, and architectural wooden pet houses.",
-    "priceRange": "$",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "US",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30,
-      "returnMethod": "https://schema.org/ReturnByMail"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://woodenartshop.com/#website",
+        "url": "https://woodenartshop.com/",
+        "name": "WoodenArtShop",
+        "alternateName": ["Wooden Art Shop", "woodenartshop", "woodenartshop.com"],
+        "description": "Official WoodenArtShop online store for multilayer 3D wood wall art and artisanal home decor.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://woodenartshop.com/#organization"
+        }
+      },
+      {
+        "@type": "HomeGoodsStore",
+        "@id": "https://woodenartshop.com/#organization",
+        "name": "WoodenArtShop",
+        "alternateName": ["Wooden Art Shop", "woodenartshop", "woodenartshop.com"],
+        "url": "https://woodenartshop.com/",
+        "logo": "https://woodenartshop.com/images/logo.png",
+        "image": "https://woodenartshop.com/images/banner-home-decor.jpg",
+        "description": "Official WoodenArtShop studio specializing in story-driven multilayer 3D wood art, bespoke wall decor, and architectural wooden accents.",
+        "priceRange": "$",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +84,17 @@
   
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
     :root {
       /* Warm Artisanal Wood & Natural Linen Palette (Restored from previous warm tone) */
@@ -1654,6 +1683,7 @@
 
   <!-- HOME / 5-SECOND SLIDING BANNER (KAFT-INSPIRED EDITORIAL FRAME) -->
   <section class="home-banner-section" id="home">
+    <h1 class="sr-only">WoodenArtShop — Official Store for Handcrafted Multilayer 3D Wood Art &amp; Bespoke Decor</h1>
     <div class="banner-wrapper">
       <div class="slider-box" id="sliderBox">
         <div class="slider-track" id="sliderTrack">
