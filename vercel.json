@@ -10,5 +10,11 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/404.html"
+    }
   ]
 }
