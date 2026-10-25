@@ -1159,99 +1159,46 @@
     .about-section {
       background: var(--bg-stone);
     }
-    .about-grid {
+    .about-cards-grid {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 5rem;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 1rem;
     }
-    .about-img-box {
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow-clean);
-      border: 1px solid var(--border-subtle);
-      position: relative;
-    }
-    .about-img-box img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-    .about-stamp {
-      position: absolute;
-      bottom: -1rem;
-      right: -1rem;
-      background: var(--charcoal-deep);
-      color: var(--bg-stone);
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 4px solid var(--bg-stone);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-    .about-stamp-yr {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--wood-terracotta);
-      line-height: 1;
-    }
-    .about-stamp-txt {
-      font-size: 0.52rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-top: 0.2rem;
-    }
-
-    .about-pillars {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.4rem;
-      margin-top: 2.5rem;
-    }
-    .pillar-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.3rem;
+    .about-card {
+      padding: 2.4rem 2rem;
       background: #ffffff;
-      padding: 1.4rem 1.6rem;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid var(--border-subtle);
       transition: var(--transition-smooth);
     }
-    .pillar-card:hover {
-      transform: translateX(6px);
+    .about-card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow-clean);
       border-color: var(--border-focus);
     }
-    .pillar-icon {
-      width: 40px; height: 40px;
+    .about-icon-circle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
       background: rgba(173, 93, 46, 0.1);
-      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--wood-terracotta);
-      flex-shrink: 0;
       font-size: 1.1rem;
+      color: var(--wood-terracotta);
+      margin-bottom: 1.4rem;
     }
-    .pillar-content h4 {
+    .about-card h3 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.25rem;
-      color: var(--charcoal-deep);
-      margin-bottom: 0.25rem;
+      font-size: 1.35rem;
       font-weight: 500;
+      color: var(--charcoal-deep);
+      margin-bottom: 0.6rem;
     }
-    .pillar-content p {
-      font-size: 0.82rem;
+    .about-card p {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* CONTACT & WHOLESALE INQUIRIES */
@@ -1609,6 +1556,7 @@
       .cat-products-grid { grid-template-columns: repeat(2, 1fr); }
       .products-grid { grid-template-columns: repeat(2, 1fr); }
       .wholesale-grid { grid-template-columns: 1fr; }
+      .about-cards-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .footer-main { grid-template-columns: 1fr 1fr; }
@@ -1915,49 +1863,37 @@
   <!-- ABOUT SECTION -->
   <section class="about-section" id="about">
     <div class="section-wrap">
-      <div class="about-grid">
-        <div class="about-visual-side">
-          <div class="about-img-box">
-            <img src="images/banner-home-decor.jpg" alt="WoodenArtShop Handcrafted Studio Pieces" loading="lazy" />
-            <div class="about-stamp">
-              <span class="about-stamp-yr">100%</span>
-              <span class="about-stamp-txt">Handmade</span>
-            </div>
-          </div>
+      <div class="section-head">
+        <span class="section-eyebrow">Studio Heritage</span>
+        <h2 class="section-heading">Designed with care, <em>crafted with patience.</em></h2>
+        <p class="section-desc">
+          At WoodenArtShop, we believe that objects placed in a home should carry human energy and depth. We combine modern laser slicing with hands-on woodworking traditions — sanding each contour, mixing natural pigments, and hand-bonding every tier.
+        </p>
+      </div>
+
+      <div class="about-cards-grid">
+        <div class="about-card">
+          <div class="about-icon-circle">🪵</div>
+          <h3>Layered Depth &amp; Dimension</h3>
+          <p>
+            Every work is built from multiple genuine timber planes, producing real physical shadow depth that digital prints can never replicate.
+          </p>
         </div>
 
-        <div class="about-text-side">
-          <span class="section-eyebrow">Studio Heritage</span>
-          <h2 class="section-heading">Designed with care, <em>crafted with patience.</em></h2>
-          <p class="section-desc">
-            At WoodenArtShop, we believe that objects placed in a home should carry human energy and depth. We combine modern laser slicing with hands-on woodworking traditions — sanding each contour, mixing natural pigments, and hand-bonding every tier.
+        <div class="about-card">
+          <div class="about-icon-circle">✂️</div>
+          <h3>Artisanal Assembly &amp; Finish</h3>
+          <p>
+            Every joint is assembled and inspected by hand in our dedicated atelier, finished with protective non-toxic sealants.
           </p>
+        </div>
 
-          <div class="about-pillars">
-            <div class="pillar-card">
-              <div class="pillar-icon">🪵</div>
-              <div class="pillar-content">
-                <h4>Layered Depth &amp; Dimension</h4>
-                <p>Every work is built from multiple genuine timber planes, producing real physical shadow depth that digital prints can never replicate.</p>
-              </div>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">✂️</div>
-              <div class="pillar-content">
-                <h4>Artisanal Assembly &amp; Finish</h4>
-                <p>Every joint is assembled and inspected by hand in our dedicated atelier, finished with protective non-toxic sealants.</p>
-              </div>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">📦</div>
-              <div class="pillar-content">
-                <h4>Safe Door-to-Door Export</h4>
-                <p>Packed with heavy-duty foam corner guards and insured international tracking so every piece arrives in showroom condition.</p>
-              </div>
-            </div>
-          </div>
+        <div class="about-card">
+          <div class="about-icon-circle">📦</div>
+          <h3>Safe Door-to-Door Delivery</h3>
+          <p>
+            Packed with heavy-duty foam corner guards and insured international tracking so every piece arrives in showroom condition.
+          </p>
         </div>
       </div>
     </div>
